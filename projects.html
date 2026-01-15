@@ -2,80 +2,590 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Projects</title>
-	<link rel="stylesheet" href="./css/styles.css">
-	<link rel="stylesheet" href="./css/project-styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/oly6szy.css">
+    <title>Projects - Pierce Seigne</title>
+    <style>
+        .projects-hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+        }
 
-	<style>
-		body {
-			display: flex;
-			flex-direction: column;
-		}
+        .projects-hero h1 {
+            font-size: clamp(3.5rem, 15vw, 9rem);
+            margin-bottom: 1.5rem;
+            line-height: 0.9;
+        }
 
-		.projects {
-			display: flex;
-			justify-content: center;
-			margin-top: 7rem;
-			width: 100%;
-			background-color: bisque;
-			padding: 20px;
-		}
+        .projects-hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.8rem);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            color: rgba(0, 0, 0, 0.7);
+            font-variation-settings: "wght" 400;
+        }
 
+        /* Filter section */
+        .filter-section {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
 
-		.links {
-			text-align: center;
-			list-style-type: none;
-		}
+        .filter-btn {
+            padding: 0.75rem 1.75rem;
+            background: transparent;
+            border: 2px solid black;
+            color: black;
+            font-family: indivisible-variable, sans-serif;
+            font-variation-settings: "wght" 600;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
 
-		.link {
-			margin-top: 10px;
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: black;
+            color: white;
+            transform: translateY(-2px);
+        }
 
-		}
-	</style>
+        /* Projects content */
+        .projects-content {
+            background-color: #1E1F24;
+            color: white;
+            padding: 5rem 2rem;
+            min-height: 100vh;
+        }
 
+        .projects-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
+        /* Grid layout inspired by Estrela */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Project card - cleaner, more minimal */
+        .project-item {
+            background: #1B1D22;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Project image/visual area */
+        .project-visual {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #92000E 0%, #EE382B 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-item:hover .project-visual::before {
+            opacity: 1;
+        }
+
+        /* Project content */
+        .project-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-number {
+            font-size: 0.75rem;
+            color: #92000E;
+            font-variation-settings: "wght" 700;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-title {
+            font-size: 1.75rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+            font-variation-settings: "wght" 700;
+        }
+
+        .project-description {
+            color: #b8b8b8;
+            font-variation-settings: "wght" 400;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        /* Tags section */
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-tag {
+            padding: 0.4rem 1rem;
+            background: rgba(146, 0, 14, 0.15);
+            border: 1px solid rgba(146, 0, 14, 0.3);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #ff6b6b;
+            font-variation-settings: "wght" 500;
+        }
+
+        /* Tools section */
+        .project-tools {
+            margin-top: auto;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tools-label {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .tools-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tool-badge {
+            padding: 0.35rem 0.85rem;
+            background: #16171c;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: #d1d1d1;
+            font-variation-settings: "wght" 500;
+        }
+
+        /* Project link overlay */
+        .project-link {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .project-item:hover .project-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-link i {
+            color: #92000E;
+            font-size: 1rem;
+        }
+
+        /* Count indicator */
+        .projects-count {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #666;
+            font-variation-settings: "wght" 500;
+        }
+
+        .projects-count span {
+            color: #92000E;
+            font-variation-settings: "wght" 700;
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: #666;
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        /* Category type variations */
+        .project-item[data-type="data-analysis"] .project-visual {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .project-item[data-type="software"] .project-visual {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .project-item[data-type="research"] .project-visual {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .project-item[data-type="writing"] .project-visual {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .project-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* Acts like background-size: cover (crops to fill) */
+            object-position: center;
+            /* Keeps the center of the image visible */
+            display: block;
+            /* Removes standard image spacing issues */
+        }
+    </style>
 </head>
 
-
-
 <body>
-	<!-- Nav bar -->
-	<nav id="navbar-placeholder"></nav>
-	<script src="./js/navbar.js"></script>
+    <!-- Nav bar -->
+    <nav id="navbar-placeholder"></nav>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/navbar-scroll.js"></script>
+
+    <!-- Social Icons -->
+    <div class="socials fade-in-right">
+        <a href="https://www.linkedin.com/in/pierce-seigne-b310a0305" target="_blank" aria-label="LinkedIn profile">
+            <i class="fa-brands fa-linkedin-in contactIcon"></i>
+        </a>
+        <a href="https://www.instagram.com/pierceseigne/" target="_blank" aria-label="Instagram profile">
+            <i class="fa-brands fa-instagram contactIcon"></i>
+        </a>
+        <a href="mailto:pierceseigne@icloud.com" aria-label="Email">
+            <i class="fa-regular fa-envelope contactIcon"></i>
+        </a>
+        <a href="https://github.com/pseigne" target="_blank" aria-label="GitHub profile">
+            <i class="fa-brands fa-github contactIcon"></i>
+        </a>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero projects-hero">
+        <div class="fade-in-up">
+            <h1>All <span class="fancy">Projects</span></h1>
+            <p>A curated collection of my work across data analysis, software development, research, and writing.</p>
+        </div>
+
+        <!-- Filter Buttons -->
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="data-analysis">Data Analysis</button>
+            <button class="filter-btn" data-filter="software">Software</button>
+            <button class="filter-btn" data-filter="research">Research</button>
+            <button class="filter-btn" data-filter="writing">Writing</button>
+        </div>
+    </section>
+
+    <!-- PROJECTS GRID -->
+    <section class="projects-content">
+        <div class="projects-wrapper">
+            <div class="projects-count">
+                Showing <span id="project-count">12</span> projects
+            </div>
+
+            <div class="projects-grid" id="projects-grid">
+
+                <!-- Project 1: NCAA Performance -->
+                <!-- <div class="project-item" data-type="data-analysis" data-tags="data-analysis">
+                    <div class="project-visual">
+                        📊
+                    </div>
+                    <a href="#" class="project-link">
+                        <i class="fa-solid fa-arrow-up-right"></i>
+                    </a>
+                    <div class="project-content">
+                        <div class="project-number">01</div>
+                        <h3 class="project-title">NCAA Performance Trends</h3>
+                        <p class="project-description">Data analysis of collegiate distance runners</p>
+
+                        <div class="project-tags">
+                            <span class="project-tag">Data Analysis</span>
+                        </div>
+
+                        <div class="project-tools">
+                            <div class="tools-label">Tools</div>
+                            <div class="tools-list">
+                                <span class="tool-badge">Python</span>
+                                <span class="tool-badge">Pandas</span>
+                                <span class="tool-badge">Matplotlib</span>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Project 2: Track Pacing Calculator -->
+                <div class="project-item" data-type="software" data-tags="software">
+                    <div class="project-visual">
+                        <img src="./images/pacing-calc-screenshot.png" alt="image of pacing calc applictation">
+                    </div>
+                    <a href="tests/pace-calc-v1.html" class="project-link">
+                        <i class="fa-solid fa-arrow-up-right"></i>
+                    </a>
+                    <div class="project-content">
+                        <div class="project-number">02</div>
+                        <h3 class="project-title">Track Pacing Calculator</h3>
+                        <p class="project-description">Athletic utility generating accurate lap splits for track runners
+                        </p>
+
+                        <div class="project-tags">
+                            <span class="project-tag">Software</span>
+                            <span class="project-tag">Web App</span>
+                        </div>
+
+                        <div class="project-tools">
+                            <div class="tools-label">Tools</div>
+                            <div class="tools-list">
+                                <span class="tool-badge">JavaScript</span>
+                                <span class="tool-badge">HTML/CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
+                <!-- PROJECT: WEEKLY MILEAGE CALC -->
 
-	<section>
-		<!-- Links -->
-		<div class="projects">
+                <div class="project-item" data-type="software" data-tags="software">
+                    <div class="project-visual">
+                        <img src="./images/mileage-planner.png" alt="Weekly Mileage Planner Dashboard">
+                    </div>
 
-			<ul class="links">
-				<h2>Tests</h2>
-				<li><a href="./tests/dark-mode-test.html">Dark Mode</a></li>
+                    <a href="./projects/weekly-mileage-calculator/weekly-mileage.html" class="project-link">
+                        <i class="fa-solid fa-arrow-up-right"></i>
+                    </a>
 
-				<li><a href="./tests/date-time.html">Date-Time</a></li>
-				<li><a href="./tests/javascript-mini-programs.html">Mini-Programs</a></li>
-				<li><a href="./tests/year-progress.html">Year Progress</a></li>
-				<p>Teaching myself to calculate using date and time</p>
+                    <div class="project-content">
+                        <div class="project-number">03</div>
+                        <h3 class="project-title">Weekly Mileage Planner</h3>
+                        <p class="project-description">Interactive dashboard with real-time charting to automate
+                            training volume distribution.</p>
 
+                        <div class="project-tags">
+                            <span class="project-tag">Software</span>
+                            <span class="project-tag">Web App</span>
+                        </div>
 
-				<h2>Projects</h2>
-				<li><a href="./tests/pace-calc-v1.html">Pace Calc v1</a></li>
-				<li class="link"><a href="../one-page-cv.html">One Page CV (Updated Dec 2025)</a></li>
-				<li class="link"><a href="stravaproject.html">Strava Project</a></li>
-				<li class="link"><a href="../song_durations/songdurations.html">Song Durations</a></li>
-				<li class="link"><a href="/changelog.HTML">Portfolio Website (Changelog)</a></li>
-			</ul>
+                        <div class="project-tools">
+                            <div class="tools-label">Tools</div>
+                            <div class="tools-list">
+                                <span class="tool-badge">JavaScript</span>
+                                <span class="tool-badge">Chart.js</span>
+                                <span class="tool-badge">HTML/CSS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3: Song Duration Analysis -->
+                <!-- <div class="project-item" data-type="research" data-tags="research data-analysis">
+                    <div class="project-visual">
+                        🎵
+                    </div>
+                    <a href="#" class="project-link">
+                        <i class="fa-solid fa-arrow-up-right"></i>
+                    </a>
+                    <div class="project-content">
+                        <div class="project-number">03</div>
+                        <h3 class="project-title">Song Duration Analysis</h3>
+                        <p class="project-description">Statistical significance of song length changes since TikTok</p>
 
+                        <div class="project-tags">
+                            <span class="project-tag">Research</span>
+                            <span class="project-tag">Data Analysis</span>
+                        </div>
 
-		</div>
+                        <div class="project-tools">
+                            <div class="tools-label">Tools</div>
+                            <div class="tools-list">
+                                <span class="tool-badge">Stata</span>
+                                <span class="tool-badge">Python</span>
+                                <span class="tool-badge">Statistics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
 
-	</section>
+                <!-- Project 4: Continuum -->
+                <div class="project-item" data-type="software" data-tags="software">
+                    <div class="project-visual">
+                        ⏳
+                    </div>
+                    <a href="tests/year-progress.html" class="project-link">
+                        <i class="fa-solid fa-arrow-up-right"></i>
+                    </a>
+                    <div class="project-content">
+                        <div class="project-number">04</div>
+                        <h3 class="project-title">Continuum</h3>
+                        <p class="project-description">Dynamic temporal visualization rendering passage of time</p>
 
+                        <div class="project-tags">
+                            <span class="project-tag">Software</span>
+                            <span class="project-tag">Visualization</span>
+                        </div>
 
+                        <div class="project-tools">
+                            <div class="tools-label">Tools</div>
+                            <div class="tools-list">
+                                <span class="tool-badge">JavaScript</span>
+                                <span class="tool-badge">Canvas API</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Project 5: Harmony of Body & Soul -->
+                <!-- <div class="project-item" data-type="writing" data-tags="writing">
+                    <div class="project-visual">
+                        📜
+                    </div>
+                    <a href="#" class="project-link">
+                        <i class="fa-solid fa-arrow-up-right"></i>
+                    </a>
+                    <div class="project-content">
+                        <div class="project-number">05</div>
+                        <h3 class="project-title">The Harmony of Body, Intellect, and Soul</h3>
+                        <p class="project-description">Historical analysis of ancient Greek philosophy</p>
+
+                        <div class="project-tags">
+                            <span class="project-tag">Writing</span>
+                            <span class="project-tag">History</span>
+                        </div>
+
+                        <div class="project-tools">
+                            <div class="tools-label">Context</div>
+                            <div class="tools-list">
+                                <span class="tool-badge">Classical Studies</span>
+                                <span class="tool-badge">2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+
+                <!-- Project 6: Super Shoes Research -->
+                <div class="project-item" data-type="research" data-tags="research">
+                    <div class="project-visual">
+                        👟
+                    </div>
+                    <a href="#" class="project-link">
+                        <i class="fa-solid fa-arrow-up-right"></i>
+                    </a>
+                    <div class="project-content">
+                        <div class="project-number">06</div>
+                        <h3 class="project-title">Super Shoes Research</h3>
+                        <p class="project-description">Performance impact analysis of carbon-plated running shoes</p>
+
+                        <div class="project-tags">
+                            <span class="project-tag">Research</span>
+                            <span class="project-tag">Sports Science</span>
+                        </div>
+
+                        <div class="project-tools">
+                            <div class="tools-label">Tools</div>
+                            <div class="tools-list">
+                                <span class="tool-badge">R</span>
+                                <span class="tool-badge">Statistical Modeling</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more project templates as needed -->
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+        const projectCount = document.getElementById('project-count');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+                let visibleCount = 0;
+
+                // Filter projects
+                projectItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.tags.includes(filter)) {
+                        item.style.display = 'flex';
+                        visibleCount++;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                // Update count
+                projectCount.textContent = visibleCount;
+            });
+        });
+    </script>
 </body>
 
 </html>

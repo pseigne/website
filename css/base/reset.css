@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100%;
+    background-color: var(--brand-primary);
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+}
+
+/* Disable scroll snap on mobile */
+@media (max-width: 768px) {
+    body {
+        scroll-snap-type: none;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}

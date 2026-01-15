@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/oly6szy.css">
+
+    <title>About - Pierce Seigne</title>
+    <style>
+        /* --- About Page Specific Styles --- */
+
+        .about-hero {
+            min-height: 50vh;
+            /* Shorter than index hero */
+            padding-top: 8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .about-hero h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        /* Narrative Section */
+        .narrative-section {
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .narrative-text {
+            font-size: clamp(1.1rem, 2vw, 1.35rem);
+            line-height: 1.6;
+            color: #333;
+            /* Dark grey for readability */
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .narrative-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* The Grid Section (Reusing Project Grid logic) */
+        .intersection-section {
+            background-color: #111;
+            /* Dark theme contrast */
+            color: white;
+            padding: 6rem 2rem;
+        }
+
+        .intersection-header {
+            max-width: 1200px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .intersection-header h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+
+        /* Styling the cards to look like "Interest Pillars" */
+        .interest-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-5px);
+            border-color: #EE382B;
+            /* Your red accent */
+        }
+
+        .interest-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .interest-card i {
+            font-size: 2rem;
+            color: #EE382B;
+            margin-bottom: 1rem;
+        }
+
+        .interest-card p {
+            font-size: 1rem;
+            color: #ccc;
+            line-height: 1.5;
+        }
+
+        /* Current Focus & CTA Section */
+        .focus-section {
+            padding: 6rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .focus-col h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .focus-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .focus-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
+        }
+
+        .focus-list li:last-child {
+            border-bottom: none;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 1rem 2rem;
+            background-color: #EE382B;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #c4261a;
+        }
+
+        @media (max-width: 768px) {
+            .focus-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navbar-placeholder"></nav>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/navbar-scroll.js"></script>
+
+
+    <section class="about-hero fade-in-up">
+        <h1>About <span class="fancy">Pierce</span></h1>
+
+        <div class="narrative-text">
+            <p>
+                I am a Division 1 athlete, a systems thinker, and a student at the
+                <strong>University of Wisconsin-Madison</strong>.
+            </p>
+
+        </div>
+    </section>
+
+
+    <section class="intersection-section">
+        <div class="intersection-header fade-in-up">
+            <h2>The <span class="fancy">Intersection</span></h2>
+            <p style="color: #bbb; max-width: 600px; font-size: 1.1rem;">
+                I don't see Economics, CS, History, and Athletics as separate disciplines.
+                They are all systems of information that inform one another.
+            </p>
+        </div>
+
+        <div class="project-grid">
+            <div class="interest-card">
+                <div>
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Data & Economics</h3>
+                </div>
+                <p>Using Stata and Python to uncover the "why" behind human behavior. I treat economic trends like race
+                    splits—analyzable, optimizable, and grounded in reality.</p>
+            </div>
+
+
+
+            <div class="interest-card">
+                <div>
+                    <i class="fa-solid fa-scroll"></i>
+                    <h3>Historical Context</h3>
+                </div>
+                <p>History informs the future.</p>
+            </div>
+
+            <div class="interest-card">
+                <div>
+                    <i class="fa-solid fa-person-running"></i>
+                    <h3>Endurance</h3>
+                </div>
+                <p>A Cross Country/Track Athlete competing in the Big Ten. I bring that same athlete's mindset to software development:
+                    embrace the grind and trust the process.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="focus-section fade-in-up">
+
+        <div class="focus-col">
+            <h2>Current <span class="fancy">Focus</span></h2>
+            <ul class="focus-list">
+                <li>🎓 Completing my B.S. in Economics, CS, & History (Senior Year)</li>
+                <li>🏃‍♂️ Competing in my final NCAA Division 1 Track season</li>
+                <li>💻 Building <strong>Continuum</strong> (A visualization tool for temporal data)</li>
+                <li>☕ Perfecting my home coffee roasting technique</li>
+            </ul>
+        </div>
+
+        <div class="focus-col">
+            <h2>Looking <span class="fancy">Forward</span></h2>
+            <p style="margin-bottom: 1.5rem; line-height: 1.6; color: #444;">
+                I am looking for roles that sit at the intersection of <strong>technical skill</strong> and
+                <strong>analytical strategy</strong>. I want to solve hard problems, whether that's through software
+                engineering, economic research, or data science.
+            </p>
+
+            <p style="margin-bottom: 2rem; line-height: 1.6; color: #444;">
+                If you are looking for someone who can write the code <em>and</em> understand the economic implications
+                behind it, let's talk.
+            </p>
+
+            <a href="mailto:pierceseigne@icloud.com" class="cta-button">
+                Get in Touch <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
+            </a>
+        </div>
+
+    </section>
+
+</body>
+
+</html>

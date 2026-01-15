@@ -1,0 +1,46 @@
+:root {
+    /* Brand Colors */
+    --brand-primary: #EE382B;
+    --brand-primary-hover: #b30010;
+    --brand-accent: #EE382B;
+    
+    /* Background Colors */
+    --bg-hero: #EE382B;
+    --bg-dark: #1E1F24;
+    --bg-card: black;
+    --bg-card-darker: #16171c;
+    
+    /* Text Colors */
+    --text-primary: white;
+    --text-secondary: #d1d1d1;
+    --text-muted: darkgray;
+    --text-dark: black;
+    
+    /* Spacing */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 4rem;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 50%;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease-out;
+    --transition-medium: 0.5s ease-out;
+    
+    /* Shadows */
+    --shadow-sm: 0 -5px 10px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 -10px 20px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0 10px 30px rgba(0, 0, 0, 0.3);
+    
+    /* Z-index layers */
+    --z-base: 0;
+    --z-content: 1;
+    --z-navbar: 100;
+    --z-fixed: 1000;
+}

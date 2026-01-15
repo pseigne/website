@@ -1,0 +1,34 @@
+.socials {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    z-index: var(--z-fixed);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.contactIcon {
+    font-size: 28px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--radius-full);
+    color: var(--text-dark);
+    transition: var(--transition-fast);
+}
+
+.socials .contactIcon.dark-background {
+    color: var(--text-primary);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.contactIcon:hover {
+    color: var(--text-dark);
+    transition: var(--transition-medium);
+    border-radius: 30%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    background-color: var(--text-primary);
+}

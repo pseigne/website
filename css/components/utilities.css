@@ -1,0 +1,56 @@
+  /* Utility classes and positioning */
+
+.location-container {
+    position: absolute;
+    top: 40%;
+    right: 20px;
+    z-index: var(--z-content);
+    font-family: monospace;
+    font-weight: bold;
+    text-align: right;
+}
+
+.location-container h3 {
+    font-size: 20px;
+    letter-spacing: -1px;
+    font-family: monospace;
+    
+}
+
+.typing-container {
+    position: absolute;
+    top: 20%;
+    left: 20px;
+    z-index: var(--z-content);
+}
+
+.name-container {
+    position: absolute;
+    left: 20px;
+    bottom: 20%;
+    
+}
+
+.short-bio-container {
+    position: absolute;
+    max-width: 50%;
+    text-align: justify;
+    right: 20px;
+}
+
+.typed {
+    color: var(--text-dark);
+    font-family: monospace;
+}
+
+/* List utilities */
+.ul_noBullets {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Hover effects */
+#name:hover {
+    color: var(--text-primary);
+}

@@ -5,8 +5,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/dark-mode-test.css">
+    <style>
+        * {
+            transition: background-color 0.2s ease, color 0.2s ease;
+            transition: color 0.2s ease, color 0.2s ease;
 
+        }
+
+
+
+
+        :root {
+            --main-color: white;
+            --negative-color: black;
+        }
+
+
+
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --main-color: black;
+                --negative-color: white;
+            }
+        }
+
+
+
+        body.dark-mode {
+            --main-color: black;
+            --negative-color: white;
+        }
+
+        body.light-mode {
+            --main-color: white;
+            --negative-color: black;
+        }
+
+
+
+
+        body {
+            min-height: 100dvh;
+            /* full viewport height (handles mobile chrome better than 100vh) */
+            display: flex;
+            flex-direction: column;
+            /* vertical stacking */
+            align-items: center;
+            /* center horizontally */
+            justify-content: center;
+            /* center vertically */
+            margin: 0;
+            background-color: var(--main-color);
+            color: var(--negative-color);
+        }
+
+
+
+
+        .title-container {
+            display: flex;
+            justify-content: center;
+        }
+
+
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+
+        }
+
+        #dark-mode-toggle {
+            width: 6.5em;
+            height: 2.3em;
+            margin: 0.5em;
+            background: var(--negative-color);
+            color: var(--main-color);
+            border: none;
+            border-radius: 0.625em;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+
+
+        .icon {
+            font-size: 100px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            transform: rotate(-20deg);
+        }
+    </style>
     <title>Dark Mode Tester</title>
 </head>
 

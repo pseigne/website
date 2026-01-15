@@ -1,0 +1,62 @@
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: var(--radius-lg);
+    transition: var(--transition-fast);
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--brand-primary);
+    color: var(--text-primary);
+}
+
+.btn-primary:hover {
+    background-color: var(--brand-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(146, 0, 14, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--text-primary);
+    color: var(--text-dark);
+}
+
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Project card links */
+.project-card a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border-radius: var(--radius-lg);
+    background-color: var(--brand-primary);
+    margin: 10px;
+    transition: var(--transition-fast);
+}
+
+.project-card a:hover {
+    background-color: var(--brand-primary-hover);
+    transform: translateY(-2px);
+}
+
+/* More projects button */
+.more-projects {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: var(--radius-md);
+    background-color: var(--text-primary);
+    color: var(--text-dark);
+    margin-top: var(--space-md);
+}
