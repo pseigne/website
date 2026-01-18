@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bento Grid Layout</title>
+
+    <style>
+        :root {
+            --gap: 16px;
+            --radius: 24px;
+            --bg-color: #f4f4f4;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* --- THE GRID --- */
+        .bento-grid {
+            display: grid;
+            /* Left column is 1.4x wider than the others */
+            grid-template-columns: 1.4fr 1fr 1fr;
+            /* Explicit rows to control the "masonry" feel */
+            grid-template-rows: 160px 160px 160px 90px;
+            gap: var(--gap);
+            max-width: 1200px;
+            width: 100%;
+            height: auto;
+        }
+
+        /* --- PLACEMENT LOGIC --- */
+        .project-5 {
+            grid-column: 1;
+            grid-row: 1/ span 2;
+            background-color: #d98324;
+            color: white;
+        }
+
+        .project-1 {
+            grid-column: 2;
+            grid-row: 1;
+            background-color: #d98324;
+            color: white;
+        }
+
+        .project-3 {
+            grid-column: 2 / span 2;
+            grid-row: 3;
+            background-color: #ebece7;
+            color: black;
+        }
+
+        /* Right Col: Spans top 3 rows */
+        .project-6 {
+            grid-column: 3;
+            grid-row: 1 / span 2;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* --- STYLING & DECORATION --- */
+        .card {
+            position: relative;
+            border-radius: var(--radius);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: lightgray;
+        }
+
+
+
+
+
+
+        @media (max-width: 768px) {
+            .bento-grid {
+                /* Force single column */
+                grid-template-columns: 1fr;
+                /* Let rows size based on content, but we add min-height below */
+                grid-template-rows: auto;
+                display: flex;
+                /* Flex is often safer for simple mobile stacking than grid */
+                flex-direction: column;
+            }
+
+            .card {
+                /* IMPORTANT: Give cards height on mobile since absolute imgs have no height */
+                min-height: 200px;
+                width: 100%;
+            }
+
+            /* Reset all specific grid positions so they just stack in order */
+            .project-5,
+            .project-1,
+            .project-2,
+            .project-3,
+            .project-6 {
+                grid-column: auto;
+                grid-row: auto;
+            }
+
+            /* Optional: Make the big vertical cards slightly taller on mobile if desired */
+            .project-5,
+            .project-6 {
+                min-height: 300px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="bento-grid">
+        <div class="card project-5">
+            <img src="./images/weekly-mileage-planner-ss.png" class="bottom-right-img" alt="Project Image">
+        </div>
+
+        <div class="card project-1">
+            <img src="./images/track-split-calc-ss.png" class="bottom-right-img" alt="Project Image">
+        </div>
+
+        <div class="card project-2">
+        </div>
+
+        <div class="card project-3">
+            <img src="./images/file-mover-ss.png" class="bottom-right-img" alt="Project Image">
+
+        </div>
+
+        <div class="card">
+
+        </div>
+
+        <div class="card project-6">
+            <img src="./images/time-visual-ss.png" class="bottom-right-img" alt="Project Image">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
