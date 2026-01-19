@@ -1,11 +1,11 @@
 .project-grid {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* flex-wrap: wrap; */
+    /* Use a responsive CSS grid for project cards */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: var(--space-md);
     width: 100%;
     margin-top: var(--space-md);
+
 }
 
 .two-column {
@@ -23,4 +23,79 @@
     .project-grid {
         flex-wrap: wrap;
     }
+}
+
+@media (max-width: 768px) {
+    .bento-grid {
+        /* Force single column */
+        grid-template-columns: 1fr;
+        /* Let rows size based on content, but we add min-height below */
+        grid-template-rows: auto;
+        display: flex;
+        /* Flex is often safer for simple mobile stacking than grid */
+        flex-direction: column;
+    }
+
+    .project-5,
+    .project-1,
+    .project-2,
+    .project-3,
+    .project-6 {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    /* Smaller cards on mobile */
+    .project-5,
+    .project-6 {
+        min-height: 150px;
+    }
+}
+
+
+
+/* PROJECTS */
+.bento-grid {
+    display: grid;
+    /* Left column is 1.4x wider than the others */
+    grid-template-columns: 1.4fr 1fr 1fr;
+    /* Explicit rows to control the "masonry" feel */
+    grid-template-rows: 160px 160px 160px 90px;
+    gap: var(--gap);
+    max-width: 1200px;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+
+    padding-top: 50px;
+}
+
+/* --- PLACEMENT LOGIC --- */
+.project-5 {
+    grid-column: 1;
+    grid-row: 1/ span 2;
+    background-color: #d98324;
+    color: white;
+}
+
+.project-1 {
+    grid-column: 2;
+    grid-row: 1;
+    background-color: #d98324;
+    color: white;
+}
+
+.project-3 {
+    grid-column: 2 / span 2;
+    grid-row: 3;
+    background-color: #ebece7;
+    color: black;
+}
+
+/* Right Col: Spans top 3 rows */
+.project-6 {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+    background-size: cover;
+    background-position: center;
 }

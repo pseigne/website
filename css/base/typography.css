@@ -12,7 +12,12 @@ body {
     font-style: italic;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: indivisible-variable, sans-serif;
     font-style: normal;
 }
@@ -28,7 +33,46 @@ h2 {
 }
 
 /* Text utilities */
-.text-light { font-variation-settings: "wght" 400; }
-.text-medium { font-variation-settings: "wght" 500; }
-.text-bold { font-variation-settings: "wght" 700; }
-.text-black { font-variation-settings: "wght" 900; }
+.text-light {
+    font-variation-settings: "wght" 400;
+}
+
+.text-medium {
+    font-variation-settings: "wght" 500;
+}
+
+.text-bold {
+    font-variation-settings: "wght" 700;
+}
+
+.text-black {
+    font-variation-settings: "wght" 900;
+}
+
+/* Page title */
+.page-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px 0 8px 0;
+    padding: 0 20px;
+
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+    color: #111;
+    line-height: 1.05;
+
+}
+
+.page-subtitle {
+    margin: 8px 0 0 0;
+    color: #666;
+    font-size: 1.05rem;
+}

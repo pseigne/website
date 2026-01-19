@@ -68,30 +68,29 @@
         }
 
         /* --- STYLING & DECORATION --- */
-        .card {
+        .project-card {
             position: relative;
             border-radius: var(--radius);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
             background-color: lightgray;
             transition: ease-in-out 0.2s;
         }
 
-        .card img {
+        .project-card img {
+            position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            z-index: 0;
         }
 
-        .card.img:hover {
+        .project-card.img:hover {
             filter: blur(10px);
         }
 
         /* Overlay container */
-        .card .overlay {
+        .project-card .overlay {
             position: absolute;
             inset: 0;
             background: rgba(0, 0, 0, 0.55);
@@ -102,22 +101,30 @@
             padding: 20px;
             opacity: 0;
             transition: opacity 0.25s ease;
+            z-index: 1;
         }
 
-    
+
         /* Show overlay on hover */
-        .card:hover .overlay {
+        .project-card:hover .overlay {
             opacity: 1;
-            
-            
+
+
         }
 
-        .card:hover {
+        .project-card:hover {
             transform: scale(1.05);
             transition: ease-in-out 0.2s;
         }
 
         /* Text styling */
+        .overlay h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
         .overlay p {
             margin: 0;
             font-size: 0.95rem;
@@ -160,10 +167,47 @@
                 flex-direction: column;
             }
 
-            .card {
-                /* IMPORTANT: Give cards height on mobile since absolute imgs have no height */
-                min-height: 200px;
+            .project-card {
+                /* Smaller height on mobile to show image better */
+                min-height: 150px;
+                max-height: 40vh;
                 width: 100%;
+            }
+
+            /* Show overlay by default on mobile (no hover needed) */
+            .project-card .overlay {
+                opacity: 1;
+                justify-content: flex-end;
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 50%);
+                padding: 16px;
+            }
+
+            .project-card .overlay h3 {
+                font-size: 1.1rem;
+                margin: 8px 0 8px 0;
+            }
+
+            .project-card .overlay p {
+                font-size: 0.85rem;
+                display: none;
+            }
+
+            .project-card .overlay .actions {
+                gap: 8px;
+            }
+
+            .project-card .overlay a {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+
+            /* Disable hover effects on mobile */
+            .project-card:hover .overlay {
+                opacity: 1;
+            }
+
+            .project-card:hover {
+                transform: none;
             }
 
             /* Reset all specific grid positions so they just stack in order */
@@ -176,10 +220,10 @@
                 grid-row: auto;
             }
 
-            /* Optional: Make the big vertical cards slightly taller on mobile if desired */
+            /* Smaller project-cards on mobile */
             .project-5,
             .project-6 {
-                min-height: 300px;
+                min-height: 150px;
             }
         }
     </style>
@@ -189,12 +233,15 @@
 <body>
 
     <div class="bento-grid">
-        <div class="card project-5">
-            <img src="./images/weekly-mileage-planner-ss.png" class="bottom-right-img" alt="Project Image">
+        <div class="project-card project-5">
+            <img src="./images/weekly-mileage-planner-ss.png" alt="Project Image">
             <div class="overlay">
-                <p>
-                    Short description of this project goes here. Explain what it does in one sentence.
-                </p>
+                <div>
+                    <h3>Weekly Mileage Planner</h3>
+                    <p>
+                        Plan and track your weekly running mileage with an interactive calculator to help reach your training goals.
+                    </p>
+                </div>
 
                 <div class="actions">
                     <a href="#">View Live</a>
@@ -202,12 +249,15 @@
             </div>
         </div>
 
-        <div class="card project-1">
-            <img src="./images/track-split-calc-ss.png" class="bottom-right-img" alt="Project Image">
+        <div class="project-card project-1">
+            <img src="./images/track-split-calc-ss.png" alt="Project Image">
             <div class="overlay">
-                <p>
-                    Short description of this project goes here. Explain what it does in one sentence.
-                </p>
+                <div>
+                    <h3 style="font-size: small;">Track Split Calculator</h3>
+                    <p style="font-size: smaller;">
+                        Calculate optimal splits for track workouts based on your target distance and time and track length.
+                    </p>
+                </div>
 
                 <div class="actions">
 
@@ -216,15 +266,18 @@
             </div>
         </div>
 
-        <div class="card project-2">
+        <div class="project-card project-2">
         </div>
 
-        <div class="card project-3">
+        <div class="project-card project-3">
             <img src="./images/file-mover-ss.png" class="bottom-right-img" alt="Project Image">
             <div class="overlay">
-                <p>
-                    Short description of this project goes here. Explain what it does in one sentence.
-                </p>
+                <div>
+                    <h3>File Mover</h3>
+                    <p>
+                        Batch organize and move files across directories efficiently with a user-friendly interface.
+                    </p>
+                </div>
 
                 <div class="actions">
                     <a href="#" class="secondary">More Info</a>
@@ -233,16 +286,19 @@
             </div>
         </div>
 
-        <div class="card">
+        <div class="project-card">
 
         </div>
 
-        <div class="card project-6">
-            <img src="./images/time-visual-ss.png" class="bottom-right-img" alt="Project Image">
+        <div class="project-card project-6">
+            <img src="./images/time-visual-ss.png" alt="Project Image">
             <div class="overlay">
-                <p>
-                    Short description of this project goes here. Explain what it does in one sentence.
-                </p>
+                <div>
+                    <h3>Time Progress Visualizer</h3>
+                    <p>
+                        Visualize the passage of the month, year, and beyond through an animated visual.
+                    </p>
+                </div>
 
                 <div class="actions">
                     <a href="https://github.com/pseigne/time-progress-visualizer.gitmodules">View Live</a>

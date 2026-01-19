@@ -58,3 +58,10 @@
 .navbar.dark-background::before {
     background-color: var(--text-primary);
 }
+
+
+/* Mobile Responsiveness */
+@media (max-width: 700px) {
+
+    
+}
