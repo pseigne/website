@@ -1,20 +1,27 @@
 :root {
-    /* Brand Colors */
-    --brand-primary: #EE382B;
-    --brand-primary-hover: #b30010;
-    --brand-accent: #EE382B;
+    /* HERO COLORS */
+    --hero-primary: #EE382B;
+    --hero-primary-hover: #C4261A;
+
+
+    /* EVERYWHERE ELSE */
+    --color-primary: #EE382B;
+    /* Main buttons, call-to-actions (CTAs), active states. */
+    --hover-color: #C4261A;
+    --secondary-color: #1E293B;
+    /* Footer, sidebars, or primary headings. */
+
 
     /* Background Colors */
-    --bg-hero: #EE382B;
-    --bg-dark: #1E1F24;
-    --bg-card: black;
-    --bg-card-darker: #16171c;
+    --bg-card: white;
+    --main-bg: #ffe3e1;
 
     /* Text Colors */
-    --text-primary: white;
-    --text-secondary: #d1d1d1;
-    --text-muted: darkgray;
-    --text-dark: black;
+    --text-primary: #0d1116;
+    --text-muted: #747f8d;
+    --border: #e0e0e0;
+
+    --tint: #FEF2F2;
 
     /* Spacing */
     --space-xs: 0.5rem;
@@ -23,20 +30,17 @@
     --space-lg: 4rem;
 
     /* Border Radius */
-    --radius-sm: 4px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
-    --radius-full: 50%;
+    --radius: 24px;
 
     /* Transitions */
     --transition-fast: 0.2s ease-out;
     --transition-medium: 0.5s ease-out;
 
-    /* Shadows */
-    --shadow-sm: 0 -5px 10px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 -10px 20px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.2);
-    --shadow-xl: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    /* buttons */
+    --action-primary: #EE382B;
+    --action-secondary: #b30010;
+
 
     /* Z-index layers */
     --z-base: 0;
@@ -44,9 +48,14 @@
     --z-navbar: 100;
     --z-fixed: 1000;
 
-
     --gap: 16px;
     --radius: 24px;
-    --bg-color: #f4f4f4;
+
+    /* ===== SHADOW UTILITIES ===== */
+
+    --combined-shadow: 0px 4px 4px #00000030, 0px 12px 12px #00000015;
+    --dark-shadow: 0px 4px 4px #00000030;
+    --light-shadow: 0px 12px 12px #00000015;
+
 
 }

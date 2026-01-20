@@ -10,7 +10,7 @@ html {
 
 body {
     height: 100%;
-    background-color: var(--brand-primary);
+    background-color: var(--hero-primary);
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
 }

@@ -14,7 +14,7 @@
     content: "";
     width: 12px;
     height: 12px;
-    background-color: var(--text-dark);
+    background-color: var(--text-primary);
     display: block;
     margin-right: 12px;
 }
@@ -28,7 +28,7 @@
 }
 
 .nav-links a {
-    color: var(--text-dark);
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 1rem;
     position: relative;
@@ -38,10 +38,10 @@
 }
 
 .nav-links a:hover {
-    color: var(--text-dark);
-    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    border-radius: var(--radius);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    background-color: var(--text-primary);
+    background-color: var(--bg-card);
     padding-left: 10px;
     padding-right: 10px;
 }

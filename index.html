@@ -5,27 +5,17 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="https://use.typekit.net/oly6szy.css">
-
 	<title>Pierce Seigne</title>
-	<style>
-
-		
-	</style>
 </head>
 
-
 <body>
-
-	<!-- Nav bar -->
+	<!-- ======= Nav bar ======= -->
 	<nav id="navbar-placeholder"></nav>
 	<script src="./js/navbar.js"></script>
 
-	<script src="./js/navbar-scroll.js"></script>
-
-	<!-- HERO SECTION -->
+	<!-- ======= HERO SECTION ======= -->
 	<section class="hero index">
-
-		<div class="typing-container">
+		<div class="typing-container fade-in-left">
 			<h2><span class="typed"></span></h2>
 			<script src="./js/typing-animation.js"></script>
 		</div>
@@ -35,7 +25,7 @@
 		</div>
 
 
-		<div class="name-container">
+		<div class="name-container fade-in-up">
 			<!-- NAME -->
 			<div class="fade-in-up">
 				<h1 id="name">PIERCE<br>SEIGNE</h1>
@@ -50,24 +40,80 @@
 				and
 				solve practical problems</p>
 		</div>
-
-
-
 	</section>
 
-	<!-- END OF HERO SECTION -->
+	<!-- ======== END OF HERO SECTION ======= -->
 
 
 
-	<!-- PROJECT HIGHLIGHTS -->
-
+	<!-- ======= PROJECT HIGHLIGHTS ======= -->
 	<section class="projects">
+		<div class="container">
+			<div class="section-title">
+				Recent projects
+				<a href="projects.html">All projects →</a>
+			</div>
 
-		<div id="project-placeholder">
-			<script src="./js/project-section.js"></script>
+			<div class="projects-grid">
+				<!-- Projects will be inserted here by JavaScript -->
+			</div>
 		</div>
 
+		<script src="./js/projects.js"></script>
+		<script>
+			document.addEventListener('DOMContentLoaded', (event) => {
+				// Display only the first 3 coding projects as recent projects
+				const recentProjects = codingProjects.slice(0, 3);
+				
+				for (project of recentProjects) {
+					const projectCard = document.createElement('div');
+					projectCard.className = 'card dark';
 
+					const cardHeader = document.createElement('div');
+					cardHeader.className = 'card-header';
+
+					const cardTitle = document.createElement('div');
+					cardTitle.className = 'card-title';
+					cardTitle.textContent = project.title;
+
+					const cardDate = document.createElement('div');
+					cardDate.className = 'card-date';
+					cardDate.textContent = project.date;
+
+					cardHeader.appendChild(cardTitle);
+					cardHeader.appendChild(cardDate);
+					projectCard.appendChild(cardHeader);
+
+					const cardDesc = document.createElement('p');
+					cardDesc.className = 'card-desc';
+					cardDesc.textContent = project.description;
+					projectCard.appendChild(cardDesc);
+
+					const tagAndBtnContainer = document.createElement('div');
+					tagAndBtnContainer.className = 'tag-and-btn-container';
+
+					const tagsContainer = document.createElement('div');
+					tagsContainer.className = 'tags';
+
+					for (tagText of project.tags) {
+						const tag = document.createElement('span');
+						tag.className = 'tag';
+						tag.textContent = tagText;
+						tagsContainer.appendChild(tag);
+					}
+
+					tagAndBtnContainer.appendChild(tagsContainer);
+					const viewButton = document.createElement('a');
+					viewButton.className = 'view-live-btn';
+					viewButton.href = project.link;
+					viewButton.textContent = 'View Live';
+					viewButton.target = '_blank';
+					tagAndBtnContainer.appendChild(viewButton);
+					projectCard.appendChild(tagAndBtnContainer);
+					document.querySelector('.projects-grid').appendChild(projectCard);
+				}
+			});
+		</script>
 	</section>
 
 

@@ -1,20 +1,9 @@
 section {
-
     min-height: 100vh;
     scroll-snap-align: start;
-    box-shadow: var(--shadow-sm);
-
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
     position: relative;
     top: 0;
-    min-height: 100vh;
-    /* Every section needs to be full height for this to look good */
-    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
-    /* Adds depth between layers */
-
-    scroll-snap-align: start;
-    /* align the top of each section */
-
-
 }
 
 /* Hero section */
@@ -30,7 +19,7 @@ section {
 }
 
 .hero.index {
-    background-color: var(--bg-hero);
+    background-color: var(--hero-primary);
     background-image: url('./full-shot-white-background.jpeg');
     background-repeat: no-repeat;
     background-position: center 30%;
@@ -40,7 +29,7 @@ section {
 
 .hero h1 {
     font-size: clamp(6rem, 18vw, 10rem);
-    color: var(--text-dark);
+    color: var(--text-primary);
     line-height: 0.9;
     z-index: var(--z-content);
     text-align: center;
@@ -48,284 +37,19 @@ section {
     font-variation-settings: "wght" 900;
 }
 
+.projects {
+    background-color: var(--main-bg);
+    min-height: auto;
+    padding: 40px 0;
+}
 
 
-/* Dark content sections */
-.projects,
-.about-content,
-.writing-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    color: var(--text-primary);
-    padding: var(--space-lg) var(--space-md);
-    min-height: 100vh;
-    z-index: var(--z-content);
-    box-shadow: var(--shadow-md);
+/* Blog */
+.hero.blog {
+    background-color: var(--main-bg);
+    background-image: url('./thumbs.JPG');
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-size: clamp(350px, 100vh, 800px);
     width: 100%;
-}
-
-.projects h2 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    padding-bottom: 10px;
-    text-align: left;
-}
-
-.projects p {
-    margin-bottom: 2em;
-    color: var(--text-muted);
-    font-variation-settings: "wght" 400;
-}
-
-
-
-/* WRITINGS */
-/* Writing page specific styles */
-body {
-    background-color: white;
-}
-
-.writing-hero {
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 4rem 2rem;
-}
-
-.writing-hero h1 {
-    font-size: clamp(3rem, 12vw, 7rem);
-    margin-bottom: 1rem;
-}
-
-.writing-hero p {
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    max-width: 800px;
-    margin: 0 auto;
-    color: rgba(0, 0, 0, 0.7);
-    font-variation-settings: "wght" 400;
-}
-
-.writing-content {
-    background-color: var(--bg-dark);
-    color: var(--text-primary);
-    padding: 4rem 2rem;
-    min-height: 100vh;
-}
-
-.content-wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.category-section {
-    margin-bottom: 4rem;
-}
-
-.category-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid #92000E;
-}
-
-.category-header i {
-    font-size: 1.5rem;
-    color: #92000E;
-}
-
-.category-header h2 {
-    font-size: clamp(2rem, 5vw, 2.5rem);
-    letter-spacing: -1px;
-    margin: 0;
-}
-
-.paper-card {
-    background: var(--bg-card);
-    padding: 2.5rem;
-    margin-bottom: 2rem;
-    border-radius: 4px;
-    border-left: 4px solid #92000E;
-    transition: all 0.3s ease;
-}
-
-.paper-card:hover {
-    transform: translateX(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border-left-width: 8px;
-}
-
-.paper-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 2rem;
-    margin-bottom: 1.5rem;
-}
-
-.paper-title {
-    flex: 1;
-}
-
-.paper-title h3 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    line-height: 1.3;
-}
-
-.paper-meta {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.meta-item {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: darkgray;
-    font-size: 0.9rem;
-    font-variation-settings: "wght" 400;
-}
-
-.meta-item i {
-    color: #92000E;
-}
-
-.paper-abstract {
-    color: #d1d1d1;
-    font-variation-settings: "wght" 400;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-    font-size: 1.05rem;
-}
-
-.paper-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.tag {
-    background-color: rgba(146, 0, 14, 0.2);
-    color: white;
-    padding: 0.4rem 1rem;
-    border-radius: 24px;
-    font-size: 0.85rem;
-    font-variation-settings: "wght" 500;
-}
-
-.paper-actions {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.paper-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background-color: var(--brand-primary);
-    color: var(--text-primary);
-    text-decoration: none;
-    border-radius: 24px;
-    font-weight: bold;
-    transition: all 0.2s ease;
-}
-
-.paper-link:hover {
-    background-color: var(--brand-primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(146, 0, 14, 0.3);
-}
-
-
-.excerpt-section {
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.excerpt-section h4 {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
-    color: darkgray;
-}
-
-.excerpt-text {
-    background: #16171c;
-    padding: 1.5rem;
-    border-left: 3px solid #92000E;
-    font-style: italic;
-    color: #b8b8b8;
-    line-height: 1.8;
-}
-
-.stats-banner {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background: #1B1D22;
-    border-radius: 4px;
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    font-size: 2.5rem;
-    font-variation-settings: "wght" 700;
-    color: var(--text-primary);
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    color: darkgray;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-@media (max-width: 768px) {
-    .paper-header {
-        flex-direction: column;
-    }
-
-    .paper-meta {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .paper-actions {
-        flex-direction: column;
-    }
-
-    .paper-link {
-        width: 100%;
-        justify-content: center;
-    }
-}
-
-/* Empty state styling */
-.empty-state {
-    text-align: center;
-    padding: 3rem 2rem;
-    color: darkgray;
-}
-
-.empty-state i {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    opacity: 0.3;
 }

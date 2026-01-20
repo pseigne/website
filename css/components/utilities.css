@@ -1,4 +1,22 @@
-  /* Utility classes and positioning */
+/* ===== SECTION TITLES ===== */
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.section-title a {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+/* ===== HERO POSITIONING ===== */
 
 .location-container {
     position: absolute;
@@ -14,7 +32,6 @@
     font-size: 20px;
     letter-spacing: -1px;
     font-family: monospace;
-    
 }
 
 .typing-container {
@@ -28,7 +45,6 @@
     position: absolute;
     left: 20px;
     bottom: 20%;
-    
 }
 
 .short-bio-container {
@@ -38,19 +54,21 @@
     right: 20px;
 }
 
+/* ===== TYPOGRAPHY UTILITIES ===== */
+
 .typed {
-    color: var(--text-dark);
+    color: var(--text-primary);
     font-family: monospace;
 }
 
-/* List utilities */
 .ul_noBullets {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
-/* Hover effects */
+/* ===== HOVER EFFECTS ===== */
+
 #name:hover {
     color: var(--text-primary);
 }
