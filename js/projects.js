@@ -76,7 +76,6 @@ const dataProjects = [
         date: "Apr 03, 2026",
         description: "An exploratory data analysis of over 70,000 NCAA Division I distance running performances, examining how environmental factors, school selectivity, and athlete experience impact year-over-year progression.",
         tags: ["Data Analysis", "Python", "Pandas", "Sports Analytics"],
-        link: "#", 
-        about: "project-ncaa-analysis.html" 
+        link: "project-ncaa-analysis.html"
     }
 ];

@@ -114,14 +114,6 @@ function displayProjects(projects, gridSelector) {
         viewButton.target = '_blank';
         buttonContainer.appendChild(viewButton);
 
-        if (project.about) {
-            const moreInfoButton = document.createElement('a');
-            moreInfoButton.className = 'more-info-btn';
-            moreInfoButton.href = project.about;
-            moreInfoButton.textContent = 'About';
-            buttonContainer.appendChild(moreInfoButton);
-        }
-
         tagAndBtnContainer.appendChild(buttonContainer);
         projectCard.appendChild(tagAndBtnContainer);
         document.querySelector(gridSelector).appendChild(projectCard);
