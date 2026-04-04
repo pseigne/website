@@ -46,11 +46,16 @@
     margin-top: 12px;
 }
 
+.live-and-about {
+    display: flex;
+}
+
 .view-live-btn {
 
     margin-top: 16px;
     padding: 8px 16px;
-    background-color: var(--color-primary);
+    margin-right: 10px;
+    background-color: var(--action-primary);
     color: var(--tint);
     text-decoration: none;
     border-radius: 6px;
@@ -61,6 +66,28 @@
 }
 
 .view-live-btn:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(238, 56, 43, 0.25);
+    color: var(--text-primary);
+}
+
+
+.more-info-btn {
+
+    margin-top: 16px;
+    padding: 8px 16px;
+    background-color: var(--action-secondary);
+    color: var(--tint);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+    box-shadow: var(--dark-shadow);
+}
+
+.more-info-btn:hover {
     background-color: var(--color-primary-hover);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(238, 56, 43, 0.25);
@@ -84,67 +111,4 @@
     border: 1px solid rgba(255, 255, 255, 0.05);
     background-color: var(--text-primary);
     box-shadow: var(--dark-shadow);
-}
-
-/* ===== INTEREST CARDS ===== */
-
-.interest-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 24px;
-    margin-bottom: 40px;
-}
-
-.interest-card {
-    background-color: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-align: center;
-}
-
-.interest-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-primary-hover);
-    box-shadow: var(--combined-shadow);
-}
-
-.interest-card i {
-    font-size: 2.5rem;
-    color: var(--color-primary);
-    margin-bottom: 16px;
-    display: block;
-}
-
-.interest-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 12px;
-    color: var(--text-primary);
-}
-
-.interest-card p {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-}
-
-/* ===== FOCUS LIST ===== */
-
-.focus-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.focus-list li {
-    padding: 12px 0;
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    line-height: 1.6;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.focus-list li:last-child {
-    border-bottom: none;
 }

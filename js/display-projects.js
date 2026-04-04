@@ -94,18 +94,35 @@ function displayProjects(projects, gridSelector) {
 
 
         tagAndBtnContainer.appendChild(tagsContainer);
+
+        const buttonContainer = document.createElement('div');
+        buttonContainer.className = 'button-container';
+
         const viewButton = document.createElement('a');
         viewButton.className = 'view-live-btn';
         viewButton.href = project.link;
+
         if (!project.coding) {
             viewButton.textContent = 'View';
+
         }
         if (project.coding) {
             viewButton.textContent = 'View Live';
+
+
+        }
+        viewButton.target = '_blank';
+        buttonContainer.appendChild(viewButton);
+
+        if (project.about) {
+            const moreInfoButton = document.createElement('a');
+            moreInfoButton.className = 'more-info-btn';
+            moreInfoButton.href = project.about;
+            moreInfoButton.textContent = 'About';
+            buttonContainer.appendChild(moreInfoButton);
         }
 
-        viewButton.target = '_blank';
-        tagAndBtnContainer.appendChild(viewButton);
+        tagAndBtnContainer.appendChild(buttonContainer);
         projectCard.appendChild(tagAndBtnContainer);
         document.querySelector(gridSelector).appendChild(projectCard);
     }

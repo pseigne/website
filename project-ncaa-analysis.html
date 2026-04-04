@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://use.typekit.net/oly6szy.css">
+    <title>NCAA Track & Field Analysis - Pierce Seigne</title>
+    <style>
+        .analysis-page {
+            min-height: 100vh;
+            padding: 8rem 0 4rem;
+        }
+
+        .analysis-header {
+            margin-bottom: 2rem;
+        }
+
+        .analysis-header h1 {
+            margin-bottom: 0.8rem;
+        }
+
+        .analysis-header p {
+            max-width: 70ch;
+            line-height: 1.6;
+        }
+
+        .analysis-links {
+            display: grid;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .analysis-link-card {
+            border: 1px solid var(--black, #111);
+            border-radius: 12px;
+            padding: 1.25rem;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .analysis-link-card h2 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .analysis-link-card p {
+            margin-bottom: 0.9rem;
+            line-height: 1.55;
+        }
+
+        .analysis-link-card a,
+        .analysis-actions a {
+            display: inline-block;
+            text-decoration: none;
+            border: 1px solid var(--black, #111);
+            border-radius: 999px;
+            padding: 0.45rem 0.9rem;
+            font-weight: 600;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .analysis-link-card a:hover,
+        .analysis-actions a:hover {
+            transform: translateY(-1px);
+            background-color: rgba(0, 0, 0, 0.08);
+        }
+
+        .analysis-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navbar-placeholder"></nav>
+    <script src="./js/navbar.js"></script>
+    <script src="./js/navbar-scroll.js"></script>
+
+    <main class="analysis-page">
+        <div class="container">
+            <header class="analysis-header">
+                <div class="section-title">NCAA Track & Field Analysis</div>
+                <h1>Project Overview</h1>
+                <p>
+                    This project explores more than 70,000 NCAA Division I distance running performances.
+                    The notebooks examine athlete progression trends, seasonal patterns, and environmental context
+                    to better understand the factors tied to year-over-year performance changes.
+                </p>
+            </header>
+
+            <section class="analysis-links" aria-label="Analysis pages">
+                <article class="analysis-link-card">
+                    <h2>Distance EDA</h2>
+                    <p>
+                        Exploratory analysis focused on NCAA distance event performances with comparisons across
+                        events, school characteristics, and athlete development trajectories.
+                    </p>
+                    <a href="pages/tffrs_distance_eda.html" target="_blank" rel="noopener noreferrer">Open Distance EDA</a>
+                </article>
+
+                <article class="analysis-link-card">
+                    <h2>Seasonal EDA</h2>
+                    <p>
+                        Seasonal breakdowns and trend analysis to compare how performance patterns vary by period,
+                        helping identify timing-related effects in athlete outcomes.
+                    </p>
+                    <a href="pages/seasonal_eda.html" target="_blank" rel="noopener noreferrer">Open Seasonal EDA</a>
+                </article>
+            </section>
+
+            <div class="analysis-actions">
+                <a href="projects.html">Back to Projects</a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

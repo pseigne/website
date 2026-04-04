@@ -9,6 +9,7 @@
 
 /* Components */
 @import './components/cards.css';
+@import './components/blog.css';
 @import './components/buttons.css';
 @import './components/navbar.css';
 @import './components/social-icons.css';
