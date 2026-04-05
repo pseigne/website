@@ -6,7 +6,7 @@ fetch('navbar.html')
         const resumeDownloadLink = document.getElementById('resume-download-link');
         if (resumeDownloadLink) {
             resumeDownloadLink.addEventListener('click', (event) => {
-                const shouldDownload = window.confirm('Do you want to download your resume?');
+                const shouldDownload = window.confirm('Do you want to download my resume?');
                 if (!shouldDownload) {
                     event.preventDefault();
                 }
