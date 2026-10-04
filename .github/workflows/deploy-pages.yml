@@ -4,6 +4,8 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    - cron: '7,27,47 * * * *'
 
 permissions:
   contents: read
@@ -13,23 +15,67 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      deploy: ${{ steps.check.outputs.deploy }}
+      running_sha: ${{ steps.check.outputs.running_sha }}
+    steps:
+      - name: Check for running utility updates
+        id: check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          running_sha=$(gh api repos/pseigne/running-utilities/commits/main --jq .sha)
+          echo "running_sha=$running_sha" >> "$GITHUB_OUTPUT"
+          deployed=$(curl --fail --silent --show-error --max-time 15 https://pierceseigne.com/running-utilities/version.json || printf '{}')
+          deployed_sha=$(printf '%s' "$deployed" | jq -r '.commit // empty' 2>/dev/null || true)
+          if [ "$EVENT_NAME" != schedule ] || [ "$running_sha" != "$deployed_sha" ]; then
+            echo "deploy=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "deploy=false" >> "$GITHUB_OUTPUT"
+          fi
+
   build:
+    needs: check
+    if: needs.check.outputs.deploy == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v6
+      - name: Check out running utilities
+        uses: actions/checkout@v6
+        with:
+          repository: pseigne/running-utilities
+          ref: ${{ needs.check.outputs.running_sha }}
+          path: running-tools
+          persist-credentials: false
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
           node-version: 24
           cache: npm
-          cache-dependency-path: website/package-lock.json
+          cache-dependency-path: |
+            website/package-lock.json
+            running-tools/package-lock.json
       - name: Install dependencies
-        run: npm ci --prefix website
-      - name: Lint
-        run: npm run lint
-      - name: Build production site
-        run: npm run build
+        run: |
+          npm ci --prefix website
+          npm ci --prefix running-tools
+      - name: Lint portfolio and test running tools
+        run: |
+          npm run lint
+          npm test --prefix running-tools
+      - name: Build production sites
+        env:
+          RUNNING_SHA: ${{ needs.check.outputs.running_sha }}
+        run: |
+          npm run build
+          npm run build --prefix running-tools
+          mkdir -p website/docs/running-utilities
+          cp -R running-tools/dist/. website/docs/running-utilities/
+          jq -n --arg commit "$RUNNING_SHA" '{commit: $commit}' > website/docs/running-utilities/version.json
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload site
