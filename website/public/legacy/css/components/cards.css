@@ -1,0 +1,114 @@
+/* ===== TEXT-BASED CARDS ===== */
+
+.card {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    border-color: var(--hero-primary-hover);
+    box-shadow: var(--combined-shadow);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.card-date {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: monospace;
+}
+
+.card-desc {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+}
+
+/* ===== VIEW LIVE BUTTON ===== */
+
+.tag-and-btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.live-and-about {
+    display: flex;
+}
+
+.view-live-btn {
+
+    margin-top: 16px;
+    padding: 8px 16px;
+    margin-right: 10px;
+    background-color: var(--action-primary);
+    color: var(--tint);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+    box-shadow: var(--dark-shadow);
+}
+
+.view-live-btn:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(238, 56, 43, 0.25);
+    color: var(--text-primary);
+}
+
+
+.more-info-btn {
+
+    margin-top: 16px;
+    padding: 8px 16px;
+    background-color: var(--action-secondary);
+    color: var(--tint);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+    box-shadow: var(--dark-shadow);
+}
+
+.more-info-btn:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(238, 56, 43, 0.25);
+    color: var(--text-primary);
+}
+
+/* ===== TAGS ===== */
+
+.tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--tint);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: var(--text-primary);
+    box-shadow: var(--dark-shadow);
+}

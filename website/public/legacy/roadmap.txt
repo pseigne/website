@@ -1,0 +1,5 @@
+TODO: 
+- Fix navbar/socials scroll 
+- Add name to the nav bar when not shown on screen
+- Add Blog
+- Mobile responsiveness

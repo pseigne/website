@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preload" href="/fonts/Satoshi-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <meta
+      name="description"
+      content="Pierce Seigne — associate engineer at Neon.ai and Public Policy student at the University of Virginia. Explore projects, design, data, and athletics."
+    />
+    <meta
+      property="og:title"
+      content="Pierce Seigne — A few things that make me, me."
+    />
+    <meta
+      property="og:description"
+      content="Projects, data, design, and a few miles along the way."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pierceseigne.com/" />
+    <meta
+      property="og:image"
+      content="https://pierceseigne.com/images/pierce.webp"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Pierce Seigne — Engineer, builder & Public Policy student</title>
+    <script>
+      (() => {
+        let theme;
+        try {
+          theme = localStorage.getItem("portfolio-theme");
+        } catch {}
+        document.documentElement.dataset.theme =
+          theme === "light" || theme === "dark"
+            ? theme
+            : matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

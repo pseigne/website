@@ -1,0 +1,13 @@
+/* ===== BUTTON BASE ===== */
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    transition: var(--transition-fast);
+    cursor: pointer;
+    border: none;
+}

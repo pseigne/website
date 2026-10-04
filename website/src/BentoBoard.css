@@ -1,0 +1,1531 @@
+/* A centered desktop board; compact screens retain a natural reading order. */
+.site-shell.board-shell {
+  max-width: 1800px;
+  padding: 12px;
+}
+.board {
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto;
+  grid-template-areas: "intro intro" "photo photo" "coder coder" "neon neon" "tools tools" "resume github" "athletics athletics" "syllabus syllabus" "education education" "places places" "projects projects" "contact contact";
+}
+.board .tile {
+  min-height: 0;
+  padding: 22px;
+  border-radius: 24px;
+}
+.board .tile-heading {
+  gap: 8px;
+}
+.board .tile-identity,
+.board h2.tile-identity {
+  font-size: 14px;
+  line-height: 1.2;
+  gap: 8px;
+  font-weight: 650;
+}
+.board .tile-identity img {
+  width: 24px;
+  height: 24px;
+}
+.board .detail-indicator {
+  width: 28px;
+  height: 28px;
+}
+.board .tile h2 {
+  font-size: 27px;
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+}
+.board .project-caption {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  margin: 0;
+  width: 47%;
+  z-index: 2;
+}
+.board .project-caption h2 {
+  font-size: 27px;
+  line-height: 1.08;
+  letter-spacing: -0.8px;
+  text-wrap: balance;
+}
+.board .project-caption p {
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+.board .project-tile {
+  display: block;
+  min-height: 325px;
+}
+.board .introduction {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  min-height: 360px;
+  background: #e1eaf0;
+  padding: 24px;
+}
+:root[data-theme="dark"] .board .introduction {
+  background: #20333d;
+}
+.intro-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.board .wordmark {
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: -0.2px;
+}
+.board .theme-toggle {
+  background: #ffffff75;
+}
+:root[data-theme="dark"] .board .theme-toggle {
+  background: #ffffff12;
+}
+.board .intro-copy {
+  font-size: 15px;
+  font-weight: 450;
+  letter-spacing: -0.25px;
+  line-height: 1.45;
+  padding: 20px 0 8px;
+}
+.board .introduction h1 {
+  display: block;
+  font-size: clamp(46px, 9vw, 72px);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -2.8px;
+  margin: 0 0 15px;
+}
+.board .introduction p {
+  display: block;
+  margin: 0;
+  max-width: 420px;
+}
+.board .inline-brand img {
+  width: 18px;
+  height: 18px;
+  vertical-align: -3px;
+  margin-right: 3px;
+}
+.intro-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+.intro-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 44px;
+  font-size: 12px;
+  font-weight: 650;
+}
+.intro-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.board .photo-tile {
+  padding: 0;
+  min-height: 265px;
+}
+.board .photo-tile figcaption {
+  left: 22px;
+  right: 22px;
+  bottom: 18px;
+  font-size: 11px;
+}
+.board .coder-art {
+  position: absolute;
+  inset: 64px 0 0;
+  margin: 0;
+  height: auto;
+  overflow: visible;
+}
+.board .coder-scene {
+  width: 72%;
+  max-width: 320px;
+  top: 8px;
+  right: -30px;
+  transform: rotate(8deg);
+}
+.board .coder-back-one,
+.board .project-tile:hover .coder-back-one {
+  transform: translate(-30px, -6px) rotate(-12deg);
+}
+.board .coder-back-two,
+.board .project-tile:hover .coder-back-two {
+  transform: translate(-15px, -5px) rotate(-6deg);
+}
+.board .coder-tile .project-caption {
+  width: 44%;
+}
+.board .neon-art {
+  inset: 62px 0 0;
+}
+.board .neon-browser {
+  width: 270px;
+  top: 12px;
+  right: -88px;
+}
+.board .neon-browser img {
+  height: 260px;
+  object-fit: cover;
+  object-position: 55% top;
+}
+.board .neon-symbol {
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  top: 6px;
+  left: 22px;
+  border-radius: 13px;
+}
+.board .neon-tile .project-caption {
+  width: 42%;
+}
+.board .athletics-tile {
+  padding: 0;
+  min-height: 275px;
+}
+.board .athletics-copy {
+  bottom: 22px;
+  left: 22px;
+  right: 22px;
+}
+.board .athletics-copy h2 {
+  font-size: 30px;
+  margin: 10px 0 8px;
+}
+.board .athletics-copy p {
+  font-size: 12px;
+}
+.board .video-control {
+  left: 16px;
+  top: 14px;
+}
+.board .athletics-detail {
+  right: 12px;
+  top: 14px;
+}
+.board .track-art {
+  width: 110px;
+  bottom: 2px;
+}
+.board .education-tile {
+  min-height: 360px;
+  display: block;
+}
+.board .education-line {
+  width: 65%;
+  margin-top: 16px;
+}
+.board .education-line h3 {
+  font-size: 14px;
+  margin: 0;
+  line-height: 1.2;
+}
+.board .education-line h3 > .sr-only {
+  display: inline;
+}
+.board .education-line p {
+  font-size: 13px;
+  margin: 4px 0 0;
+}
+.board .education-line span:not(.sr-only) {
+  font-size: 11px;
+  line-height: 1.25;
+  margin-top: 4px;
+}
+.board .education-art {
+  top: 115px;
+  right: -45px;
+  transform: scale(0.9);
+  transform-origin: right bottom;
+}
+.board .places-tile {
+  min-height: 355px;
+}
+.board .route-art.us-map {
+  width: calc(100% + 28px);
+  height: 160px;
+  margin: 12px -14px 8px;
+}
+.board .places-list {
+  margin-top: 0;
+}
+.board .places-list li {
+  font-size: 13px;
+  padding-bottom: 12px;
+}
+.board .all-projects-tile {
+  min-height: 310px;
+  display: block;
+}
+.board .collection-art {
+  position: absolute;
+  top: 58px;
+  left: 0;
+  right: 0;
+  height: 155px;
+  margin: 0;
+}
+.board .collection-window {
+  width: 190px;
+}
+.board .collection-window img {
+  height: 100px;
+}
+.board .collection-time {
+  left: 10px;
+}
+.board .collection-tfrrs {
+  left: 65px;
+  top: 12px;
+}
+.board .collection-syllabus {
+  left: 118px;
+  top: 30px;
+}
+.board .all-projects-tile .project-caption {
+  width: 70%;
+}
+.board .contact-tile {
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  background: #1d1d1f;
+  color: #f5f5f7;
+}
+:root[data-theme="dark"] .board .contact-tile {
+  background: #28282c;
+}
+.board .contact-tile h2 {
+  position: relative;
+  z-index: 1;
+  font-size: 29px;
+  max-width: 300px;
+  margin: 16px 0 22px;
+  letter-spacing: -0.8px;
+}
+.board .contact-email {
+  position: relative;
+  z-index: 1;
+  font-size: 13px;
+  padding: 9px 16px;
+  gap: 20px;
+  margin-top: auto;
+}
+.board .envelope-art {
+  position: absolute;
+  right: 10px;
+  bottom: -40px;
+  width: 140px;
+  height: 165px;
+}
+.board .tools-tile {
+  grid-area: tools;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+.tool-dock {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: clamp(9px, 2vw, 24px);
+  padding: 0;
+  margin: 0;
+}
+.tool-dock li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 9px;
+  font-weight: 550;
+  color: var(--muted);
+}
+.tool-icon {
+  width: 43px;
+  height: 43px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  box-shadow:
+    inset 0 1px 0 #ffffff80,
+    0 3px 6px #00000009;
+}
+.tool-react {
+  background: #d7edf1;
+  color: #225b70;
+}
+.tool-python {
+  background: #e7ebca;
+  color: #3b526c;
+}
+.tool-js {
+  background: #f4e5a8;
+  color: #574a20;
+}
+.tool-sql {
+  background: #e4dced;
+  color: #665179;
+  font-size: 14px;
+}
+.tool-web {
+  background: #e6e7ea;
+  color: #525660;
+}
+.board .tools-tile h2 {
+  font-size: 14px;
+  letter-spacing: -0.2px;
+  font-weight: 550;
+}
+.board .resume-tile {
+  grid-area: resume;
+  min-height: 160px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 4px;
+}
+.resume-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 60px;
+  font-size: 19px;
+  font-weight: 650;
+}
+.resume-link > span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.resume-link:hover > span {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.board-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4px;
+  font-size: 9px;
+  color: var(--muted);
+}
+.board-meta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 44px;
+}
+.board .github-tile {
+  grid-area: github;
+  min-height: 160px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.board .github-tile h2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+}
+.board .github-tile p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+.board .syllabus-tile {
+  grid-area: syllabus;
+  background: #eef0e9;
+}
+:root[data-theme="dark"] .board .syllabus-tile {
+  background: #252d28;
+}
+.syllabus-art {
+  position: absolute;
+  inset: 58px 0 0;
+  pointer-events: none;
+}
+.syllabus-browser {
+  position: absolute;
+  width: 240px;
+  right: -60px;
+  top: 20px;
+  transform: rotate(7deg);
+}
+.syllabus-browser img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+}
+.syllabus-paper {
+  position: absolute;
+  width: 140px;
+  height: 170px;
+  top: 10px;
+  right: 45px;
+  background: #fffef8;
+  color: #6d7464;
+  border-radius: 5px;
+  padding: 17px;
+  transform: rotate(-12deg);
+  box-shadow: 0 7px 18px #26332912;
+}
+.syllabus-paper span {
+  font-size: 8px;
+  font-weight: 650;
+}
+.syllabus-paper i {
+  display: block;
+  height: 5px;
+  margin-top: 16px;
+  width: 100%;
+  background: #e4e7dc;
+  border-radius: 3px;
+}
+.syllabus-paper i:nth-child(3) {
+  width: 70%;
+}
+.board .syllabus-tile .project-caption {
+  width: 45%;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+@media (min-width: 650px) {
+  .board {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-areas: "intro intro photo photo" "coder coder neon neon" "tools tools tools tools" "resume resume github github" "athletics athletics syllabus syllabus" "education education places places" "projects projects contact contact";
+  }
+  .board .coder-scene {
+    width: 80%;
+    right: -55px;
+    top: 18px;
+  }
+  .board .education-art {
+    right: -10px;
+    top: 100px;
+  }
+}
+@media (min-width: 1100px) and (min-height: 700px) {
+  .site-shell.board-shell {
+    max-width: none;
+    height: 100dvh;
+    padding: 12px;
+  }
+  .board {
+    height: 100%;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: repeat(6, minmax(0, 1fr));
+    grid-template-areas:
+      "photo photo photo photo places places education education neon neon neon neon"
+      "photo photo photo photo places places education education neon neon neon neon"
+      "tools tools tools tools intro intro intro intro coder coder coder coder"
+      "resume resume github github intro intro intro intro coder coder coder coder"
+      "athletics athletics athletics athletics syllabus syllabus syllabus syllabus projects projects contact contact"
+      "athletics athletics athletics athletics syllabus syllabus syllabus syllabus projects projects contact contact";
+  }
+  .board .tile {
+    min-height: 0;
+    padding: clamp(14px, 1.35vw, 24px);
+    border-radius: clamp(18px, 1.65vw, 28px);
+  }
+  .board .tile-identity,
+  .board h2.tile-identity {
+    font-size: clamp(12px, 0.92vw, 16px);
+    gap: 7px;
+  }
+  .board .tile-identity img {
+    width: 22px;
+    height: 22px;
+  }
+  .board .tile-heading .detail-indicator {
+    width: 26px;
+    height: 26px;
+  }
+  .board .project-tile {
+    min-height: 0;
+  }
+  .board .project-caption {
+    left: clamp(14px, 1.35vw, 24px);
+    bottom: 18px;
+  }
+  .board .project-caption h2 {
+    font-size: clamp(20px, 1.8vw, 32px);
+  }
+  .board .project-caption p {
+    font-size: 11px;
+    margin-top: 7px;
+  }
+  .board .introduction {
+    padding: 16px 22px;
+    justify-content: center;
+  }
+  .intro-topline {
+    position: absolute;
+    top: 10px;
+    left: 22px;
+    right: 12px;
+    height: 28px;
+  }
+  .board .theme-toggle {
+    width: 36px;
+    height: 36px;
+  }
+  .board .wordmark {
+    font-size: 11px;
+  }
+  .board .intro-copy {
+    padding: 20px 0 34px;
+    font-size: clamp(12px, min(1vw, 1.75dvh), 15px);
+    line-height: 1.4;
+  }
+  .board .introduction h1 {
+    font-size: clamp(40px, min(4.4vw, 6.1dvh), 70px);
+    line-height: 0.93;
+    letter-spacing: -2.7px;
+    margin-bottom: 10px;
+  }
+  .intro-links {
+    position: absolute;
+    bottom: 4px;
+    left: 22px;
+    gap: 20px;
+  }
+  .intro-links a {
+    font-size: 11px;
+  }
+  .board .photo-tile,
+  .board .athletics-tile {
+    padding: 0;
+  }
+  .board .photo-tile > img {
+    object-position: center 50%;
+  }
+  .board .photo-tile figcaption {
+    font-size: 10px;
+    left: 18px;
+    right: 18px;
+    bottom: 16px;
+  }
+  .board .coder-art {
+    inset: 48px 0 0;
+  }
+  .board .coder-scene {
+    width: clamp(220px, min(21vw, 34dvh), 380px);
+    max-width: none;
+    right: -24px;
+    top: 10px;
+  }
+  .board .coder-tile .project-caption {
+    width: 39%;
+  }
+  .board .neon-art {
+    inset: 50px 0 0;
+  }
+  .board .neon-browser {
+    width: clamp(230px, 22vw, 400px);
+    right: -70px;
+    top: 10px;
+  }
+  .board .neon-browser img {
+    height: clamp(210px, 30dvh, 330px);
+    object-fit: cover;
+    object-position: 55% top;
+  }
+  .board .neon-symbol {
+    top: 4px;
+    left: 18px;
+    width: 38px;
+    height: 38px;
+    padding: 7px;
+  }
+  .board .athletics-copy {
+    bottom: 18px;
+    left: 18px;
+    right: 18px;
+  }
+  .board .athletics-copy h2 {
+    font-size: clamp(24px, 2vw, 36px);
+    margin: 8px 0 6px;
+  }
+  .board .athletics-copy p,
+  .board .athletics-copy .small-label {
+    font-size: 10px;
+  }
+  .board .education-line {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .board .education-line h3 {
+    font-size: clamp(11px, 0.82vw, 14px);
+  }
+  .board .education-line p {
+    font-size: 11px;
+    margin-top: 2px;
+  }
+  .board .education-line span:not(.sr-only) {
+    font-size: 10px;
+    margin-top: 2px;
+  }
+  .board .education-art {
+    width: 210px;
+    height: 145px;
+    top: auto;
+    bottom: -4px;
+    right: 50%;
+    transform: translateX(50%) scale(0.65);
+    transform-origin: center bottom;
+  }
+  .board .education-book {
+    width: 95px;
+    height: 120px;
+    padding: 12px 8px;
+    border-left-width: 7px;
+  }
+  .board .education-book img {
+    width: 30px;
+    height: 30px;
+  }
+  .board .education-book span {
+    font-size: 10px;
+  }
+  .board .education-book i {
+    font-size: 8px;
+    margin-top: 5px;
+  }
+  .board .book-wisconsin {
+    top: 0;
+    left: 8px;
+  }
+  .board .book-uva {
+    top: 12px;
+    right: 6px;
+  }
+  .board .route-art.us-map {
+    height: clamp(85px, 13dvh, 155px);
+    margin: 8px -14px 4px;
+  }
+  .board .places-list {
+    border: 0;
+    padding: 0;
+  }
+  .board .places-list li {
+    font-size: 11px;
+    padding-bottom: 5px;
+  }
+  .board .places-list li::before {
+    display: none;
+  }
+  .board .places-list span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  .board .tools-tile {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  .tool-dock {
+    gap: clamp(12px, 1.7vw, 28px);
+  }
+  .tool-icon {
+    width: clamp(32px, 4.8dvh, 52px);
+    height: clamp(32px, 4.8dvh, 52px);
+    font-size: 17px;
+    border-radius: 10px;
+  }
+  .tool-dock li {
+    font-size: 8px;
+    gap: 4px;
+  }
+  .board .tools-tile h2 {
+    font-size: 12px;
+  }
+  .board .resume-tile {
+    padding: 12px 14px 2px;
+    gap: 0;
+  }
+  .resume-link {
+    font-size: 17px;
+    min-height: 48px;
+    gap: 10px;
+  }
+  .resume-link > svg {
+    width: 25px;
+  }
+  .board-meta {
+    font-size: 8px;
+  }
+  .board .github-tile {
+    gap: 5px;
+    justify-content: center;
+  }
+  .board .github-tile > svg {
+    width: 27px;
+    height: 27px;
+  }
+  .board .github-tile h2 {
+    font-size: 18px;
+  }
+  .board .github-tile p {
+    font-size: 10px;
+  }
+  .board .collection-art {
+    top: 54px;
+    height: 110px;
+  }
+  .board .collection-window {
+    width: clamp(115px, 10.6vw, 190px);
+  }
+  .board .collection-window img {
+    height: clamp(62px, 8dvh, 105px);
+  }
+  .board .collection-time {
+    left: 0;
+  }
+  .board .collection-tfrrs {
+    left: 30px;
+    top: 10px;
+  }
+  .board .collection-syllabus {
+    left: 55px;
+    top: 22px;
+  }
+  .board .all-projects-tile .project-caption {
+    width: calc(100% - 32px);
+  }
+  .board .all-projects-tile .project-caption h2 {
+    font-size: clamp(20px, 1.7vw, 28px);
+  }
+  .board .all-projects-tile .project-caption p {
+    font-size: 10px;
+  }
+  .board .contact-tile {
+    gap: 0;
+  }
+  .board .contact-tile h2 {
+    font-size: clamp(20px, 1.65vw, 29px);
+    margin: 16px 0;
+  }
+  .board .contact-email {
+    font-size: 11px;
+    padding: 8px 12px;
+    gap: 15px;
+  }
+  .board .envelope-art {
+    width: 110px;
+    height: 135px;
+    right: -42px;
+    bottom: -28px;
+    opacity: 0.9;
+  }
+  .board .envelope-note {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .board .envelope-body {
+    top: 48px;
+  }
+  .board .envelope-seal {
+    top: 34px;
+  }
+  .board .syllabus-art {
+    top: 48px;
+  }
+  .board .syllabus-browser {
+    width: clamp(210px, 20vw, 350px);
+    right: -35px;
+    top: 10px;
+  }
+  .board .syllabus-browser img {
+    height: clamp(160px, 22dvh, 260px);
+  }
+  .board .syllabus-paper {
+    right: 95px;
+    top: 0;
+    width: 110px;
+    height: 145px;
+    padding: 12px;
+  }
+  .board .syllabus-tile .project-caption {
+    width: 43%;
+  }
+}
+@media (max-width: 359px) {
+  .board .tile {
+    padding: 18px;
+  }
+  .board .photo-tile,
+  .board .athletics-tile {
+    padding: 0;
+  }
+  .board .project-caption {
+    left: 18px;
+  }
+  .board .project-caption h2 {
+    font-size: 24px;
+  }
+  .tool-dock {
+    gap: 9px;
+  }
+  .tool-icon {
+    width: 38px;
+    height: 38px;
+  }
+  .board-meta {
+    flex-wrap: wrap;
+  }
+  .board .resume-tile,
+  .board .github-tile {
+    padding: 12px;
+  }
+  .resume-link {
+    font-size: 16px;
+    gap: 6px;
+  }
+}
+@media (max-width: 1099px), (max-height: 699px) {
+  .board .coder-tile {
+    min-height: 440px;
+  }
+  .board .coder-scene {
+    width: 78%;
+    max-width: 320px;
+    right: 14px;
+    top: 8px;
+  }
+  .board .coder-tile .project-caption {
+    width: calc(100% - 44px);
+  }
+  .board .coder-tile .project-caption h2 {
+    max-width: 280px;
+    font-size: 30px;
+  }
+  .board .education-tile {
+    min-height: 420px;
+  }
+  .board .education-line {
+    width: 100%;
+  }
+  .board .education-art {
+    top: 190px;
+    right: 50%;
+    transform: translateX(50%) scale(0.8);
+    transform-origin: center top;
+  }
+  .board .all-projects-tile {
+    min-height: 350px;
+  }
+}
+@media (min-width: 1100px) and (min-height: 700px) {
+  .board .collection-window img {
+    height: clamp(45px, 6dvh, 90px);
+  }
+}
+
+/* Integrated map, book covers, and shortcut artwork. */
+.board .tools-tile .tool-icon {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: contain;
+}
+.board .education-art {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: auto;
+  flex: 1;
+  margin: 18px auto 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  transform: none;
+}
+.board .education-book {
+  position: relative;
+  inset: auto;
+  width: 125px;
+  height: 165px;
+  flex: 0 1 125px;
+  padding: 12px 8px 10px;
+  border-left-width: 7px;
+  text-align: center;
+}
+.board .book-wisconsin {
+  transform: rotate(-7deg);
+}
+.board .book-uva {
+  transform: translateY(8px) rotate(7deg);
+}
+.board .education-book img {
+  width: 34px;
+  height: 30px;
+}
+.board .education-book h3 {
+  font-size: 14px;
+  margin: 10px 0 5px;
+  line-height: 1.15;
+}
+.board .education-book p {
+  font-size: 10px;
+  line-height: 1.4;
+  margin: 0;
+}
+.board .education-book .book-school {
+  font-size: 9px;
+  line-height: 1.3;
+  margin-top: auto;
+  font-weight: 550;
+}
+.board .education-book .book-year {
+  font-size: 9px;
+  margin-top: 5px;
+  font-weight: 450;
+}
+.board .places-tile {
+  display: flex;
+  flex-direction: column;
+}
+.board .route-art.us-map {
+  flex: 1;
+  width: calc(100% + 48px);
+  height: 265px;
+  min-height: 0;
+  margin: 12px -24px -24px;
+}
+.board .map-label {
+  font-size: 22px;
+  stroke-width: 7px;
+  font-weight: 650;
+}
+.board .map-year {
+  font-size: 20px;
+  font-weight: 450;
+}
+.board .map-pin-halo {
+  r: 11px;
+}
+.board .map-pin {
+  r: 5px;
+}
+.shortcut-arrow {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 19px;
+  height: 19px;
+}
+.board .resume-link > .shortcut-arrow {
+  width: 19px;
+}
+.board .github-tile {
+  gap: 6px;
+}
+.github-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.resume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 18px;
+}
+.resume-actions a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 15px;
+  min-height: 44px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.resume-actions a:hover {
+  background: var(--surface);
+}
+.resume-preview iframe {
+  display: block;
+  width: 100%;
+  height: 68dvh;
+  min-height: 360px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+}
+.resume-fallback {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 14px 0 0;
+}
+@media (min-width: 1100px) and (min-height: 700px) {
+  .board .education-art {
+    height: auto;
+    margin-top: 14px;
+    gap: 6px;
+  }
+  .board .education-book {
+    width: 48%;
+    flex-basis: 48%;
+    height: clamp(118px, 15dvh, 160px);
+    padding: 8px 4px;
+    border-left-width: 5px;
+  }
+  .board .education-book img {
+    width: 24px;
+    height: 24px;
+  }
+  .board .education-book h3 {
+    font-size: clamp(11px, 0.83vw, 15px);
+    margin: 7px 0 4px;
+  }
+  .board .education-book p {
+    font-size: clamp(8px, 0.62vw, 11px);
+  }
+  .board .education-book .book-school,
+  .board .education-book .book-year {
+    font-size: clamp(7px, 0.55vw, 10px);
+  }
+  .board .route-art.us-map {
+    width: calc(100% + 40px);
+    margin: 10px -20px -24px;
+    height: 100%;
+  }
+  .board .github-tile {
+    justify-content: center;
+    gap: 3px;
+  }
+  .github-avatar {
+    width: clamp(30px, 4.5dvh, 48px);
+    height: clamp(30px, 4.5dvh, 48px);
+  }
+  .board .github-tile h2 {
+    font-size: 16px;
+  }
+  .tool-dock {
+    gap: clamp(10px, 1.3vw, 24px);
+  }
+  .tool-icon {
+    width: clamp(28px, 4.2dvh, 46px);
+    height: clamp(28px, 4.2dvh, 46px);
+  }
+}
+@media (max-width: 359px) {
+  .tool-dock {
+    gap: 8px;
+  }
+  .tool-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .tool-dock li {
+    font-size: 8px;
+  }
+  .board .education-book {
+    width: 110px;
+    flex-basis: 110px;
+  }
+}
+.resume-pages {
+  display: none;
+}
+@media (max-width: 650px) {
+  .resume-preview iframe {
+    display: none;
+  }
+  .resume-pages {
+    display: grid;
+    gap: 16px;
+  }
+  .resume-pages img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--line);
+    background: #fff;
+    border-radius: 4px;
+  }
+}
+
+.board .education-tile {
+  display: flex;
+  flex-direction: column;
+}
+@media (hover: hover) and (pointer: fine) {
+  .board .education-book {
+    transition:
+      transform 240ms ease-out,
+      box-shadow 240ms ease-out;
+  }
+  .board .map-pin-halo {
+    transition:
+      r 220ms ease-out,
+      fill 220ms ease-out,
+      opacity 220ms ease-out;
+  }
+  .board .map-home-state,
+  .board .route-path {
+    transition:
+      fill 220ms ease-out,
+      stroke 220ms ease-out,
+      opacity 220ms ease-out;
+  }
+  .board .education-tile:hover .book-wisconsin {
+    transform: translateY(-4px) rotate(-3deg);
+  }
+  .board .education-tile:hover .book-uva {
+    transform: translateY(3px) rotate(3deg);
+  }
+  .board .education-tile:hover .education-book {
+    box-shadow:
+      4px 5px 0 #faf8f3,
+      7px 8px 0 #d8d4cc,
+      10px 16px 22px #252a3530;
+  }
+  .board .places-tile:hover .map-pin-halo {
+    r: 18px;
+    fill: #668992;
+    opacity: 0.22;
+  }
+  .board .places-tile:hover .map-home-state {
+    fill: #a7c3ca;
+  }
+  :root[data-theme="dark"] .board .places-tile:hover .map-home-state {
+    fill: #78949b;
+  }
+  .board .places-tile:hover .route-path {
+    stroke: var(--text);
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .board .education-book,
+  .board .map-pin-halo,
+  .board .map-home-state,
+  .board .route-path {
+    transition: none;
+  }
+  .board .education-tile:hover .book-wisconsin {
+    transform: rotate(-7deg);
+  }
+  .board .education-tile:hover .book-uva {
+    transform: translateY(8px) rotate(7deg);
+  }
+}
+
+/* Each tile keeps its own icon accent; brand artwork retains its native colors. */
+.board .places-tile {
+  --tile-accent: #33828a;
+}
+.board .education-tile {
+  --tile-accent: #b57c30;
+}
+.board .all-projects-tile {
+  --tile-accent: #427fbb;
+}
+.board .syllabus-tile {
+  --tile-accent: #5b8347;
+}
+.board .contact-tile {
+  --tile-accent: #e8bd63;
+}
+.board .resume-tile {
+  --tile-accent: #bb6556;
+}
+.board .github-tile {
+  --tile-accent: #8060b6;
+}
+.board .coder-tile {
+  --tile-accent: #9564cc;
+}
+.board .neon-tile {
+  --tile-accent: #697ee2;
+}
+.board .athletics-tile {
+  --tile-accent: #bdd873;
+}
+:root[data-theme="dark"] .board .places-tile {
+  --tile-accent: #75bbc1;
+}
+:root[data-theme="dark"] .board .education-tile {
+  --tile-accent: #dfac60;
+}
+:root[data-theme="dark"] .board .all-projects-tile {
+  --tile-accent: #7aaee0;
+}
+:root[data-theme="dark"] .board .syllabus-tile {
+  --tile-accent: #9dc383;
+}
+:root[data-theme="dark"] .board .resume-tile {
+  --tile-accent: #e6998c;
+}
+:root[data-theme="dark"] .board .github-tile {
+  --tile-accent: #b79ae5;
+}
+:root[data-theme="dark"] .board .coder-tile {
+  --tile-accent: #b991e8;
+}
+:root[data-theme="dark"] .board .neon-tile {
+  --tile-accent: #93a3f0;
+}
+.board .tile-identity > svg,
+.board .detail-indicator,
+.board .shortcut-arrow,
+.board .resume-link > svg,
+.board .github-mark {
+  color: var(--tile-accent);
+}
+.board .github-tile h2 {
+  gap: 6px;
+}
+.board .github-mark {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+.resume-art {
+  position: absolute;
+  top: 44px;
+  right: 20px;
+  width: 54px;
+  height: 72px;
+  pointer-events: none;
+  transform: rotate(9deg);
+}
+.resume-sheet {
+  height: 100%;
+  padding: 8px;
+  background: #fffdf8;
+  color: #a75849;
+  border-radius: 3px;
+  border-top: 3px solid #cf8b7b;
+  box-shadow:
+    3px 4px 0 #e9e3d9,
+    0 5px 10px #30201a14;
+}
+.resume-sheet strong {
+  display: block;
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: -0.4px;
+  margin-bottom: 6px;
+}
+.resume-sheet i {
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 1px;
+  background: #dcd5cc;
+  margin-top: 3px;
+}
+.resume-sheet i:nth-of-type(2) {
+  width: 75%;
+}
+.resume-sheet-section {
+  padding-top: 4px;
+  margin-top: 4px;
+  border-top: 1px solid #e9e1d8;
+}
+.board-meta {
+  position: relative;
+  z-index: 1;
+}
+.board .route-leg {
+  stroke-dasharray: 0.025 0.03;
+}
+@media (min-width: 1100px) and (min-height: 700px) {
+  .resume-art {
+    top: 34px;
+    right: 18px;
+    width: clamp(34px, 3.6vw, 54px);
+    height: clamp(42px, 6.4dvh, 68px);
+  }
+  .resume-sheet {
+    padding: 6px;
+  }
+  .resume-sheet strong {
+    font-size: 8px;
+    margin-bottom: 4px;
+  }
+  .resume-sheet-section {
+    padding-top: 2px;
+    margin-top: 3px;
+  }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .board .route-leg {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  .board .places-tile:hover .route-leg-one {
+    animation: location-trail 900ms cubic-bezier(0.3, 0, 0.4, 1) 120ms both;
+  }
+  .board .places-tile:hover .route-leg-two {
+    animation: location-trail 700ms cubic-bezier(0.3, 0, 0.4, 1) 1.02s both;
+  }
+  .resume-art {
+    transition: transform 220ms ease-out;
+  }
+  .resume-tile:has(.resume-link:hover) .resume-art {
+    transform: translateY(-3px) rotate(3deg);
+  }
+}
+@keyframes location-trail {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Two image layers keep the photo swap continuous in either direction. */
+.board .photo-tile > .photo-hover {
+  opacity: 0;
+  object-position: center 60%;
+  transform: scale(1.5);
+  transform-origin: center 60%;
+}
+.tool-dock li {
+  position: relative;
+  --tool-accent: #26798a;
+}
+.tool-dock li:nth-child(2) {
+  --tool-accent: #32678e;
+}
+.tool-dock li:nth-child(3) {
+  --tool-accent: #806400;
+}
+.tool-dock li:nth-child(4) {
+  --tool-accent: #9a5140;
+}
+.tool-dock li:nth-child(5) {
+  --tool-accent: #b64b28;
+}
+.tool-dock li:nth-child(6) {
+  --tool-accent: #24699b;
+}
+:root[data-theme="dark"] .tool-dock li {
+  --tool-accent: #82cfe4;
+}
+:root[data-theme="dark"] .tool-dock li:nth-child(2) {
+  --tool-accent: #83b6df;
+}
+:root[data-theme="dark"] .tool-dock li:nth-child(3) {
+  --tool-accent: #f0d571;
+}
+:root[data-theme="dark"] .tool-dock li:nth-child(4) {
+  --tool-accent: #eaa58d;
+}
+:root[data-theme="dark"] .tool-dock li:nth-child(5) {
+  --tool-accent: #f6a182;
+}
+:root[data-theme="dark"] .tool-dock li:nth-child(6) {
+  --tool-accent: #81bce8;
+}
+@media (hover: hover) and (pointer: fine) {
+  .board .photo-tile > img {
+    transition:
+      opacity 420ms ease-in-out,
+      transform 650ms cubic-bezier(0.2, 0.65, 0.3, 1);
+  }
+  .board .photo-tile:hover > .photo-default {
+    transform: scale(1.025);
+  }
+  .board .photo-tile:hover > .photo-hover {
+    opacity: 1;
+    transform: scale(1.65);
+  }
+  .tool-dock li::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -4px;
+    width: calc(100% + 12px);
+    aspect-ratio: 1;
+    max-width: 62px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--tool-accent) 12%, transparent);
+    opacity: 0;
+    transform: translateX(-50%) scale(0.75);
+    transition:
+      opacity 160ms ease-out,
+      transform 220ms ease-out;
+  }
+  .tool-dock .tool-icon {
+    position: relative;
+    transition: transform 220ms cubic-bezier(0.2, 0.65, 0.3, 1);
+  }
+  .tool-dock li > span {
+    transition:
+      color 160ms ease-out,
+      transform 220ms ease-out;
+  }
+  .tool-dock li:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+  .tool-dock li:hover .tool-icon {
+    transform: translateY(-4px) scale(1.12);
+  }
+  .tool-dock li:hover > span {
+    color: var(--tool-accent);
+    transform: translateY(1px);
+  }
+  .tool-dock li:has(+ li:hover) .tool-icon,
+  .tool-dock li:hover + li .tool-icon {
+    transform: translateY(-1px) scale(1.025);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .board .photo-tile:hover > .photo-default,
+  .board .photo-tile:hover > .photo-hover,
+  .tool-dock li:hover .tool-icon,
+  .tool-dock li:has(+ li:hover) .tool-icon,
+  .tool-dock li:hover + li .tool-icon,
+  .tool-dock li:hover > span {
+    transform: none;
+  }
+}
