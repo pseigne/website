@@ -6,6 +6,10 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
+import {
+  CourseworkDetails,
+  LanguageDetails,
+} from "./components/AcademicDetails";
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
 import DetailDialog from "./components/DetailDialog";
@@ -34,8 +38,23 @@ export default function App() {
   const project = projects.find(
     (item) => projectPath === `/projects/${item.slug}`,
   );
+  const language = [
+    "React",
+    "Python",
+    "JavaScript",
+    "Java",
+    "HTML",
+    "CSS",
+    "TypeScript",
+    "SQL",
+  ].find((name) => path === `/languages/${name.toLowerCase()}`);
   const title =
     project?.name ??
+    (language
+      ? `${language} projects`
+      : path === "/education"
+        ? "Education & coursework"
+        : undefined) ??
     (path === "/blog"
       ? "Blog"
       : isExplorer
@@ -113,7 +132,9 @@ export default function App() {
             <NavLink to="/links">Links</NavLink>
           </nav>
         </header>
-        {isExplorer ? <ProjectExplorer /> : isNavigationPage ? (
+        {isExplorer ? (
+          <ProjectExplorer />
+        ) : isNavigationPage ? (
           <NavigationPages
             page={
               path === "/blog"
@@ -136,6 +157,10 @@ export default function App() {
             <AthleticsContent />
           ) : path === "/resume" ? (
             <ResumePreview />
+          ) : path === "/education" ? (
+            <CourseworkDetails />
+          ) : language ? (
+            <LanguageDetails language={language} />
           ) : project ? (
             <ProjectDetail project={project} />
           ) : (

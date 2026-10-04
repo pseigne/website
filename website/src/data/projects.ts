@@ -7,6 +7,7 @@ export interface Project {
   role: string;
   summary: string;
   stack: string[];
+  languages: string[];
   links: { label: string; url: string }[];
   image?: string;
   imageAlt?: string;
@@ -19,7 +20,8 @@ export const resumeUrl = "/resume/Pierce-Seigne-Resume.pdf";
 export const projects: Project[] = [
   {
     slug: "brainforge-coder-cards",
-    name: "BrainForge Coder Cards",
+    languages: ["React", "JavaScript", "HTML", "CSS"],
+    name: "Coder Cards",
     year: "2026",
     category: "web",
     role: "Product design & frontend development",
@@ -31,7 +33,7 @@ export const projects: Project[] = [
     image: "/images/coder-card.webp",
     fullImage: "/images/coder-card-original.png",
     imageAlt:
-      "An example BrainForge Coder Card for pseigne, with coding style, activity, and language visualizations.",
+      "An example Coder Card for pseigne, with coding style, activity, and language visualizations.",
     sections: [
       {
         title: "The idea",
@@ -47,12 +49,13 @@ export const projects: Project[] = [
       },
       {
         title: "A live product",
-        text: "The result is BrainForge Coder Cards: a way for developers to generate and share their coding identity. The card shown here is an example output; its scores and predictions are product-generated descriptions, not independently verified measures of ability.",
+        text: "The result is Coder Cards: a way for developers to generate and share their coding identity. The card shown here is an example output; its scores and predictions are product-generated descriptions, not independently verified measures of ability.",
       },
     ],
   },
   {
     slug: "neon-ai",
+    languages: ["React", "TypeScript", "HTML", "CSS"],
     name: "Neon.ai Website",
     year: "2026",
     category: "web",
@@ -74,6 +77,7 @@ export const projects: Project[] = [
   },
   {
     slug: "tfrrs-monitor",
+    languages: ["React", "JavaScript", "Python", "HTML", "CSS"],
     name: "TFRRS Monitor",
     year: "2026",
     category: "web",
@@ -93,6 +97,7 @@ export const projects: Project[] = [
   },
   {
     slug: "syllabus-analyzer",
+    languages: ["React", "JavaScript", "Python", "HTML", "CSS"],
     name: "AI Syllabus Analyzer",
     year: "2026",
     category: "web",
@@ -112,6 +117,7 @@ export const projects: Project[] = [
   },
   {
     slug: "resource-allocation-model",
+    languages: ["Python", "SQL"],
     name: "Strategic Resource Allocation Model",
     year: "2026",
     category: "data",
@@ -128,6 +134,7 @@ export const projects: Project[] = [
   },
   {
     slug: "ncaa-performance-analysis",
+    languages: ["Python"],
     name: "NCAA Performance Trend Analysis",
     year: "2026",
     category: "data",
@@ -141,6 +148,7 @@ export const projects: Project[] = [
   },
   {
     slug: "time-progress",
+    languages: ["JavaScript", "HTML", "CSS"],
     name: "Time Progress Visualizer",
     year: "2026",
     category: "web",
@@ -160,6 +168,7 @@ export const projects: Project[] = [
   },
   {
     slug: "running-utilities",
+    languages: ["JavaScript", "HTML", "CSS"],
     name: "Running Utilities",
     year: "2026",
     category: "web",
@@ -180,6 +189,7 @@ export const projects: Project[] = [
   },
   {
     slug: "portfolio-archive",
+    languages: ["React", "TypeScript", "JavaScript", "HTML", "CSS"],
     name: "Personal Portfolio Archive",
     year: "2021–2026",
     category: "web",
@@ -191,6 +201,7 @@ export const projects: Project[] = [
   },
   {
     slug: "medieval-history-capstone",
+    languages: [],
     name: "A Heresy of Blood",
     year: "2025",
     category: "writing",
@@ -207,6 +218,7 @@ export const projects: Project[] = [
   },
   {
     slug: "tiktok-song-duration",
+    languages: ["Python"],
     name: "TikTok & Song Duration",
     year: "2025",
     category: "data",

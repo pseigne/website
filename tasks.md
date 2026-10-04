@@ -169,3 +169,15 @@ Checklist tracking the implementation of the personal bento portfolio featuring 
 - [ ] Configure free Render/Upstash services and replacement OpenAI secret.
 - [x] Publish project frontends and automatic source-repository deployment triggers.
 - [x] Verify responsive layouts, accessibility, and live deployment.
+
+## Coursework, language discovery, and homepage refinements
+
+- [x] Restore the original typing/deleting role animation in place of Work, with a static reduced-motion fallback.
+- [x] Make Education open a coursework modal using the résumé, Wisconsin transcript, and current UVA class folders.
+- [x] Link course projects to their detail views and distinguish current graduate coursework.
+- [x] Make the experience icons open language/React project modals and add clickable project language tags.
+- [x] Show Java Programming I–III coursework without inventing a standalone Java project.
+- [x] Update Coder Cards, its GitHub identity tagline, the Neon description, and the contact heading.
+- [x] Contain the full envelope artwork inside the contact card at mobile and desktop sizes.
+- [x] Verify coursework links, filters, focus restoration, reduced motion, animation timing, and accessibility in both themes.
+- [x] Publish and verify the final changes on the live site.

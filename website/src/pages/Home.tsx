@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import TypingRoles from "../components/TypingRoles";
 import Greeting from "../components/Greeting";
 import ExperienceDock from "../components/ExperienceDock";
 import SocialsTile from "../components/SocialsTile";
@@ -96,11 +97,7 @@ export default function Home({
             .
           </p>
         </div>
-        <nav className="intro-links" aria-label="Portfolio navigation">
-          <Link to="/projects" state={detailState}>
-            Work <ArrowUpRight size={14} aria-hidden="true" />
-          </Link>
-        </nav>
+        <TypingRoles />
       </section>
 
       <figure className="tile photo-tile">
@@ -129,18 +126,18 @@ export default function Home({
         className="tile coder-tile project-tile"
         to="/projects/brainforge-coder-cards"
         state={detailState}
-        aria-label="Explore BrainForge Coder Cards"
+        aria-label="Explore Coder Cards"
       >
         <div className="tile-heading">
           <span className="tile-identity">
             <img src="/logos/coder.svg" alt="" width="24" height="24" />
-            BrainForge Coder Cards
+            Coder Cards
           </span>
           <DetailIndicator />
         </div>
         <CoderArtwork />
         <div className="project-caption">
-          <h2>Code has character.</h2>
+          <h2>Your GitHub Identity</h2>
           <p>Product design & frontend</p>
         </div>
       </Link>
@@ -160,7 +157,7 @@ export default function Home({
         </div>
         <NeonArtwork />
         <div className="project-caption">
-          <h2>A different kind of AI.</h2>
+          <h2>Private, fine-tuned, conversational AI.</h2>
           <p>Website design</p>
         </div>
       </Link>
@@ -182,16 +179,19 @@ export default function Home({
         </div>
       </section>
 
-      <section
+      <Link
         className="tile education-tile"
-        aria-labelledby="education-title"
+        to="/education"
+        state={detailState}
+        aria-label="Explore education and coursework"
       >
         <h2 id="education-title" className="tile-identity">
           <GraduationCap size={20} strokeWidth={1.7} aria-hidden="true" />
           Education
         </h2>
+        <DetailIndicator />
         <EducationArtwork />
-      </section>
+      </Link>
 
       <Link
         className="tile all-projects-tile"
@@ -226,11 +226,15 @@ export default function Home({
           <Mail size={20} strokeWidth={1.7} aria-hidden="true" />
           Say hello
         </span>
-        <h2>Good things start with a conversation.</h2>
-        <EnvelopeArtwork />
-        <a className="contact-email" href="mailto:pierceseigne@icloud.com">
-          Let’s talk <ArrowRight size={17} aria-hidden="true" />
-        </a>
+        <h2>Send me a message</h2>
+        <div className="contact-bottom">
+          <a className="contact-email" href="mailto:pierceseigne@icloud.com">
+            Email me <ArrowRight size={17} aria-hidden="true" />
+          </a>
+          <div className="contact-graphic">
+            <EnvelopeArtwork />
+          </div>
+        </div>
       </section>
 
       <section className="tile tools-tile" aria-labelledby="tools-title">

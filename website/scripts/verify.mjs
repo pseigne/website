@@ -24,7 +24,7 @@ try {
   await expansionPage.locator(".project-detail").waitFor();
   assert.equal(
     await expansionPage.locator("#detail-title").textContent(),
-    "BrainForge Coder Cards",
+    "Coder Cards",
   );
   await expansionPage
     .getByRole("heading", { name: "From sketch to prototype" })
@@ -136,13 +136,14 @@ try {
         const intro = document
           .querySelector(".introduction")
           .getBoundingClientRect();
+        const board = document.querySelector(".board").getBoundingClientRect();
         return {
           fits:
             document.documentElement.scrollHeight <= innerHeight &&
             document.documentElement.scrollWidth <= innerWidth,
           centered:
             Math.abs(intro.x + intro.width / 2 - innerWidth / 2) < 2 &&
-            Math.abs(intro.y + intro.height / 2 - innerHeight / 2) < 2,
+            Math.abs(intro.y + intro.height / 2 - (board.y + board.height / 2)) < 2,
           tilesVisible: [...document.querySelectorAll(".tile")].every(
             (tile) => {
               const rect = tile.getBoundingClientRect();
@@ -220,7 +221,7 @@ try {
   await page.getByRole("dialog").waitFor();
   assert.equal(
     await page.locator("#detail-title").textContent(),
-    "BrainForge Coder Cards",
+    "Coder Cards",
   );
   assert.equal(
     await page.locator("body").evaluate((body) => body.style.overflow),
@@ -245,11 +246,9 @@ try {
     true,
     "Focus restored",
   );
-  await page.getByRole("link", { name: "Work", exact: true }).click();
-  await page.getByRole("button", { name: "Data & research" }).click();
-  assert.equal(await page.locator(".project-list-item").count(), 3);
-  await page.getByRole("button", { name: "Everything" }).click();
-  assert.equal(await page.locator(".project-list-item").count(), 11);
+  await page.locator(".all-projects-tile").click();
+  await page.locator(".project-list-item").first().waitFor();
+  assert.equal(await page.locator(".project-list-item").count(), 4);
   await page
     .locator(".project-list-item")
     .filter({ hasText: "Neon.ai" })
@@ -301,7 +300,7 @@ try {
     await page.locator("main").textContent(),
     /Data Science|A little about me/,
   );
-  assert.equal(await page.locator(".wordmark").textContent(), "Pierce Seigne");
+  assert.equal(await page.locator(".top-navigation a").first().textContent(), "Home");
   for (const route of ["athletics", "projects/not-real"]) {
     await page.goto(`${url}/#/${route}`);
     await page.getByRole("dialog").waitFor();
@@ -341,7 +340,7 @@ try {
   await page.goto(`${url}/#/projects/syllabus-analyzer`);
   await page.getByRole("dialog").waitFor();
   console.log(
-    "PASS theme persistence, focus, Escape, filters, history, every project deep link, markdown, video, legacy and résumé",
+    "PASS theme persistence, focus, Escape, selected work, history, every project deep link, markdown, video, legacy and résumé",
   );
   for (const width of [375, 1440]) {
     await page.setViewportSize({ width, height: 1000 });

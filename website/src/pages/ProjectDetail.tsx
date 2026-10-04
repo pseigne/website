@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { ArrowUpRight, Expand } from "lucide-react";
 import ReactMarkdown from "react-markdown";
@@ -40,7 +41,11 @@ function MarkdownCaseStudy({ url }: { url: string }) {
             {children}
           </a>
         ),
-        pre: ({ children, ...props }) => <pre {...props} tabIndex={0}>{children}</pre>,
+        pre: ({ children, ...props }) => (
+          <pre {...props} tabIndex={0}>
+            {children}
+          </pre>
+        ),
         table: ({ children, ...props }) => (
           <div className="table-scroll">
             <table {...props}>{children}</table>
@@ -53,6 +58,9 @@ function MarkdownCaseStudy({ url }: { url: string }) {
   );
 }
 export default function ProjectDetail({ project }: { project: Project }) {
+  const otherTools = project.stack.filter(
+    (tool) => !project.languages.includes(tool),
+  );
   return (
     <article className="prose project-detail">
       <p className="project-role">
@@ -91,9 +99,23 @@ export default function ProjectDetail({ project }: { project: Project }) {
           )}
         </figure>
       )}
-      {project.stack.length > 0 && (
+      {project.languages.length > 0 && (
+        <ul className="stack-list language-tags" aria-label="Project languages">
+          {project.languages.map((language) => (
+            <li key={language}>
+              <Link
+                to={`/languages/${language.toLowerCase()}`}
+                state={{ fromPortfolio: true }}
+              >
+                {language}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+      {otherTools.length > 0 && (
         <ul className="stack-list" aria-label="Tools and disciplines">
-          {project.stack.map((tool) => (
+          {otherTools.map((tool) => (
             <li key={tool}>{tool}</li>
           ))}
         </ul>

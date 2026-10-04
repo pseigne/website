@@ -1,0 +1,54 @@
+import { chromium } from '@playwright/test';
+import AxeBuilder from '@axe-core/playwright';
+import assert from 'node:assert/strict';
+import { mkdir } from 'node:fs/promises';
+const url = process.env.PORTFOLIO_URL || 'http://127.0.0.1:5173';
+await mkdir('.portfolio-checks', { recursive: true });
+const browser = await chromium.launch({channel:'chrome',headless:true});
+try {
+  for (const [width,height,theme] of [[375,900,'light'],[375,900,'dark'],[1280,720,'light'],[1366,768,'dark'],[1920,1080,'light']]) {
+    const context=await browser.newContext({viewport:{width,height},colorScheme:theme,reducedMotion:'reduce'});
+    const page=await context.newPage();const errors=[];page.on('pageerror',error=>errors.push(error.message));
+    await page.goto(url);await page.evaluate(()=>document.fonts.ready);
+    assert.equal(await page.getByRole('link',{name:'Work',exact:true}).count(),0);
+    assert.equal(await page.locator('.typed').textContent(),'Developer');
+    assert.equal(await page.locator('.typing-cursor').evaluate(el=>getComputedStyle(el).animationName),'none');
+    assert.equal(await page.locator('.coder-tile .tile-identity').innerText(),'Coder Cards');
+    assert.equal(await page.locator('.coder-tile h2').textContent(),'Your GitHub Identity');
+    assert.equal(await page.locator('.neon-tile h2').textContent(),'Private, fine-tuned, conversational AI.');
+    assert.equal(await page.locator('.contact-tile h2').textContent(),'Send me a message');
+    const inside=await page.locator('.envelope-art').evaluate(el=>{const r=el.getBoundingClientRect(),tile=el.closest('.tile').getBoundingClientRect();return r.left>=tile.left&&r.right<=tile.right&&r.top>=tile.top&&r.bottom<=tile.bottom;});
+    assert.equal(inside,true,`${width}/${theme}: full envelope fits`);
+    await page.screenshot({path:`.portfolio-checks/academic-home-${width}-${theme}.png`,fullPage:true});
+    await page.getByRole('link',{name:'Explore education and coursework'}).click();
+    await page.getByRole('heading',{name:'Education & coursework',exact:true}).waitFor();
+    assert.equal(await page.getByRole('heading',{name:'University of Virginia',exact:true}).count(),1);
+    assert.equal(await page.getByRole('heading',{name:'Building User Interfaces',exact:true}).count(),1);
+    assert.equal(await page.locator('.course-list > li').count(),25);
+    await page.screenshot({path:`.portfolio-checks/coursework-${width}-${theme}.png`,fullPage:true});
+    const courseAudit=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
+    assert.deepEqual(courseAudit.violations.map(v=>({id:v.id,targets:v.nodes.map(n=>n.target)})),[],'Coursework accessibility');
+    await page.getByRole('link',{name:'AI Syllabus Analyzer',exact:true}).click();
+    await page.locator('#detail-title').filter({hasText:'AI Syllabus Analyzer'}).waitFor();
+    await page.locator('.language-tags').getByRole('link',{name:'Python',exact:true}).click();
+    await page.getByRole('heading',{name:'Python projects',exact:true}).waitFor();
+    assert.equal(await page.locator('.language-projects > li').count(),5);
+    await page.locator('.language-projects').getByRole('link').filter({hasText:'Strategic Resource Allocation Model'}).click();
+    await page.getByRole('heading',{name:'Strategic Resource Allocation Model',exact:true}).waitFor();
+    await page.goto(url);await page.getByRole('link',{name:'Explore Java projects',exact:true}).click();
+    await page.getByRole('heading',{name:'Java projects',exact:true}).waitFor();
+    assert.equal(await page.locator('.language-projects > li').count(),0);
+    assert.equal(await page.locator('.language-coursework li').count(),3);
+    const languageAudit=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
+    assert.deepEqual(languageAudit.violations.map(v=>v.id),[],'Language modal accessibility');
+    await page.keyboard.press('Escape');await page.waitForFunction(()=>!document.querySelector('dialog'));
+    assert.equal(await page.getByRole('link',{name:'Explore Java projects',exact:true}).evaluate(el=>el===document.activeElement),true,'Focus returns to language icon');
+    assert.deepEqual(errors,[]);
+    console.log(`PASS ${width}px ${theme}: contact artwork, coursework links, language filters, accessibility, focus`);
+    await context.close();
+  }
+  const page=await browser.newPage({reducedMotion:'no-preference'});await page.goto(url);
+  await page.waitForFunction(()=>document.querySelector('.typed')?.textContent==='Economist');
+  await page.waitForFunction(()=>document.querySelector('.typed')?.textContent==='Historian');
+  console.log('PASS original typing/deleting sequence');
+} finally {await browser.close();}

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const tools = [
   ["react", "React"],
   ["python", "Python"],
@@ -12,14 +13,20 @@ export default function ExperienceDock() {
     <ul className="tool-dock">
       {tools.map(([icon, name]) => (
         <li key={icon}>
-          <img
-            className="tool-icon"
-            src={`/images/technology/${icon}.svg`}
-            alt=""
-            width="43"
-            height="43"
-          />
-          <span>{name}</span>
+          <Link
+            to={`/languages/${name.toLowerCase()}`}
+            state={{ fromPortfolio: true }}
+            aria-label={`Explore ${name} projects`}
+          >
+            <img
+              className="tool-icon"
+              src={`/images/technology/${icon}.svg`}
+              alt=""
+              width="43"
+              height="43"
+            />
+            <span>{name}</span>
+          </Link>
         </li>
       ))}
     </ul>
