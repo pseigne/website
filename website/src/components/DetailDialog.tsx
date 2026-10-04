@@ -26,7 +26,7 @@ export default function DetailDialog({
         trigger.focus({ preventScroll: true });
       else
         document
-          .querySelector<HTMLElement>(".wordmark")
+          .querySelector<HTMLElement>('.top-navigation a[href="#/"]')
           ?.focus({ preventScroll: true });
     };
   }, []);
@@ -83,7 +83,6 @@ export default function DetailDialog({
       }}
     >
       <div className="dialog-toolbar">
-        <span>Pierce Seigne</span>
         <button
           className="icon-button"
           onClick={onClose}

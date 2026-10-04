@@ -20,6 +20,98 @@ try {
       .locator(`.location-stop-${index} .map-label`)
       .evaluate((element) => Number(getComputedStyle(element).opacity));
   assert.equal(await labelOpacity(1), 1);
+  await page.evaluate(() => document.fonts.ready);
+  const greeting = page.locator("#intro-title");
+  assert.equal(
+    await greeting.evaluate((element) => getComputedStyle(element).fontWeight),
+    "900",
+  );
+  const biographyTop = await page
+    .locator(".intro-copy > p")
+    .evaluate((element) => element.getBoundingClientRect().top);
+  await greeting.hover();
+  for (const style of ["serif", "hand", "italic", "original"]) {
+    await page.waitForFunction(
+      (style) =>
+        document.querySelector("#intro-title").dataset.typeStyle === style,
+      style,
+    );
+    assert.equal(
+      await page
+        .locator(".intro-copy > p")
+        .evaluate((element) => element.getBoundingClientRect().top),
+      biographyTop,
+      "Typeface changes keep the biography stable",
+    );
+    if (style === "italic")
+      assert.equal(
+        await greeting.evaluate(
+          (element) => getComputedStyle(element).fontStyle,
+        ),
+        "italic",
+      );
+    await page.screenshot({ path: `.portfolio-checks/greeting-${style}.png` });
+  }
+  await page.waitForFunction(
+    () => !document.querySelector("#intro-title").dataset.typeStyle,
+  );
+  const socials = page.locator(".social-links");
+  for (const [name, href] of [
+    ["GitHub", "https://github.com/pseigne"],
+    ["X", "https://x.com/KingSeigne"],
+    ["LinkedIn", "https://www.linkedin.com/in/pierce-seigne-b310a0305"],
+  ]) {
+    assert.equal(
+      await socials
+        .getByRole("link", {
+          name: `${name} (opens in a new tab)`,
+          exact: true,
+        })
+        .getAttribute("href"),
+      href,
+    );
+  }
+  assert.equal(await page.locator(".socials-heading").count(), 0);
+  for (const name of ["GitHub", "X", "LinkedIn"]) {
+    const link = socials.getByRole("link", {
+      name: `${name} (opens in a new tab)`,
+      exact: true,
+    });
+    assert.equal(await link.getAttribute("target"), "_blank");
+    assert.equal(
+      await link
+        .locator(".social-portrait")
+        .evaluate((image) => getComputedStyle(image).opacity),
+      "0",
+    );
+    await link.hover();
+    await page.waitForTimeout(280);
+    assert.equal(
+      await link
+        .locator(".social-portrait")
+        .evaluate((image) => getComputedStyle(image).opacity),
+      "1",
+    );
+    assert.equal(
+      await link
+        .locator(".social-tab-arrow")
+        .evaluate((arrow) => getComputedStyle(arrow).opacity),
+      "1",
+    );
+    assert.ok(
+      await link
+        .locator(".social-mark")
+        .evaluate(
+          (mark) =>
+            new DOMMatrixReadOnly(getComputedStyle(mark).transform).a > 1,
+        ),
+    );
+    await page.screenshot({
+      path: `.portfolio-checks/social-hover-${name.toLowerCase()}.png`,
+    });
+    await page.locator(".introduction").hover();
+    await page.waitForTimeout(280);
+  }
   await page.locator(".photo-hover").evaluate((image) => image.decode());
   await page.locator(".photo-tile").hover();
   await page.waitForFunction(
@@ -47,15 +139,32 @@ try {
     );
     await page.locator(".tool-dock li").nth(2).hover();
     await page.waitForTimeout(250);
-    assert.ok(
+    const matrix = await page
+      .locator(".tool-dock li")
+      .nth(2)
+      .locator("img")
+      .evaluate((image) => {
+        const transform = new DOMMatrixReadOnly(
+          getComputedStyle(image).transform,
+        );
+        return {
+          scale: transform.a,
+          x: transform.e,
+          y: transform.f,
+          skew: transform.b,
+        };
+      });
+    assert.ok(Math.abs(matrix.scale - 1.06) < 0.002);
+    assert.equal(matrix.x, 0);
+    assert.equal(matrix.y, 0);
+    assert.equal(matrix.skew, 0);
+    assert.equal(
       await page
         .locator(".tool-dock li")
-        .nth(2)
+        .nth(1)
         .locator("img")
-        .evaluate(
-          (image) =>
-            new DOMMatrixReadOnly(getComputedStyle(image).transform).a > 1,
-        ),
+        .evaluate((image) => getComputedStyle(image).transform),
+      "none",
     );
     const audit = await new AxeBuilder({ page })
       .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
@@ -139,6 +248,8 @@ try {
   );
 
   await page.emulateMedia({ reducedMotion: "reduce" });
+  await greeting.hover();
+  assert.equal(await greeting.getAttribute("data-type-style"), null);
   await page.locator(".photo-tile").hover();
   assert.equal(
     await page
@@ -230,7 +341,7 @@ try {
   );
   await touch.close();
   console.log(
-    "PASS photo crossfade/zoom, experience hover/contrast, trail replay, muted hover playback, manual controls, reduced motion, touch fallback, and distinct header accents",
+    "PASS greeting font sequence/stable layout, social links, simple icon scale/social reveals, photo crossfade, trail replay, muted hover playback, reduced motion, touch fallback, and header accents",
   );
 } finally {
   await browser.close();

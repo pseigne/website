@@ -93,7 +93,7 @@ export function ProjectArtwork() {
         address="TFRRS Monitor"
       >
         <img
-          src="/images/tfrrs.webp"
+          src="/images/tfrrs-placeholder.svg"
           alt=""
           width="1024"
           height="1024"
@@ -105,7 +105,7 @@ export function ProjectArtwork() {
         address="Syllabus Analyzer"
       >
         <img
-          src="/images/syllabus.webp"
+          src="/images/syllabus-placeholder.svg"
           alt=""
           width="1024"
           height="1024"
@@ -128,7 +128,7 @@ export function SyllabusArtwork() {
       </div>
       <BrowserFrame className="syllabus-browser" address="Syllabus Analyzer">
         <img
-          src="/images/syllabus.webp"
+          src="/images/syllabus-placeholder.svg"
           alt=""
           width="1024"
           height="1024"

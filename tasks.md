@@ -90,3 +90,58 @@ Checklist tracking the implementation of the personal bento portfolio featuring 
 - [x] Add individual experience icon lift, neighboring dock movement, color feedback, and a soft halo.
 - [x] Preserve static touch presentation and reduced-motion behavior.
 - [x] Verify loaded photo, hover transitions, theme contrast, mobile layout, and build.
+
+## Greeting, social profiles, and magnetic experience dock
+
+- [x] Make the original greeting heavier and add a two-second serif → handwriting → italic serif → original sequence.
+- [x] Preload the local typefaces and keep heading geometry stable during the sequence.
+- [x] Replace the GitHub shortcut with GitHub, X (@pseigne), and LinkedIn links while retaining the profile photo.
+- [x] Add a cursor-driven magnetic wave, responsive neighbors, and a traveling brand-colored light to the experience dock.
+- [x] Keep reduced motion and touch presentations static.
+- [x] Verify timing, typography at desktop/mobile sizes, links, magnetic motion, accessibility, and build.
+
+## Simplified experience and icon-only socials
+
+- [x] Remove the magnetic dock and keep only a slight icon scale.
+- [x] Remove the Socials title, top profile photo, and visible link labels.
+- [x] Enlarge the three network marks and reveal platform-specific portraits and new-tab arrows on hover/focus.
+- [x] Correct X to the confirmed @KingSeigne profile and use its actual photo.
+- [x] Make the photo swap snappier: outgoing image shrinks while the new one springs forward.
+- [x] Use the local cropped headshot for LinkedIn after the user confirmed the local headshot option.
+- [x] Verify hover/focus states, touch/reduced motion, photo timing, responsive fit, and build.
+
+## Selected work list
+
+- [x] Replace the modal's two-column project grid with a semantic list of rows, with thumbnails beside project details.
+- [x] Verify desktop and mobile layouts without horizontal overflow and build successfully.
+
+## Top navigation
+
+- [x] Add Home, Blog, and Links tabs with active states above the bento.
+- [x] Start Blog with no posts and add a Links page for social profiles, email, and résumé.
+- [x] Preserve desktop viewport fit and verify navigation, mobile layout, accessibility, lint, and build.
+
+## Project links directory
+
+- [x] Add direct links for all 11 projects, including both Running Utilities tools, above personal links.
+- [x] Verify desktop/mobile scrolling and layout; keep Selected Work unchanged pending the user's shortlist.
+
+## Selected work shortlist
+
+- [x] Show only Coder Cards, Neon.ai Website, TFRRS Monitor, and Syllabus Analyzer in a responsive grid.
+- [x] Remove the name and divider from the modal toolbar.
+- [x] Add See all linking to the complete Links directory.
+
+## Project preview placeholders
+
+- [x] Remove original TFRRS Monitor and Syllabus Analyzer screenshots and their WebP/build copies.
+- [x] Replace all preview references with labeled SVG placeholders and stop regenerating the deleted screenshots.
+
+## Doug the Duck
+
+- [x] Prepare a transparent cutout of the supplied Doug illustration and place it beside the greeting.
+- [x] Use Doug for browser favicons and the Apple touch icon.
+- [x] Move Doug to the left and use matching transparent GIF-derived poses for five hover waves, ending wing-down.
+- [x] Keep touch/reduced-motion static and clean up playback on unmount.
+- [x] Start the font sequence and Doug's wave together on mount after assets load; hover over the greeting replays only Doug's wave.
+- [x] Verify simultaneous start, font stability on hover, reduced motion, lint, and build.

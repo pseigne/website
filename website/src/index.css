@@ -15,3 +15,25 @@
   font-style: italic;
   font-display: swap;
 }
+
+@font-face {
+  font-family: "Greeting Garamond";
+  src: url("/fonts/eb-garamond.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: "Greeting Hand";
+  src: url("/fonts/caveat.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: block;
+}
+@font-face {
+  font-family: "Greeting Bodoni";
+  src: url("/fonts/bodoni-moda.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: block;
+}

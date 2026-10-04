@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" rx="24" fill="#e7edf2"/>
+  <rect x="520" y="290" width="160" height="130" rx="18" fill="none" stroke="#68777f" stroke-width="5"/>
+  <circle cx="560" cy="330" r="12" fill="#68777f"/>
+  <path d="M540 395l42-42 30 30 30-24 20 36" fill="none" stroke="#68777f" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="600" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="600" fill="#303b43">TFRRS Monitor</text>
+  <text x="600" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#58656e">Preview coming soon</text>
+</svg>

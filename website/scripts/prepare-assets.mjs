@@ -16,8 +16,6 @@ if (suppliedCard) {
 }
 for (const [source, name] of [
   ["hero.jpg", "pierce"],
-  ["tfrrs_monitor_mockup.png", "tfrrs"],
-  ["syllabus_analyzer_mockup.png", "syllabus"],
   ["time_visualizer_mockup.png", "time"],
 ]) {
   await sharp(`${root}src/assets/${source}`)

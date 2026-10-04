@@ -13,6 +13,9 @@ import {
 } from "lucide-react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
+import Greeting from "../components/Greeting";
+import ExperienceDock from "../components/ExperienceDock";
+import SocialsTile from "../components/SocialsTile";
 import VideoPlayer from "../components/VideoPlayer";
 import DetailIndicator from "../components/DetailIndicator";
 import {
@@ -25,7 +28,6 @@ import {
   TrackArtwork,
   SyllabusArtwork,
   ResumeArtwork,
-  GitHubMark,
 } from "../components/TileArtwork";
 
 gsap.registerPlugin(useGSAP);
@@ -66,9 +68,6 @@ export default function Home({
     >
       <section className="tile introduction" aria-labelledby="intro-title">
         <div className="intro-topline">
-          <Link className="wordmark" to="/" aria-label="Pierce Seigne home">
-            Pierce Seigne
-          </Link>
           <button
             className="icon-button theme-toggle"
             onClick={onToggleTheme}
@@ -82,11 +81,7 @@ export default function Home({
           </button>
         </div>
         <div className="intro-copy">
-          <h1 id="intro-title">
-            Hello,
-            <br />
-            I’m Pierce.
-          </h1>
+          <Greeting />
           <p>
             Associate engineer at{" "}
             <span className="inline-brand">
@@ -101,17 +96,10 @@ export default function Home({
             .
           </p>
         </div>
-        <nav className="intro-links" aria-label="Main navigation">
+        <nav className="intro-links" aria-label="Portfolio navigation">
           <Link to="/projects" state={detailState}>
             Work <ArrowUpRight size={14} aria-hidden="true" />
           </Link>
-          <a
-            href="https://www.linkedin.com/in/pierce-seigne-b310a0305"
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn <ArrowUpRight size={14} aria-hidden="true" />
-          </a>
         </nav>
       </section>
 
@@ -247,27 +235,7 @@ export default function Home({
 
       <section className="tile tools-tile" aria-labelledby="tools-title">
         <h2 id="tools-title">Experience with</h2>
-        <ul className="tool-dock">
-          {[
-            ["react", "React"],
-            ["python", "Python"],
-            ["javascript", "JavaScript"],
-            ["java", "Java"],
-            ["html5", "HTML"],
-            ["css3", "CSS"],
-          ].map(([icon, name]) => (
-            <li key={icon}>
-              <img
-                className="tool-icon"
-                src={`/images/technology/${icon}.svg`}
-                alt=""
-                width="43"
-                height="43"
-              />
-              <span>{name}</span>
-            </li>
-          ))}
-        </ul>
+        <ExperienceDock />
       </section>
 
       <section className="tile resume-tile">
@@ -289,27 +257,7 @@ export default function Home({
         </footer>
       </section>
 
-      <a
-        className="tile github-tile"
-        href="https://github.com/pseigne"
-        target="_blank"
-        rel="noreferrer"
-        aria-label="Visit Pierce’s GitHub"
-      >
-        <ArrowUpRight className="shortcut-arrow" size={19} aria-hidden="true" />
-        <img
-          className="github-avatar"
-          src="/images/github-avatar.png"
-          alt=""
-          width="52"
-          height="52"
-        />
-        <h2>
-          <GitHubMark />
-          GitHub
-        </h2>
-        <p>@pseigne</p>
-      </a>
+      <SocialsTile />
 
       <Link
         className="tile syllabus-tile project-tile"

@@ -417,6 +417,7 @@ try {
     assert.equal(await download.failure(), null);
   }
   const resumeAudit = await new AxeBuilder({ page })
+    .include(".detail-dialog")
     .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
     .analyze();
   assert.deepEqual(

@@ -81,8 +81,8 @@ export const projects: Project[] = [
     summary:
       "A qualification tracker that helps athletes and fans follow NCAA standings and the times on the bubble.",
     stack: ["Python", "Pandas", "JavaScript"],
-    image: "/images/tfrrs.webp",
-    imageAlt: "TFRRS Monitor project preview",
+    image: "/images/tfrrs-placeholder.svg",
+    imageAlt: "TFRRS Monitor placeholder — preview coming soon",
     markdown: "/projects/tfrrs-monitor.md",
     links: [
       {
@@ -100,8 +100,8 @@ export const projects: Project[] = [
     summary:
       "Turns course syllabi into an organized view of schedules, grading, staff, and course expectations.",
     stack: ["React", "Python", "Flask"],
-    image: "/images/syllabus.webp",
-    imageAlt: "Syllabus Analyzer project preview",
+    image: "/images/syllabus-placeholder.svg",
+    imageAlt: "Syllabus Analyzer placeholder — preview coming soon",
     markdown: "/projects/syllabus-analyzer.md",
     links: [
       {

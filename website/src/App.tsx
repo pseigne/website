@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
 import DetailDialog from "./components/DetailDialog";
 import ProjectBrowser from "./components/ProjectBrowser";
 import { AthleticsContent } from "./components/PersonalDetails";
 import ResumePreview from "./components/ResumePreview";
+import NavigationPages from "./pages/NavigationPages";
 import { projects } from "./data/projects";
 import "./App.css";
 import "./TileArtwork.css";
@@ -18,16 +25,21 @@ export default function App() {
     () => document.documentElement.dataset.theme || "light",
   );
   const path = location.pathname;
+  const isNavigationPage = path === "/blog" || path === "/links";
   const project = projects.find((item) => path === `/projects/${item.slug}`);
   const title =
     project?.name ??
-    (path === "/projects"
-      ? "Selected work"
-      : path === "/athletics"
-        ? "Life beyond the laptop"
-        : path === "/resume"
-          ? "Résumé"
-          : "Page not found");
+    (path === "/blog"
+      ? "Blog"
+      : path === "/links"
+        ? "Links"
+        : path === "/projects"
+          ? "Selected work"
+          : path === "/athletics"
+            ? "Life beyond the laptop"
+            : path === "/resume"
+              ? "Résumé"
+              : "Page not found");
   useEffect(() => {
     document.title =
       path === "/"
@@ -79,10 +91,27 @@ export default function App() {
         Skip to content
       </a>
       <div className="site-shell board-shell">
-        <Home theme={theme} onToggleTheme={toggleTheme} />
+        <header className="top-navigation">
+          <nav aria-label="Main navigation">
+            <NavLink
+              to="/"
+              end
+              className={!isNavigationPage ? "active" : undefined}
+            >
+              Home
+            </NavLink>
+            <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/links">Links</NavLink>
+          </nav>
+        </header>
+        {isNavigationPage ? (
+          <NavigationPages page={path === "/blog" ? "blog" : "links"} />
+        ) : (
+          <Home theme={theme} onToggleTheme={toggleTheme} />
+        )}
       </div>
       {path === "/about-us" && <Navigate to="/" replace />}
-      {path !== "/" && path !== "/about-us" && (
+      {path !== "/" && path !== "/about-us" && !isNavigationPage && (
         <DetailDialog title={title} onClose={closeDetail} routeKey={path}>
           {path === "/projects" ? (
             <ProjectBrowser />
