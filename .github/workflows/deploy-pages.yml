@@ -20,22 +20,27 @@ jobs:
     outputs:
       deploy: ${{ steps.check.outputs.deploy }}
       running_sha: ${{ steps.check.outputs.running_sha }}
+      tfrrs_sha: ${{ steps.check.outputs.tfrrs_sha }}
+      time_sha: ${{ steps.check.outputs.time_sha }}
     steps:
-      - name: Check for running utility updates
+      - name: Check for source project updates
         id: check
         env:
           GH_TOKEN: ${{ github.token }}
           EVENT_NAME: ${{ github.event_name }}
         run: |
-          running_sha=$(gh api repos/pseigne/running-utilities/commits/main --jq .sha)
-          echo "running_sha=$running_sha" >> "$GITHUB_OUTPUT"
-          deployed=$(curl --fail --silent --show-error --max-time 15 https://pierceseigne.com/running-utilities/version.json || printf '{}')
-          deployed_sha=$(printf '%s' "$deployed" | jq -r '.commit // empty' 2>/dev/null || true)
-          if [ "$EVENT_NAME" != schedule ] || [ "$running_sha" != "$deployed_sha" ]; then
-            echo "deploy=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "deploy=false" >> "$GITHUB_OUTPUT"
-          fi
+          deploy=false
+          if [ "$EVENT_NAME" != schedule ]; then deploy=true; fi
+          for pair in running:running-utilities tfrrs:ncaa-indoor-qualification time:time-progress-visualizer; do
+            key=${pair%%:*}
+            repo=${pair#*:}
+            sha=$(gh api "repos/pseigne/$repo/commits/main" --jq .sha)
+            echo "${key}_sha=$sha" >> "$GITHUB_OUTPUT"
+            deployed=$(curl --fail --silent --show-error --max-time 15 "https://pierceseigne.com/$repo/version.json" || printf '{}')
+            previous=$(printf '%s' "$deployed" | jq -r '.commit // empty' 2>/dev/null || true)
+            if [ "$sha" != "$previous" ]; then deploy=true; fi
+          done
+          echo "deploy=$deploy" >> "$GITHUB_OUTPUT"
 
   build:
     needs: check
@@ -51,6 +56,20 @@ jobs:
           ref: ${{ needs.check.outputs.running_sha }}
           path: running-tools
           persist-credentials: false
+      - name: Check out TFRRS monitor
+        uses: actions/checkout@v6
+        with:
+          repository: pseigne/ncaa-indoor-qualification
+          ref: ${{ needs.check.outputs.tfrrs_sha }}
+          path: tfrrs
+          persist-credentials: false
+      - name: Check out Time Progress
+        uses: actions/checkout@v6
+        with:
+          repository: pseigne/time-progress-visualizer
+          ref: ${{ needs.check.outputs.time_sha }}
+          path: time-progress
+          persist-credentials: false
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
@@ -59,10 +78,12 @@ jobs:
           cache-dependency-path: |
             website/package-lock.json
             running-tools/package-lock.json
+            tfrrs/ncaa-qualification/package-lock.json
       - name: Install dependencies
         run: |
           npm ci --prefix website
           npm ci --prefix running-tools
+          npm ci --prefix tfrrs/ncaa-qualification
       - name: Lint portfolio and test running tools
         run: |
           npm run lint
@@ -70,12 +91,21 @@ jobs:
       - name: Build production sites
         env:
           RUNNING_SHA: ${{ needs.check.outputs.running_sha }}
+          TFRRS_SHA: ${{ needs.check.outputs.tfrrs_sha }}
+          TIME_SHA: ${{ needs.check.outputs.time_sha }}
         run: |
           npm run build
           npm run build --prefix running-tools
           mkdir -p website/docs/running-utilities
           cp -R running-tools/dist/. website/docs/running-utilities/
           jq -n --arg commit "$RUNNING_SHA" '{commit: $commit}' > website/docs/running-utilities/version.json
+          cp -R tfrrs/data/. tfrrs/ncaa-qualification/public/data/
+          npm run build --prefix tfrrs/ncaa-qualification -- --base=/ncaa-indoor-qualification/
+          mkdir -p website/docs/ncaa-indoor-qualification website/docs/time-progress-visualizer
+          cp -R tfrrs/ncaa-qualification/dist/. website/docs/ncaa-indoor-qualification/
+          rsync -a --exclude=.git --exclude=.github time-progress/ website/docs/time-progress-visualizer/
+          jq -n --arg commit "$TFRRS_SHA" '{commit: $commit}' > website/docs/ncaa-indoor-qualification/version.json
+          jq -n --arg commit "$TIME_SHA" '{commit: $commit}' > website/docs/time-progress-visualizer/version.json
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload site

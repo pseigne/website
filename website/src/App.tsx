@@ -13,6 +13,7 @@ import ProjectBrowser from "./components/ProjectBrowser";
 import { AthleticsContent } from "./components/PersonalDetails";
 import ResumePreview from "./components/ResumePreview";
 import NavigationPages from "./pages/NavigationPages";
+import ProjectExplorer from "./pages/ProjectExplorer";
 import { projects } from "./data/projects";
 import "./App.css";
 import "./TileArtwork.css";
@@ -25,8 +26,9 @@ export default function App() {
     () => document.documentElement.dataset.theme || "light",
   );
   const path = location.pathname;
+  const isExplorer = path === "/links" || path.startsWith("/links/");
   const isNavigationPage =
-    path === "/blog" || path === "/links" || path === "/archive";
+    path === "/blog" || isExplorer || path === "/archive";
   const projectPath =
     path === "/projects/portfolio-v1" ? "/projects/portfolio-archive" : path;
   const project = projects.find(
@@ -36,7 +38,7 @@ export default function App() {
     project?.name ??
     (path === "/blog"
       ? "Blog"
-      : path === "/links"
+      : isExplorer
         ? "Links"
         : path === "/archive"
           ? "Website archive"
@@ -111,7 +113,7 @@ export default function App() {
             <NavLink to="/links">Links</NavLink>
           </nav>
         </header>
-        {isNavigationPage ? (
+        {isExplorer ? <ProjectExplorer /> : isNavigationPage ? (
           <NavigationPages
             page={
               path === "/blog"

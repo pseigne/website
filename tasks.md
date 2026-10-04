@@ -158,3 +158,14 @@ Checklist tracking the implementation of the personal bento portfolio featuring 
 - [x] Label the previous live site V3 and the current site V4.
 - [x] Add a website archive page and replace the homepage's earlier-version link.
 - [x] Verify archived assets, previews, navigation, old project links, mobile, dark mode, accessibility, build, and lint.
+
+## Links explorer and project hosting
+
+- [x] Group projects in the sidebar with shareable case-study and preview routes.
+- [x] Preserve visited preview sessions and provide mobile project navigation.
+- [x] Import the latest classroom React frontend and its history into the private personal repository.
+- [x] Add PDF publications and correct the history capstone description.
+- [x] Implement a Render backend with temporary uploads, validation, and durable Upstash quotas; backend tests pass.
+- [ ] Configure free Render/Upstash services and replacement OpenAI secret.
+- [ ] Publish project frontends and automatic source-repository deployment triggers.
+- [ ] Verify responsive layouts, accessibility, and live deployment.

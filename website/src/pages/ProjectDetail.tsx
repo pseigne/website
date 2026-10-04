@@ -40,6 +40,7 @@ function MarkdownCaseStudy({ url }: { url: string }) {
             {children}
           </a>
         ),
+        pre: ({ children, ...props }) => <pre {...props} tabIndex={0}>{children}</pre>,
         table: ({ children, ...props }) => (
           <div className="table-scroll">
             <table {...props}>{children}</table>

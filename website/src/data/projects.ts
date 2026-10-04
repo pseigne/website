@@ -106,7 +106,7 @@ export const projects: Project[] = [
     links: [
       {
         label: "Try the analyzer",
-        url: "https://pierceseigne.com/tldr-syllabus-frontend/",
+        url: "/syllabus-analyzer/",
       },
     ],
   },
@@ -122,7 +122,7 @@ export const projects: Project[] = [
     links: [
       {
         label: "Read the research",
-        url: "https://drive.google.com/file/d/1eSgtvOA0Uex2MF7bXME-KVdHfH7MAkje/view",
+        url: "/documents/resource-allocation.pdf",
       },
     ],
   },
@@ -136,7 +136,7 @@ export const projects: Project[] = [
       "Studied the relationship between institutional funding, environmental factors, and collegiate athletic performance.",
     stack: ["Python", "scikit-learn", "OLS"],
     links: [
-      { label: "View source", url: "https://github.com/pseigne/ncaa-analysis" },
+      { label: "View source", url: "https://github.com/pseigne/tffrs-scraper" },
     ],
   },
   {
@@ -170,11 +170,11 @@ export const projects: Project[] = [
     links: [
       {
         label: "Mileage planner",
-        url: "https://pierceseigne.com/weekly-mileage-planner/",
+        url: "/running-utilities/#weekly-mileage",
       },
       {
         label: "Track-split calculator",
-        url: "https://pierceseigne.com/track-split-calculator/",
+        url: "/running-utilities/#track-splits",
       },
     ],
   },
@@ -191,17 +191,17 @@ export const projects: Project[] = [
   },
   {
     slug: "medieval-history-capstone",
-    name: "Medieval History Capstone",
+    name: "A Heresy of Blood",
     year: "2025",
     category: "writing",
     role: "Historical research",
     summary:
-      "A capstone paper examining medieval crime, punishment, and judicial practices through primary and secondary sources.",
+      "A history capstone examining how the Spanish Inquisition became a political instrument and how ideas of religious faith shifted toward racial identity in early modern Spain.",
     stack: ["History", "Academic writing"],
     links: [
       {
         label: "Read the paper",
-        url: "https://drive.google.com/file/d/1KioHun1GVjmyse1EV8js8v1RV5qs5Jj3/view",
+        url: "/documents/spanish-inquisition.pdf",
       },
     ],
   },
@@ -217,7 +217,7 @@ export const projects: Project[] = [
     links: [
       {
         label: "Read the research",
-        url: "https://drive.google.com/file/d/1eSgtvOA0Uex2MF7bXME-KVdHfH7MAkje/view",
+        url: "/documents/song-duration.pdf",
       },
     ],
   },
