@@ -13,21 +13,18 @@ export default function WebsiteArchive() {
             <a
               href={site.href}
               className="archive-preview"
-              aria-label={`Visit ${site.version}: ${site.name}`}
+              aria-label={`Visit ${site.name}`}
             >
               <img
                 src={site.preview}
-                alt={`${site.version} website homepage`}
+                alt={`${site.name} homepage`}
                 width="960"
                 height="720"
                 loading="lazy"
               />
             </a>
             <div className="archive-copy">
-              <p className="archive-version">
-                {site.version} · {site.year}
-                {site.version === "V4" ? " · Current" : ""}
-              </p>
+              <p className="archive-version">{site.year}</p>
               <h2>
                 <a href={site.href}>
                   {site.name} <ArrowUpRight size={19} aria-hidden="true" />
