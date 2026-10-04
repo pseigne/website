@@ -167,5 +167,5 @@ Checklist tracking the implementation of the personal bento portfolio featuring 
 - [x] Add PDF publications and correct the history capstone description.
 - [x] Implement a Render backend with temporary uploads, validation, and durable Upstash quotas; backend tests pass.
 - [ ] Configure free Render/Upstash services and replacement OpenAI secret.
-- [ ] Publish project frontends and automatic source-repository deployment triggers.
-- [ ] Verify responsive layouts, accessibility, and live deployment.
+- [x] Publish project frontends and automatic source-repository deployment triggers.
+- [x] Verify responsive layouts, accessibility, and live deployment.

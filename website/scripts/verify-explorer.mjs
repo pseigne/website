@@ -46,8 +46,8 @@ try {
   const page=await browser.newPage();
   await page.goto(`${url}/#/links/running-utilities/app`);
   const frame=page.frameLocator('iframe[title="Running Utilities: Try app"]').frameLocator('iframe[title="Weekly Mileage Planner"]');
-  await frame.locator('input').first().waitFor();
-  const input=frame.locator('input').first();
+  await frame.locator('#goal-mileage').waitFor();
+  const input=frame.locator('#goal-mileage');
   await input.fill('77');
   await page.getByRole('navigation',{name:'Browse projects'}).getByRole('link',{name:'TFRRS Monitor'}).click();
   await page.getByRole('link',{name:'Try app',exact:true}).click();
