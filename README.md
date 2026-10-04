@@ -10,7 +10,7 @@ seigne.github.io/
 │   ├── src/                 Components, pages, design tokens, and project data
 │   ├── public/              Static media, project write-ups, and legacy archive
 │   ├── scripts/             Asset preparation and Playwright verification scripts
-│   └── docs/                Production build output served by GitHub Pages
+│   └── docs/                Generated production output (not committed)
 ├── temp-syllabus-frontend/  Standalone syllabus analyzer prototype
 ├── tasks.md                 Implementation checklist and progress
 └── package.json             Root convenience scripts delegating to website/
@@ -34,6 +34,17 @@ Compile TypeScript and bundle for production:
 npm run build
 ```
 Build output is saved to `website/docs/`.
+
+## Live Deployment
+
+The live site is https://pierceseigne.com/ and the repository is https://github.com/pseigne/website.
+Every push to `main` runs `.github/workflows/deploy-pages.yml`: it installs locked dependencies,
+lints, builds, and deploys `website/docs/` to GitHub Pages. Deployment can also be started manually
+from GitHub Actions. Pages must use **GitHub Actions** as its publishing source; the custom domain
+remains `pierceseigne.com` with HTTPS enforced.
+
+The app uses hash routes (for example, `/#/projects/brainforge-coder-cards`) so project links
+and refreshes work on static hosting. The previous site remains available at `/legacy/`.
 
 ### Linting
 Run ESLint:

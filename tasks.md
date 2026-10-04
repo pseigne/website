@@ -145,3 +145,9 @@ Checklist tracking the implementation of the personal bento portfolio featuring 
 - [x] Keep touch/reduced-motion static and clean up playback on unmount.
 - [x] Start the font sequence and Doug's wave together on mount after assets load; hover over the greeting replays only Doug's wave.
 - [x] Verify simultaneous start, font stability on hover, reduced motion, lint, and build.
+
+## Live deployment
+
+- [x] Preserve GitHub's existing custom-domain commit and use the canonical `pseigne/website` remote.
+- [x] Add a GitHub Actions workflow to lint, build, and deploy the production site on pushes to `main`.
+- [ ] Publish and verify the production site at pierceseigne.com.
