@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <title>Strava Project</title>
+</head>
+
+
+<input type="text" id="clientIDTextField" placeholder="Enter Client ID">
+<button onclick="saveText()">Save</button>
+<p id="displayArea">Hello</p>
+
+<a href="https://www.strava.com/oauth/authorize">
+    authorize
+</a>
+
+
+
+<script>
+
+    // http://www.strava.com/oauth/authorize?client_id=[REPLACE_WITH_YOUR_CLIENT_ID]&response_type=code&redirect_uri=http://localhost/exchange_token&approval_prompt=force&scope=read
+
+    var clientID = 0;
+
+    // Save text to localStorage
+    function saveClient() {
+        const textField = document.getElementById('clientIDTextField');
+        let textFieldValue = textField.value;
+        // document.getElementById("p1").innerHTML = textFieldValue;
+        localStorage.setItem('Saved_clientID', textFieldValue);
+        
+    }
+
+
+</script>
+
+
+</html>

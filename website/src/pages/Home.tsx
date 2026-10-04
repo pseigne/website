@@ -251,9 +251,9 @@ export default function Home({
         </Link>
         <footer className="board-meta">
           <span>© {new Date().getFullYear()}</span>
-          <a href="/legacy/index.html">
-            Earlier version <ArrowUpRight size={11} aria-hidden="true" />
-          </a>
+          <Link to="/archive">
+            Previous versions <ArrowUpRight size={11} aria-hidden="true" />
+          </Link>
         </footer>
       </section>
 

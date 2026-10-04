@@ -25,21 +25,28 @@ export default function App() {
     () => document.documentElement.dataset.theme || "light",
   );
   const path = location.pathname;
-  const isNavigationPage = path === "/blog" || path === "/links";
-  const project = projects.find((item) => path === `/projects/${item.slug}`);
+  const isNavigationPage =
+    path === "/blog" || path === "/links" || path === "/archive";
+  const projectPath =
+    path === "/projects/portfolio-v1" ? "/projects/portfolio-archive" : path;
+  const project = projects.find(
+    (item) => projectPath === `/projects/${item.slug}`,
+  );
   const title =
     project?.name ??
     (path === "/blog"
       ? "Blog"
       : path === "/links"
         ? "Links"
-        : path === "/projects"
-          ? "Selected work"
-          : path === "/athletics"
-            ? "Life beyond the laptop"
-            : path === "/resume"
-              ? "Résumé"
-              : "Page not found");
+        : path === "/archive"
+          ? "Website archive"
+          : path === "/projects"
+            ? "Selected work"
+            : path === "/athletics"
+              ? "Life beyond the laptop"
+              : path === "/resume"
+                ? "Résumé"
+                : "Page not found");
   useEffect(() => {
     document.title =
       path === "/"
@@ -105,7 +112,15 @@ export default function App() {
           </nav>
         </header>
         {isNavigationPage ? (
-          <NavigationPages page={path === "/blog" ? "blog" : "links"} />
+          <NavigationPages
+            page={
+              path === "/blog"
+                ? "blog"
+                : path === "/archive"
+                  ? "archive"
+                  : "links"
+            }
+          />
         ) : (
           <Home theme={theme} onToggleTheme={toggleTheme} />
         )}

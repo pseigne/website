@@ -1,0 +1,28 @@
+.writing {
+    padding: 20px;
+}
+
+h2 {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+
+}
+
+.subtitle {
+    text-align: center;
+    font-size: larger;
+    color:gray;
+    
+}
+
+h1 {
+    padding: 20px;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.subsection {
+    font-size: large;
+    font-weight: bold;
+}

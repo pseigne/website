@@ -151,3 +151,10 @@ Checklist tracking the implementation of the personal bento portfolio featuring 
 - [x] Preserve GitHub's existing custom-domain commit and use the canonical `pseigne/website` remote.
 - [x] Add a GitHub Actions workflow to lint, build, and deploy the production site on pushes to `main`.
 - [x] Publish and verify the production site at pierceseigne.com over HTTPS on mobile and desktop, including project refreshes, résumé downloads, media, and the legacy archive.
+
+## Website history
+
+- [x] Recover the May 2021 GitHub website as V1 and the Desktop snapshot as V2.
+- [x] Label the previous live site V3 and the current site V4.
+- [x] Add a website archive page and replace the homepage's earlier-version link.
+- [x] Verify archived assets, previews, navigation, old project links, mobile, dark mode, accessibility, build, and lint.

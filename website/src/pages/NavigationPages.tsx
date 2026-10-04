@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { projects, resumeUrl } from "../data/projects";
+import WebsiteArchive from "./WebsiteArchive";
 
 const links = [
   { name: "GitHub", detail: "pseigne", href: "https://github.com/pseigne" },
@@ -17,11 +18,23 @@ const links = [
   { name: "Résumé", detail: "View PDF", href: resumeUrl },
 ];
 
-export default function NavigationPages({ page }: { page: "blog" | "links" }) {
+export default function NavigationPages({
+  page,
+}: {
+  page: "blog" | "links" | "archive";
+}) {
   return (
     <main id="main-content" tabIndex={-1} className="navigation-page">
-      <h1>{page === "blog" ? "Blog" : "Links"}</h1>
-      {page === "blog" ? (
+      <h1>
+        {page === "blog"
+          ? "Blog"
+          : page === "archive"
+            ? "Website archive"
+            : "Links"}
+      </h1>
+      {page === "archive" ? (
+        <WebsiteArchive />
+      ) : page === "blog" ? (
         <p className="lead">No posts yet.</p>
       ) : (
         <>

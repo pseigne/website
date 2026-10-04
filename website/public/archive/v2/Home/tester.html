@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* No padding for fullscreen */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body is the entire thing  */
+        html,
+        body {
+            height: 100%;
+            font-family: system-ui, sans-serif;
+        }
+
+
+        /* Paralax effect for image */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background-image: url("../images/thumbs.JPG");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            display: flex;
+            align-items: flex-end;
+            padding: 4rem;
+        }
+
+        .hero h1 {
+            position: relative;
+            /* clamp (minimum, preferred, maximum) */
+            font-size: clamp(4rem, 18vw, 14rem);
+            font-weight: 800;
+            color: rgba(255, 230, 230, 0.9);
+            line-height: 0.9;
+            z-index: 1;
+            text-align: center;
+
+
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(140, 30, 20, 0.55);
+            mix-blend-mode: multiply;
+            opacity: 1;
+        }
+
+    </style>
+</head>
+
+<section class="hero">
+    <div class="overlay"></div>
+    <h1>PIERCE SEIGNE</h1>
+</section>
+
+
+
+</body>
+
+</html>

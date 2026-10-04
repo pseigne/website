@@ -179,15 +179,15 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "portfolio-v1",
-    name: "Personal Portfolio V1",
-    year: "2025",
+    slug: "portfolio-archive",
+    name: "Personal Portfolio Archive",
+    year: "2021–2026",
     category: "web",
     role: "Design & development",
     summary:
-      "The original hand-coded portfolio, preserved as a snapshot of where this site began.",
+      "Four generations of this website, from the first high-school homepage in 2021 to the current V4 portfolio.",
     stack: ["HTML", "CSS", "JavaScript"],
-    links: [{ label: "Visit the archive", url: "/legacy/index.html" }],
+    links: [{ label: "Visit the archive", url: "/#/archive" }],
   },
   {
     slug: "medieval-history-capstone",

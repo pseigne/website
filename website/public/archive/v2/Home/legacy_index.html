@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet" href="/archive/archive.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link rel="stylesheet" href="../global_styles.css">
+	<link rel="stylesheet" href="index_styles.css">
+	<title>Pierce Seigne</title>
+</head>
+
+
+<body style="background-color: blanchedalmond;">
+<a class="archive-return" href="/#/archive" aria-label="Return to website archive from V2">V2 · Website archive ↗</a>
+
+	<style>
+
+
+	</style>
+
+	<div class="top-container">
+		<div>
+			<h1>Pierce Seigne</h1>
+
+			<h2><span class="typed"></span></h2>
+
+
+
+			<!-- Contact -->
+			<div class="container">
+				<div class="socials">
+					<!-- LinkedIn -->
+					<a href="https://www.linkedin.com/in/pierce-seigne-b310a0305" target="_blank">
+						<i class="fa-brands fa-linkedin-in contactIcon"></i>
+					</a>
+					<!-- Instagram -->
+					<a href="https://www.instagram.com/pierceseigne/" target="_blank">
+						<i class=" fa-brands fa-instagram contactIcon"></i>
+					</a>
+					<!-- Email -->
+					<a href="mailto:pierceseigne@icloud.com">
+						<i class="fa-regular fa-envelope contactIcon"></i>
+					</a>
+					<!-- Github -->
+					<a href="https://github.com/pseigne" target="_blank">
+						<i class="fa-brands fa-github contactIcon"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+		<img src="../images/Headshot cropped.png" alt="Headshot" class="headshot">
+
+	</div>
+
+
+
+
+
+
+	<script>
+		const superlatives = [
+			"Economist",
+			"Historian",
+			"Computer Scientist",
+			"Developer",
+			"Technology Enthusiast"
+		];
+
+		const textElement = document.querySelector('.typed');
+		let wordIndex = 0;      // Tracks which word we are on
+		let charIndex = 0;      // Tracks which letter we are on
+		let isDeleting = false; // Tracks if we are deleting or typing
+
+		// Time configuration (in milliseconds)
+		const typeSpeed = 100;  // Speed of typing
+		const deleteSpeed = 50;   // Speed of deleting
+		const pauseTime = 1500;   // Pause at the end of the word
+
+		function type() {
+			const currentWord = superlatives[wordIndex];
+
+			if (isDeleting) {
+				// Remove a character
+				textElement.textContent = currentWord.substring(0, charIndex - 1);
+				charIndex--;
+				var currentSpeed = deleteSpeed;
+
+			} else {
+				// Add a character
+				textElement.textContent = currentWord.substring(0, charIndex + 1);
+				charIndex++;
+				var currentSpeed = typeSpeed;
+			}
+
+			// --- Logic to handle switching states ---
+
+			if (!isDeleting && charIndex === currentWord.length) {
+				// Finished typing the word, now pause and start deleting
+				currentSpeed = pauseTime;
+				isDeleting = true;
+
+			} else if (isDeleting && charIndex === 0) {
+				// Finished deleting, move to the next word and start typing again
+				isDeleting = false;
+				wordIndex = (wordIndex + 1) % superlatives.length; // Loop index
+
+			} else if (isDeleting && charIndex > 0) {
+				// Currently deleting, use the delete speed
+				currentSpeed = deleteSpeed;
+			}
+
+
+			// Recursively call the function after the calculated delay
+			setTimeout(type, currentSpeed);
+		}
+
+		// Start the process immediately
+		document.addEventListener('DOMContentLoaded', type);
+	</script>
+
+
+
+
+
+
+
+	<section>
+
+
+
+		<!-- Introduction Section   -->
+		<!-- <div class="about-me-container">
+			<h2 style="text-align: center;">Introduction</h2>
+
+			<div class="about-me-container">
+				<ul class="ul_noBullets introduction">
+					<li>I'm an economist, data analyist, and software engineer currently located in Madison, Wisconsin
+						USA</li>
+					<li>Currently pursuing a Bachelor of Science in Economics at the University of Wisconsin-Madison.
+					</li>
+					<li>Also getting minors in History and Computer Science</li>
+					<li>Recently began pursing programming primarily.</li>
+					<li>I'm always trying to learn</li>
+
+
+				</ul>
+			</div>
+
+
+
+		</div> -->
+	</section>
+
+
+
+
+
+
+	<!-- Links -->
+	<div class="container">
+
+		<ul class="links">
+			<li class="link"><a href="../one-page-cv.html">One Page CV (Updated Dec 2025)</a></li>
+			<li class="link"><a href="../stravaproject.html">Strava Project</a></li>
+			<li class="link"><a href="../song_durations/songdurations.html">Song Durations</a></li>
+		</ul>
+
+
+	</div>
+
+
+	<section class="overall-container">
+		<h1 style="text-align: center;">Skills</h1>
+
+		<div class="container">
+			<div class="skills-container">
+				Python
+			</div>
+			<div class="skills-container">
+				Java
+			</div>
+			<div class="skills-container">
+				JavaScript
+			</div>
+			<div class="skills-container">
+				Swift
+			</div>
+
+			<div class="skills-container">
+				Excel
+			</div>
+			<div class="skills-container">
+				STATA
+			</div>
+
+		</div>
+
+		<div class="container">
+			<div class="skills-container">
+				Final Cut Pro
+			</div>
+			<div class="skills-container">
+				Adobe Photoshop
+			</div>
+			<div class="skills-container">
+				Powerpoint
+			</div>
+
+
+		</div>
+
+
+
+	</section>
+
+
+</body>
+
+
+
+
+
+
+<footer>
+	Made by Pierce Seigne
+</footer>
+
+
+
+
+</html>

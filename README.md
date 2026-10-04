@@ -44,7 +44,9 @@ from GitHub Actions. Pages must use **GitHub Actions** as its publishing source;
 remains `pierceseigne.com` with HTTPS enforced.
 
 The app uses hash routes (for example, `/#/projects/brainforge-coder-cards`) so project links
-and refreshes work on static hosting. The previous site remains available at `/legacy/`.
+and refreshes work on static hosting. The website archive at `/#/archive` links to all four generations:
+V1 (2021), V2 (2025), V3 (2025–2026), and the current V4 (2026). V1 and V2 live under
+`website/public/archive/`; V3 remains available at `/legacy/`.
 
 ### Linting
 Run ESLint:

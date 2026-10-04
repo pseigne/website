@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<link rel="stylesheet" href="/archive/archive.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+	<link rel="stylesheet" href="../global_styles.css">
+	<link rel="stylesheet" href="index_styles.css">
+	<title>Pierce Seigne</title>
+</head>
+
+
+<body>
+<a class="archive-return" href="/#/archive" aria-label="Return to website archive from V2">V2 · Website archive ↗</a>
+	<nav class="navbar">
+		<div class="nav-pages">
+			<ul class="nav-links">
+				<li id="about"><a href="about.html">About</a></li>
+				<li id="projects"><a href="projects.html">Projects</a></li>
+				<li><a href="https://www.wisc.edu">University of Wisconsin</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<section class="hero">
+		<div class="overlay"></div>
+
+		<div class="typing-container">
+			<h2><span class="typed"></span></h2>
+		</div>
+		<h1>PIERCE SEIGNE</h1>
+		<!-- Contact -->
+
+
+		<div class="socials">
+			<!-- LinkedIn -->
+			<a href="https://www.linkedin.com/in/pierce-seigne-b310a0305" target="_blank">
+				<i class="fa-brands fa-linkedin-in contactIcon"></i>
+			</a>
+			<!-- Instagram -->
+			<a href="https://www.instagram.com/pierceseigne/" target="_blank">
+				<i class=" fa-brands fa-instagram contactIcon"></i>
+			</a>
+			<!-- Email -->
+			<a href="mailto:pierceseigne@icloud.com">
+				<i class="fa-regular fa-envelope contactIcon"></i>
+			</a>
+			<!-- Github -->
+			<a href="https://github.com/pseigne" target="_blank">
+				<i class="fa-brands fa-github contactIcon"></i>
+			</a>
+		</div>
+
+	</section>
+
+
+
+
+	<script>
+		const superlatives = [
+			"Economist",
+			"Historian",
+			"Computer Scientist",
+			"Developer",
+			"Data Scientist",
+			"Wisconsin Badger",
+			"Athlete"
+		];
+
+		const textElement = document.querySelector('.typed');
+		let wordIndex = 0;      // Tracks which word we are on
+		let charIndex = 0;      // Tracks which letter we are on
+		let isDeleting = false; // Tracks if we are deleting or typing
+
+		// Time configuration (in milliseconds)
+		const typeSpeed = 100;  // Speed of typing
+		const deleteSpeed = 50;   // Speed of deleting
+		const pauseTime = 1500;   // Pause at the end of the word
+
+		function type() {
+			const currentWord = superlatives[wordIndex];
+
+			if (isDeleting) {
+				// Remove a character
+				textElement.textContent = currentWord.substring(0, charIndex - 1);
+				charIndex--;
+				var currentSpeed = deleteSpeed;
+
+			} else {
+				// Add a character
+				textElement.textContent = currentWord.substring(0, charIndex + 1);
+				charIndex++;
+				var currentSpeed = typeSpeed;
+			}
+
+			// --- Logic to handle switching states ---
+
+			if (!isDeleting && charIndex === currentWord.length) {
+				// Finished typing the word, now pause and start deleting
+				currentSpeed = pauseTime;
+				isDeleting = true;
+
+			} else if (isDeleting && charIndex === 0) {
+				// Finished deleting, move to the next word and start typing again
+				isDeleting = false;
+				wordIndex = (wordIndex + 1) % superlatives.length; // Loop index
+
+			} else if (isDeleting && charIndex > 0) {
+				// Currently deleting, use the delete speed
+				currentSpeed = deleteSpeed;
+			}
+
+
+			// Recursively call the function after the calculated delay
+			setTimeout(type, currentSpeed);
+		}
+
+		// Start the process immediately
+		document.addEventListener('DOMContentLoaded', type);
+	</script>
+
+
+
+
+
+</body>
+
+</html>
