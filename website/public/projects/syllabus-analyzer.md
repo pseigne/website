@@ -43,6 +43,10 @@ The interactive React frontend takes the raw JSON data and renders uniform UI vi
 
 * **State Persistence:** User settings, active course selection tabs, and data inputs persist locally using browser local storage. If a user refreshes the page, the state and active index stay locked in place.
 
+![Calendar tab listing CS571's lecture sessions, each with an Add to Calendar button](/projects/syllabus-calendar.webp)
+
+![Grading tab showing CS571's letter-grade scale from A (94–100%) to F](/projects/syllabus-grading.webp)
+
 
 
 ---

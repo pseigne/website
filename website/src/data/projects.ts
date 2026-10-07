@@ -105,8 +105,8 @@ export const projects: Project[] = [
     summary:
       "Turns course syllabi into an organized view of schedules, grading, staff, and course expectations.",
     stack: ["React", "Python", "Flask"],
-    image: "/images/syllabus-placeholder.svg",
-    imageAlt: "Syllabus Analyzer placeholder — preview coming soon",
+    image: "/images/syllabus.webp",
+    imageAlt: "Syllabus Analyzer showing the CS571 demo course overview, with course information, an AI-generated summary and learning outcomes",
     markdown: "/projects/syllabus-analyzer.md",
     links: [
       {
@@ -157,7 +157,7 @@ export const projects: Project[] = [
       "A small browser utility for seeing how far you are through a day, month, year, or custom period.",
     stack: ["JavaScript", "HTML", "CSS"],
     image: "/images/time.webp",
-    imageAlt: "Time Progress Visualizer preview",
+    imageAlt: "Time Progress Visualizer showing 2026 as a grid of dots, with the elapsed days filled in red",
     markdown: "/projects/time-progress.md",
     links: [
       {

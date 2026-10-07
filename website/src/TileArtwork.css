@@ -239,37 +239,6 @@
   top: 76px;
   transform: rotate(10deg);
 }
-.collection-art {
-  position: relative;
-  height: 165px;
-  margin: 20px -30px 10px;
-  pointer-events: none;
-}
-.collection-window {
-  position: absolute;
-  width: 205px;
-}
-.collection-window img {
-  height: 100px;
-  width: 100%;
-  object-fit: cover;
-  object-position: top;
-}
-.collection-time {
-  left: 4px;
-  top: 2px;
-  transform: rotate(-12deg);
-}
-.collection-tfrrs {
-  left: 49px;
-  top: 12px;
-  transform: rotate(7deg);
-}
-.collection-syllabus {
-  left: 110px;
-  top: 30px;
-  transform: rotate(-5deg);
-}
 .all-projects-tile h2 {
   position: relative;
   margin-top: auto;
@@ -448,10 +417,6 @@
   .education-line {
     margin-top: 25px;
   }
-  .collection-art {
-    margin-left: -25px;
-    margin-right: -25px;
-  }
   .all-projects-tile,
   .places-tile {
     min-height: 345px;
@@ -512,18 +477,6 @@
   }
   .education-line {
     width: 100%;
-  }
-  .collection-art {
-    height: 165px;
-  }
-  .collection-window {
-    width: 225px;
-  }
-  .collection-window img {
-    height: 100px;
-  }
-  .collection-syllabus {
-    left: 125px;
   }
   .all-projects-tile h2 {
     margin-top: auto;

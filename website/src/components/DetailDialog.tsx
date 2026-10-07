@@ -88,7 +88,7 @@ export default function DetailDialog({
           onClick={onClose}
           aria-label="Close detail"
         >
-          <X size={22} aria-hidden="true" />
+          <X size={18} aria-hidden="true" />
         </button>
       </div>
       <div className="dialog-content">
