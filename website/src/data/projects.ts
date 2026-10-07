@@ -176,6 +176,9 @@ export const projects: Project[] = [
     summary:
       "Practical tools for planning weekly mileage and calculating precise track splits.",
     stack: ["JavaScript", "HTML", "CSS"],
+    image: "/images/running.webp",
+    imageAlt: "Weekly Mileage Planner charting a week of training against a 55-mile goal",
+    markdown: "/projects/running-utilities.md",
     links: [
       {
         label: "Mileage planner",
@@ -184,6 +187,10 @@ export const projects: Project[] = [
       {
         label: "Track-split calculator",
         url: "/running-utilities/#track-splits",
+      },
+      {
+        label: "View source",
+        url: "https://github.com/pseigne/running-utilities",
       },
     ],
   },
