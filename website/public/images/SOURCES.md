@@ -11,7 +11,9 @@ Both photographs were resized to 960px wide and converted to WebP. These retaine
 
 Product screenshots and the personal photographs/video predate this artwork update. The route, envelope, browser frames, and track lines are original HTML/CSS/SVG artwork.
 
-`tfrrs-placeholder.svg` and `syllabus-placeholder.svg` are original labeled preview placeholders. The previous TFRRS Monitor and Syllabus Analyzer PNG screenshots and WebP derivatives were removed at the user's request.
+`tfrrs-placeholder.svg` is an original labeled preview placeholder. The previous TFRRS Monitor PNG screenshots and WebP derivatives were removed at the user's request.
+
+`syllabus.webp` (and `../projects/syllabus-calendar.webp`, `../projects/syllabus-grading.webp`) are screenshots of the live Syllabus Analyzer's built-in CS571 demo, captured October 7, 2026. `time.webp` is a screenshot of the live Time Progress Visualizer's Year view, captured the same day; it replaces an earlier generated mockup.
 
 `coder-card-octocat.webp` and `coder-card-karpathy.webp` were resized and converted from the user's Desktop BrainForge Coder Card media collection. `neon-site-current.webp` was resized and converted from the user's supplied Neon.ai screenshot dated October 3, 2026.
 

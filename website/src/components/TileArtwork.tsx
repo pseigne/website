@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { usStates, mapLocations } from "../data/usMap";
+import { directory } from "../data/directory";
 
 function BrowserFrame({
   children,
@@ -75,43 +76,29 @@ export function NeonArtwork() {
 
 export function ProjectArtwork() {
   return (
-    <div className="collection-art" aria-hidden="true">
-      <BrowserFrame
-        className="collection-window collection-time"
-        address="Time Progress"
-      >
-        <img
-          src="/images/time.webp"
-          alt=""
-          width="1024"
-          height="1024"
-          loading="lazy"
-        />
-      </BrowserFrame>
-      <BrowserFrame
-        className="collection-window collection-tfrrs"
-        address="TFRRS Monitor"
-      >
-        <img
-          src="/images/tfrrs-placeholder.svg"
-          alt=""
-          width="1024"
-          height="1024"
-          loading="lazy"
-        />
-      </BrowserFrame>
-      <BrowserFrame
-        className="collection-window collection-syllabus"
-        address="Syllabus Analyzer"
-      >
-        <img
-          src="/images/syllabus-placeholder.svg"
-          alt=""
-          width="1024"
-          height="1024"
-          loading="lazy"
-        />
-      </BrowserFrame>
+    <div className="folder-art" aria-hidden="true">
+      <div className="folder-back" />
+      <img
+        className="folder-card folder-card-one"
+        src="/images/running.webp"
+        alt=""
+        loading="lazy"
+      />
+      <img
+        className="folder-card folder-card-two"
+        src="/images/syllabus.webp"
+        alt=""
+        loading="lazy"
+      />
+      <img
+        className="folder-card folder-card-three"
+        src="/images/time.webp"
+        alt=""
+        loading="lazy"
+      />
+      <div className="folder-front">
+        <span>{directory.length} projects</span>
+      </div>
     </div>
   );
 }
@@ -128,10 +115,10 @@ export function SyllabusArtwork() {
       </div>
       <BrowserFrame className="syllabus-browser" address="Syllabus Analyzer">
         <img
-          src="/images/syllabus-placeholder.svg"
+          src="/images/syllabus.webp"
           alt=""
-          width="1024"
-          height="1024"
+          width="1600"
+          height="1000"
           loading="lazy"
         />
       </BrowserFrame>
