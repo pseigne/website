@@ -22,6 +22,11 @@ try {
   assert.equal(await labelOpacity(1), 1);
   await page.evaluate(() => document.fonts.ready);
   const greeting = page.locator("#intro-title");
+  // The entrance cycles through lighter type styles; wait for the original face.
+  await page.waitForTimeout(2000);
+  await page.waitForFunction(
+    () => !document.getElementById("intro-title")?.dataset.typeStyle,
+  );
   assert.equal(
     await greeting.evaluate((element) => getComputedStyle(element).fontWeight),
     "900",
