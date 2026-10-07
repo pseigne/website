@@ -70,11 +70,11 @@ The Links page groups projects in a sidebar. Routes such as /#/links/running-uti
 | Running Utilities | /running-utilities/ | pseigne/running-utilities |
 | TFRRS Monitor | /ncaa-indoor-qualification/ | pseigne/ncaa-indoor-qualification |
 | Time Progress | /time-progress-visualizer/ | pseigne/time-progress-visualizer |
-| Syllabus Analyzer | /syllabus-analyzer/ | pseigne/tldr-syllabus-frontend (private) |
+| Syllabus Analyzer | /syllabus-analyzer/ | pseigne/tldr-syllabus (private; frontend/ and backend/) |
 
 The Pages build captures source commit hashes, builds the public apps, and overlays the TFRRS repository's canonical data folder into its app assets. Source push workflows update .deploy/triggers here using a write deployment key scoped to this repository. TFRRS also triggers after successful daily scraper runs, including bot commits. Daily reconciliation compares deployed version.json files with public source commits.
 
-Syllabus builds in its private repository and publishes only its compiled bundle here. Its repository variable SYLLABUS_API_URL points to https://tldr-syllabus-backend.onrender.com. The backend runs on the existing Free Render service srv-d5r9vt8gjchc739mbkq0 from pseigne/tldr-syllabus-backend. Credentials belong only in Render settings. Upstash Free Redis enforces three attempts per IP per UTC day and twenty globally; missing settings or Redis failure block uploads while demos remain available.
+Syllabus builds from the frontend/ directory of its private monorepo and publishes only its compiled bundle here. Its repository variable SYLLABUS_API_URL points to https://tldr-syllabus-backend.onrender.com. The backend runs on the existing Free Render service srv-d5r9vt8gjchc739mbkq0 from the backend/ directory of pseigne/tldr-syllabus, deploying only on backend/ changes after checks pass. Credentials belong only in Render settings. Upstash Free Redis enforces three attempts per IP per UTC day and twenty globally; missing settings or Redis failure block uploads while demos remain available.
 
 Publications and a static export of the Resource Allocation notebook's saved outputs are in website/public/documents. Exporting did not execute notebook code. The earlier Syllabus URL redirects to its new path.
 
