@@ -1,4 +1,18 @@
 export type Category = "web" | "data" | "writing";
+export interface SectionImage {
+  src: string;
+  darkSrc?: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+}
+export interface ProjectSection {
+  title: string;
+  text: string;
+  images?: SectionImage[];
+  columns?: 2 | 3;
+}
 export interface Project {
   slug: string;
   name: string;
@@ -12,9 +26,10 @@ export interface Project {
   image?: string;
   imageAlt?: string;
   fullImage?: string;
+  video?: { src: string; poster: string };
   featuredOrder?: number;
   markdown?: string;
-  sections?: { title: string; text: string }[];
+  sections?: ProjectSection[];
 }
 export const resumeUrl = "/resume/Pierce-Seigne-Resume.pdf";
 export const projects: Project[] = [
@@ -27,29 +42,114 @@ export const projects: Project[] = [
     role: "Product design & frontend development",
     featuredOrder: 1,
     summary:
-      "Turned the idea of a personal coding identity into a shareable developer card. Designed the initial concept, built the prototype, and refined the frontend alongside Neon.ai’s engineering team.",
+      "I came up with Coder Cards, sketched it, built the first prototype, and designed the frontend with a small team at Neon.ai. Developers have made nearly 1,000 unique cards since it launched in early September 2026.",
     stack: [],
     links: [{ label: "Generate your card", url: "https://codercards.ai/" }],
     image: "/images/coder-card.webp",
     fullImage: "/images/coder-card-original.png",
     imageAlt:
       "An example Coder Card for pseigne, with coding style, activity, and language visualizations.",
+    video: {
+      src: "/projects/coder-cards/flow.mp4",
+      poster: "/projects/coder-cards/flow-poster.png",
+    },
     sections: [
       {
-        title: "The idea",
-        text: "Code has a personal voice: vocabulary, structure, rhythm, and different ways of solving the same problem. During my summer internship at Neon.ai, a team prototype for personalized AI coding sparked a question: what would a visual identity for a developer look like?",
+        title: "The problem",
+        text: "My high school computer science teacher used to say code is like a writing style. Everyone has their own vocabulary, structure, and rhythm. This summer at Neon.ai, [Roger Wiebe](https://www.linkedin.com/in/rjwiebe) showed a demo that read your GitHub repositories to learn how you code, so an AI agent could write code that matched your style. After playing with it, I wanted to know how my profile compared to everyone else's. There was no simple way to see it, let alone share it. That became the question: what would a developer's coding identity look like on one card?",
       },
       {
-        title: "From sketch to prototype",
-        text: "I developed the Coder Identity Card concept, sketched the first designs, and built a working prototype using Cursor. The layout brought coding characteristics together in a SaaS-inspired bento grid, which I presented to the team as v0.2.",
+        title: "Sketches",
+        text: "I started on paper. The first wireframe put every stat in a box on one page: commits, repos, naming style, tech stack, peak hour, work-life balance, and a predicted role. Then I drew a phone version to see what someone would actually look at first. Those sketches decided the main rule for the card: one idea per tile.",
+        columns: 2,
+        images: [
+          {
+            src: "/projects/coder-cards/wireframe-v0.1-sketch.webp",
+            alt: "Hand-drawn phone wireframe sketch for Coder Cards from July 2026 with layout notes",
+            caption: "First wireframe, July 2026.",
+            width: 1200,
+            height: 1228,
+          },
+          {
+            src: "/projects/coder-cards/wireframe-tile-grid-sketch.webp",
+            alt: "Hand-drawn tile grid sketch mapping stats, behavioral vibe, repositories, and tech stack into separate boxes",
+            caption: "Tile layout, before any styling.",
+            width: 902,
+            height: 566,
+          },
+        ],
       },
       {
-        title: "Built together",
-        text: "I worked on the frontend layouts, color palettes, and visual presentation, incorporating feedback from the team. Neon.ai’s engineering team built out the backend that powers the analysis.",
+        title: "How the design changed",
+        text: 'I built the first prototype in Cursor from my sketches and kept iterating. Early versions tried a lot of directions: a tall gradient "persona" card, a dark dashboard, a stacked mobile list. By version 0.2 (mid-August) I settled on a bento grid inspired by SaaS dashboards, which was the first version I showed the team. From there, each version fixed something specific: clearer numbers, a calmer color palette, better spacing on small screens, and a loading state so people weren\'t staring at a blank page while their repos were analyzed.',
+        columns: 3,
+        images: [
+          {
+            src: "/projects/coder-cards/card01-jul22.webp",
+            alt: "Early July prototype showing a tall gradient persona card with minimal data",
+            caption: "Early prototype, July: one big persona, not much data.",
+            width: 844,
+            height: 1630,
+          },
+          {
+            src: "/projects/coder-cards/v0.2-aug13.webp",
+            alt: "Coder Cards version 0.2 from August 13 arranged as a bento grid",
+            caption: "v0.2, August 13: the bento grid I presented to the team.",
+            width: 1200,
+            height: 940,
+          },
+          {
+            src: "/projects/coder-cards/v0.7-aug27.webp",
+            alt: "Coder Cards version 0.7 from late August with pastel tiles and prominent headline numbers",
+            caption: "v0.5–v0.7, late August: pastel tiles, the number as the headline.",
+            width: 1200,
+            height: 753,
+          },
+          {
+            src: "/projects/coder-cards/loading-state-v0.1-aug28.webp",
+            alt: "Terminal-style loading console showing repository analysis progress",
+            caption: "Loading state, August 28: a terminal-style progress console.",
+            width: 1200,
+            height: 1096,
+          },
+          {
+            src: "/projects/coder-cards/final-sep13.webp",
+            alt: "Final shipped Coder Card design from September 2026",
+            caption: "Final, September: the card that shipped.",
+            width: 1200,
+            height: 900,
+          },
+        ],
       },
       {
-        title: "A live product",
-        text: "The result is Coder Cards: a way for developers to generate and share their coding identity. The card shown here is an example output; its scores and predictions are product-generated descriptions, not independently verified measures of ability.",
+        title: "Built with a small team",
+        text: "Coder Cards was a small-team project. Neon.ai's launch announcement credits the work to three interns: [Roger Wiebe](https://www.linkedin.com/in/rjwiebe), [Charlie Bailey](https://www.linkedin.com/in/charliebailey24), and me. I owned the concept, the prototype, and the frontend: layouts, color palettes, and the tile designs. The engineering side built the backend that analyzes a GitHub profile and produces the numbers on the card, and Daniel McKnight, Neon's CTO, set up the codercards.ai deployment. I also built the product's About page, about.codercards.ai, in Framer for launch day. We worked through pull requests and design reviews, and I folded their feedback into each version. Working that way taught me to explain design decisions clearly enough that an engineer could build against them, and to cut features that didn't earn their space.",
+      },
+      {
+        title: "Launch and outcome",
+        text: "Coder Cards launched in early September 2026 at [codercards.ai](https://codercards.ai/). Since then developers have generated nearly 1,000 unique cards. Anyone can sign in with GitHub, make a card, and then copy the image, download it, or post it to X and Reddit.\n\nThe card shown here is an example output; its scores and predictions are product-generated descriptions, not independently verified measures of ability.",
+        columns: 2,
+        images: [
+          {
+            src: "/projects/coder-cards/card-mac-light.webp",
+            darkSrc: "/projects/coder-cards/card-mac-dark.webp",
+            alt: "Coder Cards desktop view showing a generated developer card",
+            caption: "Final card on desktop.",
+            width: 1200,
+            height: 900,
+          },
+          {
+            src: "/projects/coder-cards/card-phone.webp",
+            alt: "Coder Cards mobile view on a phone screen",
+            caption: "Final card on a phone.",
+            width: 780,
+            height: 1688,
+          },
+        ],
+      },
+      {
+        title: "What I learned",
+        text: "Taking something from a sketch to a public product showed me how much of design is deciding what to leave out. The first versions tried to show everything. The final card shows a few things clearly, and lets people dig into the rest.",
       },
     ],
   },

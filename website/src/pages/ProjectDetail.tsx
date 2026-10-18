@@ -58,6 +58,17 @@ function MarkdownCaseStudy({ url }: { url: string }) {
   );
 }
 export default function ProjectDetail({ project }: { project: Project }) {
+  const [reducedMotion, setReducedMotion] = useState(() =>
+    typeof window !== "undefined"
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false,
+  );
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const onChange = () => setReducedMotion(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
   const otherTools = project.stack.filter(
     (tool) => !project.languages.includes(tool),
   );
@@ -73,7 +84,7 @@ export default function ProjectDetail({ project }: { project: Project }) {
             className="primary-button"
             href={link.url}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             key={link.url}
           >
             {link.label}
@@ -123,9 +134,90 @@ export default function ProjectDetail({ project }: { project: Project }) {
       {project.sections?.map((section) => (
         <section key={section.title}>
           <h2>{section.title}</h2>
-          <p>{section.text}</p>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={{
+              a: ({ children, ...props }) => (
+                <a {...props} target="_blank" rel="noopener noreferrer">
+                  {children}
+                </a>
+              ),
+            }}
+          >
+            {section.text}
+          </ReactMarkdown>
+          {section.images && section.images.length > 0 && (
+            <div
+              className={
+                section.columns === 3 || section.images.length >= 3
+                  ? "section-gallery section-gallery-3"
+                  : "section-gallery"
+              }
+            >
+              {section.images.map((img) => (
+                <figure className="section-figure" key={img.src}>
+                  {img.darkSrc ? (
+                    <>
+                      <img
+                        className="theme-image-light"
+                        src={img.src}
+                        alt={img.alt}
+                        width={img.width}
+                        height={img.height}
+                        loading="lazy"
+                      />
+                      <img
+                        className="theme-image-dark"
+                        src={img.darkSrc}
+                        alt={img.alt}
+                        width={img.width}
+                        height={img.height}
+                        loading="lazy"
+                      />
+                    </>
+                  ) : (
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      width={img.width}
+                      height={img.height}
+                      loading="lazy"
+                    />
+                  )}
+                  <figcaption>{img.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
         </section>
       ))}
+      {project.video && (
+        <figure className="case-image case-video">
+          {reducedMotion ? (
+            <img
+              src={project.video.poster}
+              alt={`${project.name} walkthrough preview`}
+              width="1440"
+              height="900"
+              loading="lazy"
+            />
+          ) : (
+            <video
+              src={project.video.src}
+              poster={project.video.poster}
+              autoPlay
+              muted
+              loop
+              playsInline
+              width="1440"
+              height="900"
+            />
+          )}
+          <figcaption>
+            <span>24-second product walkthrough</span>
+          </figcaption>
+        </figure>
+      )}
       {project.markdown && (
         <MarkdownCaseStudy key={project.markdown} url={project.markdown} />
       )}

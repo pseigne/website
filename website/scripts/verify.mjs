@@ -27,7 +27,7 @@ try {
     "Coder Cards",
   );
   await expansionPage
-    .getByRole("heading", { name: "From sketch to prototype" })
+    .getByRole("heading", { name: "The problem" })
     .waitFor();
   assert.deepEqual(expansionErrors, []);
   await expansionPage.keyboard.press("Escape");

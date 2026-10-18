@@ -38,3 +38,9 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 
 - `x-avatar.jpg`: actual @KingSeigne profile photo from X's `pbs.twimg.com` image CDN, confirmed against the profile on October 3, 2026.
 - `linkedin-avatar.jpg`: the user's supplied `Desktop/20 Areas/22 Career/Headshots/cropped.jpg`, selected for the LinkedIn reveal and resized to a 512-pixel square.
+
+## Coder Cards case study (`../projects/coder-cards/`)
+
+- `wireframe-v0.1-sketch.webp`, `wireframe-tile-grid-sketch.webp`: Pierce Seigne's hand-drawn wireframes from July 2026 (`Desktop/10 Projects/BrainForge Coder Card/`), resized to ≤1200px wide and converted to WebP.
+- `card01-jul22.webp`, `v0.2-aug13.webp`, `v0.7-aug27.webp`, `loading-state-v0.1-aug28.webp`, `final-sep13.webp`: prototype and iteration captures from July–September 2026 (`Desktop/10 Projects/BrainForge Coder Card/` and `Developer/brainforge-developer-card-web/docs/design/`), resized to ≤1200px wide WebP.
+- `card-mac-light.webp`, `card-mac-dark.webp`, `card-phone.webp`, `flow.mp4`, `flow-poster.png`: final product captures and 24-second muted walkthrough video of Coder Cards (`codercards.ai`), captured in September–October 2026.
