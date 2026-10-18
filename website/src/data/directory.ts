@@ -7,7 +7,7 @@ export interface ProjectPreview {
 export interface DirectoryEntry {
   slug: string;
   label: string;
-  group: "Web Apps" | "Websites" | "Data Analysis" | "Writing";
+  group: "Web Apps" | "Websites" | "Data Analysis" | "Policy Writing" | "Writing";
   source?: string;
   previews: ProjectPreview[];
 }
@@ -22,6 +22,7 @@ export const directory: DirectoryEntry[] = [
   { slug: "resource-allocation-model", label: "Beyond the Ballot Box", group: "Data Analysis", previews: [{ id: "paper", label: "Paper", url: "/documents/resource-allocation.pdf", type: "pdf" }, { id: "analysis", label: "Analysis", url: "/documents/resource-allocation-analysis.html", type: "notebook" }] },
   { slug: "ncaa-performance-analysis", label: "NCAA Performance Trends", group: "Data Analysis", source: "https://github.com/pseigne/tffrs-scraper", previews: [{ id: "analysis", label: "Seasonal analysis", url: "/legacy/pages/seasonal_eda.html", type: "notebook" }, { id: "distance", label: "Distance analysis", url: "/legacy/pages/tffrs_distance_eda.html", type: "notebook" }] },
   { slug: "tiktok-song-duration", label: "TikTok & Song Duration", group: "Data Analysis", previews: [{ id: "paper", label: "Paper", url: "/documents/song-duration.pdf", type: "pdf" }] },
+  { slug: "crypto-key-actors-memo", label: "Who Decides on Crypto", group: "Policy Writing", previews: [{ id: "memo", label: "Memo", url: "/documents/crypto-key-actors-memo.pdf", type: "pdf" }] },
   { slug: "medieval-history-capstone", label: "History Capstone", group: "Writing", previews: [{ id: "paper", label: "Paper", url: "/documents/spanish-inquisition.pdf", type: "pdf" }] },
 ];
-export const directoryGroups = ["Web Apps", "Websites", "Data Analysis", "Writing"] as const;
+export const directoryGroups = ["Web Apps", "Websites", "Data Analysis", "Policy Writing", "Writing"] as const;

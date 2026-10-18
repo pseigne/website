@@ -18,7 +18,7 @@ try {
     if(width<768) await page.getByRole('button',{name:'Projects'}).click();
     const nav=page.getByRole('navigation',{name:'Browse projects'});
     assert.equal(await nav.getByRole('link').count(),expectedDirectoryCount);
-    assert.deepEqual(await nav.locator('h2').allTextContents(),['Web Apps','Websites','Data Analysis','Writing']);
+    assert.deepEqual(await nav.locator('h2').allTextContents(),['Web Apps','Websites','Data Analysis','Policy Writing','Writing']);
     await nav.getByRole('link',{name:'Time Progress',exact:true}).click();
     await page.getByRole('heading',{name:'Time Progress',exact:true}).waitFor();
     if(width<768) assert.equal(await page.locator('#project-directory').isVisible(),false);
@@ -56,7 +56,7 @@ try {
   await page.getByRole('navigation',{name:'Browse projects'}).getByRole('link',{name:'Running Utilities'}).click();
   await page.getByRole('link',{name:'Try app',exact:true}).click();
   assert.equal(await input.inputValue(),'77','Input retained across project switching');
-  for(const path of ['/syllabus-analyzer/','/ncaa-indoor-qualification/','/time-progress-visualizer/','/documents/resource-allocation.pdf','/documents/song-duration.pdf','/documents/spanish-inquisition.pdf','/documents/resource-allocation-analysis.html']){
+  for(const path of ['/syllabus-analyzer/','/ncaa-indoor-qualification/','/time-progress-visualizer/','/documents/resource-allocation.pdf','/documents/song-duration.pdf','/documents/spanish-inquisition.pdf','/documents/crypto-key-actors-memo.pdf','/documents/resource-allocation-analysis.html']){
     const response=await page.request.get(url+path);
     assert.equal(response.status(),200,path);
     assert.ok(!response.headers()['content-type']?.includes('text/html')||path.endsWith('/')||path.endsWith('.html'),path);

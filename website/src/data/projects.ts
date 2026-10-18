@@ -411,6 +411,29 @@ export const projects: Project[] = [
     links: [{ label: "Visit the archive", url: "/#/archive" }],
   },
   {
+    slug: "crypto-key-actors-memo",
+    languages: [],
+    name: "Who Decides on Crypto: Key Actors in Congress and the White House",
+    year: "2026",
+    category: "writing",
+    role: "Policy memo",
+    summary:
+      "A map of the legislators and executive-branch officials shaping federal crypto market-structure policy, and where each one stands.",
+    stack: ["Public policy", "Memo", "UVA"],
+    links: [
+      {
+        label: "Read the memo",
+        url: "/documents/crypto-key-actors-memo.pdf",
+      },
+    ],
+    sections: [
+      {
+        title: "About this memo",
+        text: "Policy memos from my master’s in public policy at UVA. Each one is written for a specific decision-maker and has to fit a tight word limit, which forces you to decide what actually matters.",
+      },
+    ],
+  },
+  {
     slug: "medieval-history-capstone",
     languages: [],
     name: "A Heresy of Blood",
