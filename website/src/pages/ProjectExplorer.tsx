@@ -50,6 +50,17 @@ export default function ProjectExplorer() {
     document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [menuOpen]);
+  if (slug === "brainforge-coder-cards") {
+    return (
+      <Navigate
+        to={pathname.replace(
+          "/links/brainforge-coder-cards",
+          "/links/coder-cards",
+        )}
+        replace
+      />
+    );
+  }
   if (!entry || !project || (view !== "case-study" && !preview)) return <Navigate to={`/links/${directory[0].slug}`} replace />;
   const openUrl = preview?.url || entry.previews[0]?.url || project.links[0]?.url;
   return <main id="main-content" tabIndex={-1} className="project-explorer">

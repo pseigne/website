@@ -30,7 +30,7 @@ export default function ProjectBrowser() {
               >
                 <div className="project-list-heading">
                   {project.slug === "neon-ai" ||
-                  project.slug === "brainforge-coder-cards" ? (
+                  project.slug === "coder-cards" ? (
                     <img
                       src={
                         project.slug === "neon-ai"

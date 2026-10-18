@@ -37,7 +37,7 @@ export const resumeUrl = "/resume/Pierce-Seigne-Resume.pdf";
 export const resumePages = 1;
 export const projects: Project[] = [
   {
-    slug: "brainforge-coder-cards",
+    slug: "coder-cards",
     languages: ["React", "JavaScript", "HTML", "CSS"],
     name: "Coder Cards",
     year: "2026",
@@ -301,7 +301,7 @@ export const projects: Project[] = [
   {
     slug: "syllabus-analyzer",
     languages: ["React", "JavaScript", "Python", "HTML", "CSS"],
-    name: "AI Syllabus Analyzer",
+    name: "Syllabus Analyzer",
     year: "2026",
     category: "web",
     role: "Full-stack development",

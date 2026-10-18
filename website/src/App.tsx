@@ -35,7 +35,11 @@ export default function App() {
   const isNavigationPage =
     path === "/blog" || isExplorer || path === "/archive";
   const projectPath =
-    path === "/projects/portfolio-v1" ? "/projects/portfolio-archive" : path;
+    path === "/projects/portfolio-v1"
+      ? "/projects/portfolio-archive"
+      : path === "/projects/brainforge-coder-cards"
+        ? "/projects/coder-cards"
+        : path;
   const project = projects.find(
     (item) => projectPath === `/projects/${item.slug}`,
   );
@@ -152,7 +156,13 @@ export default function App() {
         )}
       </div>
       {path === "/about-us" && <Navigate to="/about" replace />}
-      {path !== "/" && path !== "/about-us" && !isNavigationPage && (
+      {path === "/projects/brainforge-coder-cards" && (
+        <Navigate to="/projects/coder-cards" state={location.state} replace />
+      )}
+      {path !== "/" &&
+        path !== "/about-us" &&
+        path !== "/projects/brainforge-coder-cards" &&
+        !isNavigationPage && (
         <DetailDialog title={title} onClose={closeDetail} routeKey={path}>
           {path === "/about" ? (
             <About />

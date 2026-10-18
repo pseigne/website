@@ -28,8 +28,8 @@ try {
     await page.screenshot({path:`.portfolio-checks/coursework-${width}-${theme}.png`,fullPage:true});
     const courseAudit=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
     assert.deepEqual(courseAudit.violations.map(v=>({id:v.id,targets:v.nodes.map(n=>n.target)})),[],'Coursework accessibility');
-    await page.getByRole('link',{name:'AI Syllabus Analyzer',exact:true}).click();
-    await page.locator('#detail-title').filter({hasText:'AI Syllabus Analyzer'}).waitFor();
+    await page.getByRole('link',{name:'Syllabus Analyzer',exact:true}).click();
+    await page.locator('#detail-title').filter({hasText:'Syllabus Analyzer'}).waitFor();
     await page.locator('.language-tags').getByRole('link',{name:'Python',exact:true}).click();
     await page.getByRole('heading',{name:'Python projects',exact:true}).waitFor();
     assert.equal(await page.locator('.language-projects > li').count(),5);

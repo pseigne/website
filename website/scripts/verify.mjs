@@ -261,7 +261,7 @@ try {
     .getByRole("heading", { name: "Neon.ai Website", exact: true })
     .waitFor();
   const slugs = [
-    "brainforge-coder-cards",
+    "coder-cards",
     "neon-ai",
     "tfrrs-monitor",
     "syllabus-analyzer",

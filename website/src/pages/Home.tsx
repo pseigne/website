@@ -126,7 +126,7 @@ export default function Home({
 
       <Link
         className="tile coder-tile project-tile"
-        to="/projects/brainforge-coder-cards"
+        to="/projects/coder-cards"
         state={detailState}
         aria-label="Explore Coder Cards"
       >
@@ -280,7 +280,7 @@ export default function Home({
         className="tile syllabus-tile project-tile"
         to="/projects/syllabus-analyzer"
         state={detailState}
-        aria-label="Explore AI Syllabus Analyzer"
+        aria-label="Explore Syllabus Analyzer"
       >
         <div className="tile-heading">
           <span className="tile-identity">

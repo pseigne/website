@@ -49,7 +49,7 @@ export function CoderArtwork() {
         <img
           className="coder-front"
           src="/images/coder-card.webp"
-          alt="An example BrainForge Coder Card showing coding style, activity, and language visualizations."
+          alt="An example Coder Card showing coding style, activity, and language visualizations."
           width="1200"
           height="900"
         />
