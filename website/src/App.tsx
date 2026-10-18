@@ -87,7 +87,7 @@ export default function App() {
   useEffect(() => {
     document.title =
       path === "/"
-        ? "Pierce Seigne · Neon.ai and UVA public policy"
+        ? "Pierce Seigne"
         : `${title} — Pierce Seigne`;
   }, [path, title]);
   useEffect(() => {
