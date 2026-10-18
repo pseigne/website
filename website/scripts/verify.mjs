@@ -288,7 +288,12 @@ try {
     );
   }
   await page.goto(`${url}/#/about-us`);
+  await page.waitForURL(`${url}/#/about`);
+  await page.getByRole("dialog").waitFor();
+  assert.equal(await page.locator("#detail-title").textContent(), "About");
+  await page.getByRole("button", { name: "Close detail" }).click();
   await page.waitForURL(`${url}/#/`);
+  await page.waitForFunction(() => !document.querySelector("dialog"));
   assert.equal(await page.locator("dialog").count(), 0);
   assert.equal(await page.locator(".inline-brand a").count(), 0);
   assert.equal(await page.locator(".education-line a").count(), 0);

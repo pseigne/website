@@ -10,6 +10,7 @@ import {
   CourseworkDetails,
   LanguageDetails,
 } from "./components/AcademicDetails";
+import About from "./components/About";
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
 import DetailDialog from "./components/DetailDialog";
@@ -61,13 +62,15 @@ export default function App() {
         ? "Links"
         : path === "/archive"
           ? "Website archive"
-          : path === "/projects"
-            ? "Selected work"
-            : path === "/athletics"
-              ? "Running"
-              : path === "/resume"
-                ? "Résumé"
-                : "Page not found");
+          : path === "/about"
+            ? "About"
+            : path === "/projects"
+              ? "Selected work"
+              : path === "/athletics"
+                ? "Running"
+                : path === "/resume"
+                  ? "Résumé"
+                  : "Page not found");
   useEffect(() => {
     document.title =
       path === "/"
@@ -148,10 +151,12 @@ export default function App() {
           <Home theme={theme} onToggleTheme={toggleTheme} />
         )}
       </div>
-      {path === "/about-us" && <Navigate to="/" replace />}
+      {path === "/about-us" && <Navigate to="/about" replace />}
       {path !== "/" && path !== "/about-us" && !isNavigationPage && (
         <DetailDialog title={title} onClose={closeDetail} routeKey={path}>
-          {path === "/projects" ? (
+          {path === "/about" ? (
+            <About />
+          ) : path === "/projects" ? (
             <ProjectBrowser />
           ) : path === "/athletics" ? (
             <AthleticsContent />

@@ -257,19 +257,23 @@
   font-size: 12px;
   font-weight: 650;
 }
-.intro-links a:hover {
+.intro-links a:hover,
+.intro-about-link:hover {
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+.intro-about-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 44px;
+  font-size: 12px;
+  font-weight: 650;
+  align-self: flex-start;
 }
 .board .photo-tile {
   padding: 0;
   min-height: 265px;
-}
-.board .photo-tile figcaption {
-  left: 22px;
-  right: 22px;
-  bottom: 18px;
-  font-size: 11px;
 }
 .board .coder-art {
   position: absolute;
@@ -733,18 +737,18 @@
   .intro-links a {
     font-size: 11px;
   }
+  .intro-about-link {
+    position: absolute;
+    bottom: 4px;
+    right: 22px;
+    font-size: 11px;
+  }
   .board .photo-tile,
   .board .athletics-tile {
     padding: 0;
   }
   .board .photo-tile > img {
     object-position: center 50%;
-  }
-  .board .photo-tile figcaption {
-    font-size: 10px;
-    left: 18px;
-    right: 18px;
-    bottom: 16px;
   }
   .board .coder-art {
     inset: 48px 0 0;

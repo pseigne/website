@@ -263,24 +263,6 @@ a:active .detail-indicator {
   object-fit: cover;
   object-position: center 48%;
 }
-.photo-tile::after {
-  content: "";
-  position: absolute;
-  inset: 55% 0 0;
-  background: linear-gradient(transparent, #000a);
-}
-.photo-tile figcaption {
-  position: absolute;
-  bottom: 23px;
-  left: 28px;
-  right: 28px;
-  display: flex;
-  justify-content: space-between;
-  color: white;
-  z-index: 1;
-  font-size: 12px;
-  text-shadow: 0 1px 5px #000;
-}
 .coder-tile {
   grid-area: coder;
 }
@@ -1032,9 +1014,6 @@ a:active .detail-indicator {
   .athletics-tile {
     padding: 0;
   }
-  .photo-tile figcaption span:last-child {
-    display: none;
-  }
   .project-tile {
     min-height: 400px;
   }
@@ -1152,10 +1131,6 @@ a:active .detail-indicator {
   .photo-tile {
     padding: 0;
     height: 265px;
-  }
-  .photo-tile figcaption {
-    left: 24px;
-    right: 24px;
   }
   .project-tile {
     min-height: 410px;

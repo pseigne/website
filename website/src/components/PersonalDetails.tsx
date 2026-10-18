@@ -8,11 +8,12 @@ export function AthleticsContent() {
         UVA.
       </p>
       <VideoPlayer />
-      <h2>Wisconsin cross country & track</h2>
+      <h2>Cross country & track</h2>
       <p>
-        I competed as a Division I student-athlete at UW–Madison, earning
-        All-Big Ten recognition and qualifying for the NCAA First Round in the
-        1500m.
+        I ran cross country and track at UW–Madison for four years, earned
+        All-Big Ten honors, and qualified for the NCAA First Round in the 1500m
+        in 2024. Now I run for UVA as a graduate student-athlete while working
+        on my master’s in public policy.
       </p>
       <p>
         Training 20-plus hours a week alongside an economics degree taught me to

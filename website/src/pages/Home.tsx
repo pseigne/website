@@ -100,6 +100,9 @@ export default function Home({
           </p>
         </div>
         <TypingRoles />
+        <Link className="intro-about-link" to="/about" state={detailState}>
+          More about me →
+        </Link>
       </section>
 
       <figure className="tile photo-tile">
@@ -119,9 +122,6 @@ export default function Home({
           width="1086"
           height="724"
         />
-        <figcaption>
-          <span>Madison, WI</span>
-        </figcaption>
       </figure>
 
       <Link
