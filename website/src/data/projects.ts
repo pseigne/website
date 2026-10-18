@@ -283,6 +283,7 @@ export const projects: Project[] = [
     year: "2026",
     category: "web",
     role: "Design & development",
+    featuredOrder: 3,
     summary:
       "A qualification tracker that helps athletes and fans follow NCAA standings and the times on the bubble.",
     stack: ["Python", "Pandas", "JavaScript"],
@@ -304,6 +305,7 @@ export const projects: Project[] = [
     year: "2026",
     category: "web",
     role: "Full-stack development",
+    featuredOrder: 4,
     summary:
       "Turns course syllabi into an organized view of schedules, grading, staff, and course expectations.",
     stack: ["React", "Python", "Flask"],
@@ -443,3 +445,10 @@ export const projects: Project[] = [
     ],
   },
 ];
+
+export const featuredProjects = projects
+  .filter((project) => project.featuredOrder != null)
+  .sort((a, b) => (a.featuredOrder ?? 0) - (b.featuredOrder ?? 0));
+export const featuredCount = featuredProjects.length;
+export const projectCount = projects.length;
+

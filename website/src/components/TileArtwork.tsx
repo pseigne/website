@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { usStates, mapLocations } from "../data/usMap";
-import { directory } from "../data/directory";
+import { projectCount } from "../data/projects";
 
 function BrowserFrame({
   children,
@@ -97,7 +97,7 @@ export function ProjectArtwork() {
         loading="lazy"
       />
       <div className="folder-front">
-        <span>{directory.length} projects</span>
+        <span>{projectCount} projects</span>
       </div>
     </div>
   );

@@ -1,28 +1,24 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Code } from "lucide-react";
 import DetailIndicator from "./DetailIndicator";
-import { projects } from "../data/projects";
-const selectedSlugs = [
-  "brainforge-coder-cards",
-  "neon-ai",
-  "tfrrs-monitor",
-  "syllabus-analyzer",
-];
+import {
+  featuredCount,
+  featuredProjects,
+  projectCount,
+} from "../data/projects";
 export default function ProjectBrowser() {
-  const visible = projects.filter((project) =>
-    selectedSlugs.includes(project.slug),
-  );
   return (
     <>
       <p className="lead">The four projects I’d show you first.</p>
       <div className="selected-work-summary">
-        <p className="result-count">{visible.length} projects</p>
+        <p className="result-count">{featuredCount} featured projects</p>
         <Link to="/links">
-          See all <ArrowRight size={16} aria-hidden="true" />
+          See all {projectCount} in Links{" "}
+          <ArrowRight size={16} aria-hidden="true" />
         </Link>
       </div>
       <ul className="project-list">
-        {visible.map((project) => {
+        {featuredProjects.map((project) => {
           const Icon = Code;
           return (
             <li key={project.slug}>

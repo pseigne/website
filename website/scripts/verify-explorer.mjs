@@ -1,8 +1,10 @@
 import { chromium } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import assert from 'node:assert/strict';
-import { mkdir } from 'node:fs/promises';
+import { mkdir, readFile } from 'node:fs/promises';
 const url = process.env.PORTFOLIO_URL || 'http://127.0.0.1:5173';
+const directorySource = await readFile(new URL('../src/data/directory.ts', import.meta.url), 'utf8');
+const expectedDirectoryCount = (directorySource.match(/\{\s*slug:\s*"/g) || []).length;
 await mkdir('.portfolio-checks', { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome', headless: true });
 try {
@@ -15,7 +17,7 @@ try {
     assert.equal(await page.locator('iframe').count(),0,'Previews load only when selected');
     if(width<768) await page.getByRole('button',{name:'Projects'}).click();
     const nav=page.getByRole('navigation',{name:'Browse projects'});
-    assert.equal(await nav.getByRole('link').count(),11);
+    assert.equal(await nav.getByRole('link').count(),expectedDirectoryCount);
     assert.deepEqual(await nav.locator('h2').allTextContents(),['Web Apps','Websites','Data Analysis','Writing']);
     await nav.getByRole('link',{name:'Time Progress',exact:true}).click();
     await page.getByRole('heading',{name:'Time Progress',exact:true}).waitFor();
