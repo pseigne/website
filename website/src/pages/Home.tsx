@@ -229,7 +229,7 @@ export default function Home({
         </span>
         <h2>Send me a message</h2>
         <div className="contact-bottom">
-          <a className="contact-email" href="mailto:pierceseigne@icloud.com">
+          <a className="contact-email" href="mailto:pierceseigne@gmail.com">
             Email me <ArrowRight size={17} aria-hidden="true" />
           </a>
           <div className="contact-graphic">

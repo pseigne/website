@@ -68,7 +68,7 @@ export default function ProjectExplorer() {
         <a href="https://github.com/pseigne" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={14} /></a>
         <a href="https://www.linkedin.com/in/pierce-seigne-b310a0305/" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={14} /></a>
         <a href="https://x.com/KingSeigne" target="_blank" rel="noreferrer">X <ArrowUpRight size={14} /></a>
-        <a href="mailto:pierceseigne@icloud.com">Email <ArrowUpRight size={14} /></a>
+        <a href="mailto:pierceseigne@gmail.com">Email <ArrowUpRight size={14} /></a>
         <a href={resumeUrl} target="_blank" rel="noreferrer">Résumé <ArrowUpRight size={14} /></a>
       </nav>
     </aside>

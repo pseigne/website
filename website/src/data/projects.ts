@@ -34,6 +34,7 @@ export interface Project {
   sections?: ProjectSection[];
 }
 export const resumeUrl = "/resume/Pierce-Seigne-Resume.pdf";
+export const resumePages = 1;
 export const projects: Project[] = [
   {
     slug: "brainforge-coder-cards",

@@ -12,8 +12,8 @@ const links = [
   },
   {
     name: "Email",
-    detail: "pierceseigne@icloud.com",
-    href: "mailto:pierceseigne@icloud.com",
+    detail: "pierceseigne@gmail.com",
+    href: "mailto:pierceseigne@gmail.com",
   },
   { name: "Résumé", detail: "View PDF", href: resumeUrl },
 ];

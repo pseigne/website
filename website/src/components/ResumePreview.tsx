@@ -1,7 +1,8 @@
 import { ArrowUpRight, Download } from "lucide-react";
-import { resumeUrl } from "../data/projects";
+import { resumePages, resumeUrl } from "../data/projects";
 
 export default function ResumePreview() {
+  const pages = Array.from({ length: resumePages }, (_, index) => index + 1);
   return (
     <div className="resume-preview">
       <div className="resume-actions">
@@ -23,13 +24,17 @@ export default function ResumePreview() {
         title="Pierce Seigne résumé PDF preview"
       />
       <div className="resume-pages" aria-label="Résumé page previews">
-        {[1, 2].map((page) => (
+        {pages.map((page) => (
           <img
             key={page}
             src={`/resume/page-${page}.jpg`}
-            alt={`Pierce Seigne résumé, page ${page} of 2`}
-            width="1391"
-            height="1800"
+            alt={
+              resumePages === 1
+                ? "Pierce Seigne résumé"
+                : `Pierce Seigne résumé, page ${page} of ${resumePages}`
+            }
+            width="1275"
+            height="1650"
           />
         ))}
       </div>
