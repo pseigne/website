@@ -286,8 +286,9 @@ export const projects: Project[] = [
     summary:
       "A qualification tracker that helps athletes and fans follow NCAA standings and the times on the bubble.",
     stack: ["Python", "Pandas", "JavaScript"],
-    image: "/images/tfrrs-placeholder.svg",
-    imageAlt: "TFRRS Monitor placeholder — preview coming soon",
+    image: "/images/tfrrs.webp",
+    imageAlt:
+      "TFRRS Monitor showing the NCAA Division I men’s indoor qualifying marks, with the 16th-place bubble time for each event from the 60 meters to the distance medley relay.",
     markdown: "/projects/tfrrs-monitor.md",
     links: [
       {

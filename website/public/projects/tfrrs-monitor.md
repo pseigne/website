@@ -25,6 +25,10 @@ This tracker scrapes the lists from TFRRS (the Track & Field Results Reporting S
 ### Who's in and who's on the bubble
 Each event lists the current qualifiers and marks the athlete sitting on the cutoff (16th indoors, 48th outdoors) as the **Bubble Target**.
 
+![TFRRS Monitor men's indoor mile table showing the top 16 qualifiers, altitude tags, and the 16th-place Bubble Target row](/projects/tfrrs-mile-table.webp)
+
+*Each event lists the current top 16, flags altitude-converted marks, and highlights the athlete sitting on the bubble.*
+
 ### Altitude marks
 Marks converted for altitude (shown with `@` on TFRRS) are tagged, with a short explanation of the NCAA rule and a link to TFRRS's conversion calculator.
 
