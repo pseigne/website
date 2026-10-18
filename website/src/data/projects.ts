@@ -441,8 +441,9 @@ export const projects: Project[] = [
     category: "writing",
     role: "Historical research",
     summary:
-      "A history capstone examining how the Spanish Inquisition became a political instrument and how ideas of religious faith shifted toward racial identity in early modern Spain.",
+      "My senior history capstone at UW–Madison argues that the Spanish Inquisition was less a religious crusade than a tool of state power, and that it shifted Spain's idea of the enemy from what someone believed to who their ancestors were.",
     stack: ["History", "Academic writing"],
+    markdown: "/projects/history-capstone.md",
     links: [
       {
         label: "Read the paper",

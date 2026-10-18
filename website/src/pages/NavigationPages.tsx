@@ -1,5 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import MarkdownArticle from "../components/MarkdownArticle";
 import { emailAddress, linkedinUrl, mailtoUrl } from "../data/links";
+import { formatPostDate, posts } from "../data/posts";
 import { projects, resumeUrl } from "../data/projects";
 import WebsiteArchive from "./WebsiteArchive";
 
@@ -19,11 +22,54 @@ const links = [
   { name: "Résumé", detail: "View PDF", href: resumeUrl },
 ];
 
+const sortedPosts = [...posts].sort((a, b) => b.date.localeCompare(a.date));
+
 export default function NavigationPages({
   page,
+  postSlug,
 }: {
   page: "blog" | "links" | "archive";
+  postSlug?: string;
 }) {
+  const activePost =
+    page === "blog" && postSlug
+      ? posts.find((item) => item.slug === postSlug)
+      : undefined;
+
+  if (page === "blog" && postSlug) {
+    return (
+      <main id="main-content" tabIndex={-1} className="navigation-page">
+        {activePost ? (
+          <article className="prose blog-post">
+            <Link to="/blog" className="blog-back-link">
+              ← All posts
+            </Link>
+            <h1>{activePost.title}</h1>
+            <p className="blog-post-date">
+              <time dateTime={activePost.date}>
+                {formatPostDate(activePost.date)}
+              </time>
+            </p>
+            <MarkdownArticle
+              key={activePost.markdown}
+              url={activePost.markdown}
+            />
+          </article>
+        ) : (
+          <div className="prose blog-post">
+            <Link to="/blog" className="blog-back-link">
+              ← All posts
+            </Link>
+            <h1>Page not found</h1>
+            <p>
+              This page isn’t here. <Link to="/">Return to the homepage.</Link>
+            </p>
+          </div>
+        )}
+      </main>
+    );
+  }
+
   return (
     <main id="main-content" tabIndex={-1} className="navigation-page">
       <h1>
@@ -36,7 +82,21 @@ export default function NavigationPages({
       {page === "archive" ? (
         <WebsiteArchive />
       ) : page === "blog" ? (
-        <p className="lead">No posts yet.</p>
+        <ul className="directory-links blog-list">
+          {sortedPosts.map((post) => (
+            <li key={post.slug}>
+              <Link to={`/blog/${post.slug}`}>
+                <span>
+                  <strong>{post.title}</strong>
+                  <time dateTime={post.date} className="blog-list-date">
+                    {formatPostDate(post.date)}
+                  </time>
+                  <span className="blog-list-summary">{post.summary}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       ) : (
         <>
           <section aria-labelledby="project-links-title">

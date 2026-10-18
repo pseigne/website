@@ -19,6 +19,7 @@ import { AthleticsContent } from "./components/PersonalDetails";
 import ResumePreview from "./components/ResumePreview";
 import NavigationPages from "./pages/NavigationPages";
 import ProjectExplorer from "./pages/ProjectExplorer";
+import { posts } from "./data/posts";
 import { projects } from "./data/projects";
 import "./App.css";
 import "./TileArtwork.css";
@@ -32,8 +33,15 @@ export default function App() {
   );
   const path = location.pathname;
   const isExplorer = path === "/links" || path.startsWith("/links/");
+  const isBlog = path === "/blog" || path.startsWith("/blog/");
   const isNavigationPage =
-    path === "/blog" || isExplorer || path === "/archive";
+    isBlog || isExplorer || path === "/archive";
+  const postSlug = path.startsWith("/blog/")
+    ? path.slice("/blog/".length)
+    : undefined;
+  const post = postSlug
+    ? posts.find((item) => item.slug === postSlug)
+    : undefined;
   const projectPath =
     path === "/projects/portfolio-v1"
       ? "/projects/portfolio-archive"
@@ -55,6 +63,7 @@ export default function App() {
   ].find((name) => path === `/languages/${name.toLowerCase()}`);
   const title =
     project?.name ??
+    post?.title ??
     (language
       ? `${language} projects`
       : path === "/education"
@@ -144,12 +153,13 @@ export default function App() {
         ) : isNavigationPage ? (
           <NavigationPages
             page={
-              path === "/blog"
+              isBlog
                 ? "blog"
                 : path === "/archive"
                   ? "archive"
                   : "links"
             }
+            postSlug={postSlug}
           />
         ) : (
           <Home theme={theme} onToggleTheme={toggleTheme} />
