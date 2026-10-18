@@ -4,6 +4,7 @@ import { ArrowUpRight, Expand } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import type { Project } from "../data/projects";
+import BeforeAfter from "../components/BeforeAfter";
 function MarkdownCaseStudy({ url }: { url: string }) {
   const [content, setContent] = useState<string | null>(null);
   const [failed, setFailed] = useState(false);
@@ -110,6 +111,12 @@ export default function ProjectDetail({ project }: { project: Project }) {
           )}
         </figure>
       )}
+      {project.beforeAfter && (
+        <BeforeAfter
+          before={project.beforeAfter.before}
+          after={project.beforeAfter.after}
+        />
+      )}
       {project.languages.length > 0 && (
         <ul className="stack-list language-tags" aria-label="Project languages">
           {project.languages.map((language) => (
@@ -148,11 +155,14 @@ export default function ProjectDetail({ project }: { project: Project }) {
           </ReactMarkdown>
           {section.images && section.images.length > 0 && (
             <div
-              className={
-                section.columns === 3 || section.images.length >= 3
-                  ? "section-gallery section-gallery-3"
-                  : "section-gallery"
-              }
+              className={[
+                "section-gallery",
+                (section.columns === 3 || section.images.length >= 3) &&
+                  "section-gallery-3",
+                section.mobileColumns === 2 && "section-gallery-mobile-2",
+              ]
+                .filter(Boolean)
+                .join(" ")}
             >
               {section.images.map((img) => (
                 <figure className="section-figure" key={img.src}>

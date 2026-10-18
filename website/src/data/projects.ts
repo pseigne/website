@@ -12,6 +12,7 @@ export interface ProjectSection {
   text: string;
   images?: SectionImage[];
   columns?: 2 | 3;
+  mobileColumns?: 1 | 2;
 }
 export interface Project {
   slug: string;
@@ -27,6 +28,7 @@ export interface Project {
   imageAlt?: string;
   fullImage?: string;
   video?: { src: string; poster: string };
+  beforeAfter?: { before: SectionImage; after: SectionImage };
   featuredOrder?: number;
   markdown?: string;
   sections?: ProjectSection[];
@@ -162,16 +164,114 @@ export const projects: Project[] = [
     role: "Website design",
     featuredOrder: 2,
     summary:
-      "Designed Neon.ai’s public website, presenting its AI products and technology through a cohesive visual experience.",
+      "I redesigned Neon.ai's public website, and I manage it now. Early in the summer I updated the site Neon had when I started, but it still missed the mark, so I redesigned it from the ground up. The new design is in A/B testing now. The site gets thousands of visitors a month.",
     stack: [],
     image: "/images/neon-site-current.webp",
     imageAlt:
       "Neon.ai website featuring the headline Own your AI. Don’t rent it.",
-    links: [{ label: "Visit Neon.ai", url: "https://www.neon.ai/" }],
+    beforeAfter: {
+      before: {
+        src: "/projects/neon-ai/june-2026-hero.webp",
+        alt: "Neon.ai homepage in June 2026 before the redesign",
+        caption: "June 2026",
+        width: 1200,
+        height: 860,
+      },
+      after: {
+        src: "/projects/neon-ai/redesign-oct-2026.webp",
+        alt: "Redesigned Neon.ai homepage in October 2026 with Unbounded headlines and blueprint grid",
+        caption: "Redesign, October 2026",
+        width: 1200,
+        height: 750,
+      },
+    },
+    links: [
+      { label: "Visit Neon.ai", url: "https://www.neon.ai/" },
+      {
+        label: "Try the prototype",
+        url: "https://satisfied-bookings-273423.framer.app",
+      },
+      { label: "See it on neon.ai", url: "https://neon.ai/v2/home" },
+    ],
     sections: [
       {
-        title: "Making the technology approachable",
-        text: "The website brings Neon.ai’s products and technology into a unified public-facing experience. My contribution was the website design, with attention to visual hierarchy and how visitors move through the company’s offering.",
+        title: "Why I started over",
+        text: "Early in the summer I updated the website Neon had when I started in June. Once it was done, I felt it still missed the mark. The site needed to be mobile first, more informative, and able to grow with the company. The team had backed itself into a corner, especially while building and releasing other products, and the site didn't show who Neon is as a company. Fixing that first version felt like fixing something that had missed the mark conceptually, many layers below anything I was changing. So I stopped patching it, researched, and worked out a complete redesign from the ground up.",
+        columns: 2,
+        images: [
+          {
+            src: "/projects/neon-ai/june-2026-hero.webp",
+            alt: "Neon.ai homepage as it looked in June 2026",
+            caption: "June 2026",
+            width: 1200,
+            height: 860,
+          },
+          {
+            src: "/projects/neon-ai/summer-2026-hero.webp",
+            alt: "First summer 2026 update to the Neon.ai homepage with a purple hero section",
+            caption: "My first update, summer 2026",
+            width: 1200,
+            height: 833,
+          },
+        ],
+      },
+      {
+        title: "Exploring directions",
+        text: 'Before building anything, I mocked up the homepage in six visual directions, from a clean Swiss grid to a warm, paper-like research journal, and compared them side by side. The one we kept, "Dimensional Patent," came from something specific to Neon: the company holds 17 granted patents in conversational AI, so the background became a quiet blueprint grid, like a patent drawing.',
+        columns: 3,
+        mobileColumns: 2,
+        images: [
+          {
+            src: "/projects/neon-ai/01-living-patent.webp",
+            alt: "Direction board 1: Living Patent homepage concept",
+            caption: "Living Patent",
+            width: 1200,
+            height: 2333,
+          },
+          {
+            src: "/projects/neon-ai/02-swiss-industrial.webp",
+            alt: "Direction board 2: Swiss Industrial homepage concept",
+            caption: "Swiss Industrial",
+            width: 1200,
+            height: 2333,
+          },
+          {
+            src: "/projects/neon-ai/03-research-journal.webp",
+            alt: "Direction board 3: Research Journal homepage concept",
+            caption: "Research Journal",
+            width: 1200,
+            height: 2333,
+          },
+          {
+            src: "/projects/neon-ai/04-dimensional-night.webp",
+            alt: "Direction board 4: Dimensional Night homepage concept",
+            caption: "Dimensional Night",
+            width: 1200,
+            height: 2333,
+          },
+          {
+            src: "/projects/neon-ai/05-warm-document.webp",
+            alt: "Direction board 5: Warm Document homepage concept",
+            caption: "Warm Document",
+            width: 1200,
+            height: 2333,
+          },
+          {
+            src: "/projects/neon-ai/06-dimensional-patent.webp",
+            alt: "Direction board 6: Dimensional Patent homepage concept, chosen direction",
+            caption: "Dimensional Patent ← chosen",
+            width: 1200,
+            height: 2333,
+          },
+        ],
+      },
+      {
+        title: "Decisions I made",
+        text: "- **Mobile first:** every text style now has a phone size. In the old site, none did, so headlines on a phone were far too big.\n- **Built to grow:** one shared spacing scale, a 1200px content width, and three breakpoints (desktop, tablet, phone), so a new page or product lines up the same way as the rest.\n- **Type:** Unbounded ExtraBold for headlines so the main message reads in one glance; Geist for body text; Geist Mono for small labels and numbers.\n- **Color with a job:** four colors, each with one meaning. Near-black background, purple for actions, cyan for data, red for things the system catches. Nothing is colored just for decoration.\n- **Accessibility:** WCAG AA contrast, visible keyboard focus, 44px tap targets, and reduced-motion support.",
+      },
+      {
+        title: "Where it is now",
+        text: "The new design is in A/B testing right now, running against the old homepage and measured on how many visitors reach out to the team. You can [try the prototype](https://satisfied-bookings-273423.framer.app) or see it on Neon's site at [neon.ai/v2/home](https://neon.ai/v2/home). The site gets thousands of visitors a month. I work on it with the sales and marketing team, and I keep a written list of every design decision so anyone picking it up later knows why things look the way they do.",
       },
     ],
   },

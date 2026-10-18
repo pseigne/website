@@ -44,3 +44,10 @@ THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH RE
 - `wireframe-v0.1-sketch.webp`, `wireframe-tile-grid-sketch.webp`: Pierce Seigne's hand-drawn wireframes from July 2026 (`Desktop/10 Projects/BrainForge Coder Card/`), resized to ≤1200px wide and converted to WebP.
 - `card01-jul22.webp`, `v0.2-aug13.webp`, `v0.7-aug27.webp`, `loading-state-v0.1-aug28.webp`, `final-sep13.webp`: prototype and iteration captures from July–September 2026 (`Desktop/10 Projects/BrainForge Coder Card/` and `Developer/brainforge-developer-card-web/docs/design/`), resized to ≤1200px wide WebP.
 - `card-mac-light.webp`, `card-mac-dark.webp`, `card-phone.webp`, `flow.mp4`, `flow-poster.png`: final product captures and 24-second muted walkthrough video of Coder Cards (`codercards.ai`), captured in September–October 2026.
+
+## Neon.ai design write-up (`../projects/neon-ai/`)
+
+- `june-2026-hero.webp`: screenshot of the Neon.ai homepage captured June 16, 2026 (`Desktop/20 Areas/26 Neon/Website/Original Website/`), resized to 1200px wide WebP.
+- `summer-2026-hero.webp`: screenshot of Pierce Seigne's first summer 2026 update to the Neon.ai homepage (`Desktop/40 Archive/41 Archived Projects/Neon.ai Website Redesign/`), resized to 1200px wide WebP.
+- `01-living-patent.webp` through `06-dimensional-patent.webp`: six homepage visual direction boards designed by Pierce Seigne (`Desktop/10 Projects/Neon.ai Website v2/`), resized to 1200px wide WebP.
+- `redesign-oct-2026.webp`: live capture of the redesigned Neon.ai homepage captured October 18, 2026, resized to 1200px wide WebP.

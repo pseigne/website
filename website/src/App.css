@@ -792,9 +792,41 @@ a:active .detail-indicator {
 :root[data-theme="dark"] .theme-image-dark {
   display: block;
 }
+.before-after {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 0 20px;
+}
+.before-after-item {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--surface);
+  border-radius: 14px;
+  padding: 10px;
+}
+.before-after-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+.before-after-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
 @media (max-width: 599px) {
   .section-gallery,
   .section-gallery-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .section-gallery.section-gallery-mobile-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .before-after {
     grid-template-columns: minmax(0, 1fr);
   }
 }
