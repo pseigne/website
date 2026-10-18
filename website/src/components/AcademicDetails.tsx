@@ -7,7 +7,8 @@ export function CourseworkDetails() {
   return (
     <div className="academic-details">
       <p className="lead">
-        Courses that shaped my work in code, economics, and history.
+        The courses behind my projects in code, economics, history, and now
+        public policy.
       </p>
       {coursework.map((school) => (
         <section className="course-school" key={school.school}>
@@ -90,7 +91,7 @@ export function LanguageDetails({ language }: { language: string }) {
           ))}
         </ul>
       ) : (
-        <p>My {language} work is represented by the coursework below.</p>
+        <p>I’ve used {language} in the classes below.</p>
       )}
       {courses.length > 0 && (
         <section className="language-coursework">

@@ -1,12 +1,12 @@
-> **Real-time qualifying list monitoring for NCAA Division I Track & Field.**
+> **NCAA Division I qualifying lists, updated every night.**
 
 ---
 
 ## Project Overview
 
-Qualifying for the NCAA Division I Track & Field Championships is one of the most competitive achievements in collegiate sports. Only **the Top 16 individuals and Top 12 relays nationally for Indoor**, and **the Top 48 individuals and Top 24 relays per region for Outdoor** qualify. Athletes and coaches spend months checking over qualifying lists constantly.
+Indoors, only the top 16 individuals and top 12 relays in the country make the NCAA Championships. Outdoors, it's the top 48 individuals and top 24 relays in each region. As a Division I runner, I spent a lot of time refreshing those lists to see where the cutoff was.
 
-This application uses a **data pipeline and charts** that monitor live standings directly from the Track & Field Results Reporting System (TFRRS). By compiling live data, the tracker lets coaches and athletes analyze qualification trends, monitor the "bubble" in real-time, and understand the performances needed to punch a ticket to the NCAA Championships.
+This tracker scrapes the lists from TFRRS (the Track & Field Results Reporting System) every night and shows, for each event, who's in, who's on the bubble, and the mark it currently takes to qualify.
 
 ---
 
@@ -16,19 +16,17 @@ This application uses a **data pipeline and charts** that monitor live standings
 
 **Backend & Data Pipeline:** Python, BeautifulSoup4, `requests`
 
-**Hosting & Sync:** Hosted on Vercel
+**Hosting:** Built and served from pierceseigne.com through GitHub Pages; the site redeploys after each nightly scrape.
 
 ---
 
 ## Key Features
 
-### Live Bubble Monitoring
-Displays live NCAA qualifying lists with clear visual styling indicating whether an athlete is safely **In-Cutoff** or **On the Bubble**.
-Highlights the exact **Bubble Target** athlete (e.g. Rank 16 for Indoor, Rank 48 for Outdoor) 
+### Who's in and who's on the bubble
+Each event lists the current qualifiers and marks the athlete sitting on the cutoff (16th indoors, 48th outdoors) as the **Bubble Target**.
 
-### Altitude Marker
-Automatically parses and highlights converted performances (e.g., marks achieved at high altitudes marked by `@` symbols under NCAA rules).
-Seamlessly integrates explains/rules and connects directly to official TFRRS conversion calculators.
+### Altitude marks
+Marks converted for altitude (shown with `@` on TFRRS) are tagged, with a short explanation of the NCAA rule and a link to TFRRS's conversion calculator.
 
 ### Nightly Updates
 An automated Python scraper safely requests, cleans, and standardizes multi-season rosters for both Men's and Women's events.
@@ -46,6 +44,6 @@ Also symbols representing altitude adjustments (`@`) or banked/oversized tracks 
 
 ### 2. Zero-Database and no API
 
-**The Challenge:** Storing decades of historical lists and daily snapshots can quickly lead to expensive database queries and complex backend hosting requirements.
+**The problem:** I wanted past seasons' lists plus a daily snapshot, without paying for a database or a server.
 
-**The Solution:** Designed a lightweight file-system database using structured JSON documents (`tfrrs_bubble_cutoffs.json`, `historical_{event}.json`, and `tfrrs_active_data.json`). The Python pipeline automatically splits massive datasets into lazy-loaded, event-specific JSON files. When a user requests a historical roster in the React frontend, it fetch-requests only that specific lightweight event file (~200KB), reducing network load and ensuring instant UI loads.
+**What I did:** The Python scraper writes everything to JSON files (`tfrrs_bubble_cutoffs.json`, `historical_{event}.json`, `tfrrs_active_data.json`), split by event. When you open an event, the page loads only that event's file (about 200 KB), so it stays fast and the whole thing runs as a static site.

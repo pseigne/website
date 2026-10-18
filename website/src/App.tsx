@@ -64,14 +64,14 @@ export default function App() {
           : path === "/projects"
             ? "Selected work"
             : path === "/athletics"
-              ? "Life beyond the laptop"
+              ? "Running"
               : path === "/resume"
                 ? "Résumé"
                 : "Page not found");
   useEffect(() => {
     document.title =
       path === "/"
-        ? "Pierce Seigne — Engineer, builder & Public Policy student"
+        ? "Pierce Seigne · Neon.ai and UVA public policy"
         : `${title} — Pierce Seigne`;
   }, [path, title]);
   useEffect(() => {

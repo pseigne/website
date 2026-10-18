@@ -318,7 +318,7 @@ export const projects: Project[] = [
   {
     slug: "resource-allocation-model",
     languages: ["Python", "SQL"],
-    name: "Strategic Resource Allocation Model",
+    name: "Beyond the Ballot Box: Small Donations and Voter Turnout",
     year: "2026",
     category: "data",
     role: "Data analysis & modeling",
@@ -340,7 +340,7 @@ export const projects: Project[] = [
     category: "data",
     role: "Research & statistical modeling",
     summary:
-      "Studied the relationship between institutional funding, environmental factors, and collegiate athletic performance.",
+      "Looked at how temperature, altitude, and school selectivity relate to year-over-year improvement across more than 70,000 NCAA Division I distance performances.",
     stack: ["Python", "scikit-learn", "OLS"],
     links: [
       { label: "View source", url: "https://github.com/pseigne/tffrs-scraper" },
@@ -374,7 +374,7 @@ export const projects: Project[] = [
     category: "web",
     role: "Design & development",
     summary:
-      "Practical tools for planning weekly mileage and calculating precise track splits.",
+      "Two training tools: a weekly mileage planner and a calculator that turns a goal time into lap splits.",
     stack: ["JavaScript", "HTML", "CSS"],
     image: "/images/running.webp",
     imageAlt: "Weekly Mileage Planner charting a week of training against a 55-mile goal",

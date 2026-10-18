@@ -57,7 +57,7 @@ export default function ProjectExplorer() {
       <button ref={menuButton} aria-expanded={menuOpen} aria-controls="project-directory" onClick={() => setMenuOpen(!menuOpen)}>Projects {menuOpen ? <X size={18} /> : <ChevronDown size={18} />}</button>
     </div>
     <aside id="project-directory" ref={menu} className={`explorer-sidebar ${menuOpen ? "is-open" : ""}`} aria-label="Project directory">
-      <div className="explorer-identity"><Link to="/">Pierce Seigne</Link><p>Projects & explorations</p></div>
+      <div className="explorer-identity"><Link to="/">Pierce Seigne</Link><p>Apps, websites, and papers</p></div>
       <nav aria-label="Browse projects">
         {directoryGroups.map(group => <section className="explorer-group" key={group}>
           <h2>{group}</h2>

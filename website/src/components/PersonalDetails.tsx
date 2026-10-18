@@ -4,8 +4,8 @@ export function AthleticsContent() {
   return (
     <div className="prose">
       <p className="lead">
-        A different kind of problem-solving. One mile, one workout, one race at
-        a time.
+        I’ve run Division I cross country and track at Wisconsin, and now at
+        UVA.
       </p>
       <VideoPlayer />
       <h2>Wisconsin cross country & track</h2>
@@ -15,9 +15,9 @@ export function AthleticsContent() {
         1500m.
       </p>
       <p>
-        The rhythm of training has shaped how I approach everything else: show
-        up, pay attention, and keep improving. It also inspired my running
-        utilities and NCAA qualification tracker.
+        Training 20-plus hours a week alongside an economics degree taught me to
+        plan my time and stick with things. It also gave me the ideas for my
+        running utilities and NCAA qualifying tracker.
       </p>
       <a
         className="primary-button"

@@ -15,7 +15,7 @@ try {
     assert.equal(await page.locator('.typing-cursor').evaluate(el=>getComputedStyle(el).animationName),'none');
     assert.equal(await page.locator('.coder-tile .tile-identity').innerText(),'Coder Cards');
     assert.equal(await page.locator('.coder-tile h2').textContent(),'Your GitHub Identity');
-    assert.equal(await page.locator('.neon-tile h2').textContent(),'Private, fine-tuned, conversational AI.');
+    assert.equal(await page.locator('.neon-tile h2').textContent(),'A ground-up redesign of Neon’s website.');
     assert.equal(await page.locator('.contact-tile h2').textContent(),'Send me a message');
     const inside=await page.locator('.envelope-art').evaluate(el=>{const r=el.getBoundingClientRect(),tile=el.closest('.tile').getBoundingClientRect();return r.left>=tile.left&&r.right<=tile.right&&r.top>=tile.top&&r.bottom<=tile.bottom;});
     assert.equal(inside,true,`${width}/${theme}: full envelope fits`);
@@ -33,8 +33,8 @@ try {
     await page.locator('.language-tags').getByRole('link',{name:'Python',exact:true}).click();
     await page.getByRole('heading',{name:'Python projects',exact:true}).waitFor();
     assert.equal(await page.locator('.language-projects > li').count(),5);
-    await page.locator('.language-projects').getByRole('link').filter({hasText:'Strategic Resource Allocation Model'}).click();
-    await page.getByRole('heading',{name:'Strategic Resource Allocation Model',exact:true}).waitFor();
+    await page.locator('.language-projects').getByRole('link').filter({hasText:'Beyond the Ballot Box: Small Donations and Voter Turnout'}).click();
+    await page.getByRole('heading',{name:'Beyond the Ballot Box: Small Donations and Voter Turnout',exact:true}).waitFor();
     await page.goto(url);await page.getByRole('link',{name:'Explore Java projects',exact:true}).click();
     await page.getByRole('heading',{name:'Java projects',exact:true}).waitFor();
     assert.equal(await page.locator('.language-projects > li').count(),0);

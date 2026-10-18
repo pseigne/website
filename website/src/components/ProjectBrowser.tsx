@@ -14,7 +14,7 @@ export default function ProjectBrowser() {
   );
   return (
     <>
-      <p className="lead">A collection of ideas taken a little further.</p>
+      <p className="lead">The four projects I’d show you first.</p>
       <div className="selected-work-summary">
         <p className="result-count">{visible.length} projects</p>
         <Link to="/links">

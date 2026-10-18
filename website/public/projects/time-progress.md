@@ -26,7 +26,7 @@ The project uses a simple setup that keeps the webpage design separate from the 
 
 ### 2. JavaScript Logic (`/js`)
 
-* **`engine.js`:** The heart of the app. It sets up a standard timer loop that runs continuously to keep the visualizer ticking.
+* **`engine.js`:** Runs a timer loop that keeps the bars moving.
 
 
 * **`helpers.js`:** Handles all the math. It calculates time changes, figures out how far along you are in a specific day, month, or year, and turns those numbers into flat percentages.
@@ -42,30 +42,14 @@ The project uses a simple setup that keeps the webpage design separate from the 
 
 The app splits work up across a few dedicated files to handle calculations and update the screen automatically:
 
-| File Target | Folder Path | Main Job | Objective |
-| --- | --- | --- | --- |
-| **`index.html`** | Root | Document skeleton
-
- | Sets up the target visual slots for data injections.
-
- |
-| **`engine.js`** | `/js` | Time ticker loop
-
- | Coordinates the timer so the calculations stay accurate.
-
- |
-| **`helpers.js`** | `/js` | Percentage math
-
- | Measures time spent across standard days, weeks, months, or years.
-
- |
-| **`ui.js`** | `/js` | DOM element updates
-
- | Physically changes the bar sizes and text on the page.
-
- |
+| File | What it does |
+| --- | --- |
+| `index.html` | Page layout and the empty progress bars |
+| `engine.js` | Runs the timer that ticks the page forward |
+| `helpers.js` | Works out how far through the day, month, or year you are |
+| `ui.js` | Updates the bar widths and numbers |
 
 ---
 
 
-> **Development Note:** The entire app runs directly inside the browser memory space. It does not need a backend database or external servers to function, keeping things lightweight and simple.
+> **No backend.** Everything runs in the browser. There's no server or database.

@@ -4,7 +4,7 @@ export const siteVersions = [
     year: "2021",
     name: "Portfolio v1",
     description:
-      "High-School CS Project. Experiments with CSS, HTML, and JS.",
+      "My high school computer science project, and my first experiments with HTML, CSS, and JavaScript.",
     href: "/archive/v1/index.html",
     preview: "/archive/previews/v1.webp",
   },
@@ -13,7 +13,7 @@ export const siteVersions = [
     year: "2025",
     name: "Portfolio v2",
     description:
-      "2025 I returned to web design and started playing around with a new portfolio website to show off things that I had been working on.",
+      "In 2025 I came back to web design and started playing around with a new portfolio website to show off what I’d been working on.",
     href: "/archive/v2/Home/index.html",
     preview: "/archive/previews/v2.webp",
   },
@@ -22,7 +22,7 @@ export const siteVersions = [
     year: "2025–2026",
     name: "Portfolio v3",
     description:
-      "Restricted myself to no agents to learn the ins and outs of creating a website from scratch. Used skills from my Frontend CS class. Includes more detailed project pages and various data explorations.",
+      "I didn’t let myself use AI agents for this one, so I’d learn the ins and outs of building a website from scratch. I used what I learned in my frontend class (CS 571), and added more detailed project pages and data explorations.",
     href: "/legacy/index.html",
     preview: "/archive/previews/v3.webp",
   },

@@ -89,7 +89,8 @@ export default function Home({
               <img src="/logos/neon.png" alt="" width="20" height="20" />
               Neon.ai
             </span>
-            , working across sales and marketing. Public Policy student at{" "}
+            , working across sales and marketing. Master’s student in public
+            policy at{" "}
             <span className="inline-brand">
               <img src="/logos/uva.ico" alt="" width="20" height="20" />
               UVA
@@ -157,7 +158,7 @@ export default function Home({
         </div>
         <NeonArtwork />
         <div className="project-caption">
-          <h2>Private, fine-tuned, conversational AI.</h2>
+          <h2>A ground-up redesign of Neon’s website.</h2>
           <p>Website design</p>
         </div>
       </Link>
@@ -175,7 +176,7 @@ export default function Home({
         </Link>
         <div className="athletics-copy">
           <span className="small-label">Track & cross country</span>
-          <h2>Always in motion.</h2>
+          <h2>Latest run</h2>
         </div>
       </section>
 
@@ -278,11 +279,7 @@ export default function Home({
         </div>
         <SyllabusArtwork />
         <div className="project-caption">
-          <h2>
-            A semester,
-            <br />
-            made simpler.
-          </h2>
+          <h2>Every syllabus in one place.</h2>
           <p>Full-stack development</p>
         </div>
       </Link>
