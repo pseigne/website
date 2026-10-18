@@ -64,7 +64,7 @@ try {
   for (const [name, href] of [
     ["GitHub", "https://github.com/pseigne"],
     ["X", "https://x.com/KingSeigne"],
-    ["LinkedIn", "https://www.linkedin.com/in/pierce-seigne-b310a0305"],
+    ["LinkedIn", "https://www.linkedin.com/in/pierce-seigne-b310a0305/"],
   ]) {
     assert.equal(
       await socials

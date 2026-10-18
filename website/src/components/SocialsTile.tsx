@@ -1,7 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
+import { linkedinUrl } from "../data/links";
 import { GitHubMark } from "./TileArtwork";
 
-function LinkedInMark() {
+export function LinkedInMark() {
   return (
     <svg
       width="20"
@@ -87,7 +88,7 @@ export default function SocialsTile() {
         <a
           aria-label="LinkedIn (opens in a new tab)"
           className="social-linkedin"
-          href="https://www.linkedin.com/in/pierce-seigne-b310a0305"
+          href={linkedinUrl}
           target="_blank"
           rel="noreferrer"
         >

@@ -1,4 +1,5 @@
 import { ArrowUpRight } from "lucide-react";
+import { emailAddress, linkedinUrl, mailtoUrl } from "../data/links";
 import { projects, resumeUrl } from "../data/projects";
 import WebsiteArchive from "./WebsiteArchive";
 
@@ -8,12 +9,12 @@ const links = [
   {
     name: "LinkedIn",
     detail: "Pierce Seigne",
-    href: "https://www.linkedin.com/in/pierce-seigne-b310a0305/",
+    href: linkedinUrl,
   },
   {
     name: "Email",
-    detail: "pierceseigne@gmail.com",
-    href: "mailto:pierceseigne@gmail.com",
+    detail: emailAddress,
+    href: mailtoUrl,
   },
   { name: "Résumé", detail: "View PDF", href: resumeUrl },
 ];

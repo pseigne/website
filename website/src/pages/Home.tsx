@@ -19,6 +19,7 @@ import ExperienceDock from "../components/ExperienceDock";
 import SocialsTile from "../components/SocialsTile";
 import VideoPlayer from "../components/VideoPlayer";
 import DetailIndicator from "../components/DetailIndicator";
+import { linkedinUrl, mailtoUrl } from "../data/links";
 import {
   CoderArtwork,
   NeonArtwork,
@@ -229,9 +230,20 @@ export default function Home({
         </span>
         <h2>Send me a message</h2>
         <div className="contact-bottom">
-          <a className="contact-email" href="mailto:pierceseigne@gmail.com">
-            Email me <ArrowRight size={17} aria-hidden="true" />
-          </a>
+          <div className="contact-actions">
+            <a className="contact-email" href={mailtoUrl}>
+              Email me <ArrowRight size={17} aria-hidden="true" />
+            </a>
+            <a
+              className="contact-email contact-linkedin"
+              href={linkedinUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn <ArrowUpRight size={17} aria-hidden="true" />
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
           <div className="contact-graphic">
             <EnvelopeArtwork />
           </div>

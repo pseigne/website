@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Link, Navigate, useLocation } from "react-router-dom";
 import { ArrowUpRight, ChevronDown, X } from "lucide-react";
 import { directory, directoryGroups, type ProjectPreview } from "../data/directory";
+import { linkedinUrl, mailtoUrl } from "../data/links";
 import { projects, resumeUrl } from "../data/projects";
 import ProjectDetail from "./ProjectDetail";
 import "./ProjectExplorer.css";
@@ -66,9 +67,9 @@ export default function ProjectExplorer() {
       </nav>
       <nav className="explorer-elsewhere" aria-label="Elsewhere">
         <a href="https://github.com/pseigne" target="_blank" rel="noreferrer">GitHub <ArrowUpRight size={14} /></a>
-        <a href="https://www.linkedin.com/in/pierce-seigne-b310a0305/" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={14} /></a>
+        <a href={linkedinUrl} target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={14} /></a>
         <a href="https://x.com/KingSeigne" target="_blank" rel="noreferrer">X <ArrowUpRight size={14} /></a>
-        <a href="mailto:pierceseigne@gmail.com">Email <ArrowUpRight size={14} /></a>
+        <a href={mailtoUrl}>Email <ArrowUpRight size={14} /></a>
         <a href={resumeUrl} target="_blank" rel="noreferrer">Résumé <ArrowUpRight size={14} /></a>
       </nav>
     </aside>
