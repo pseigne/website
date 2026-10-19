@@ -177,7 +177,7 @@ export default function Home({
         </Link>
         <div className="athletics-copy">
           <span className="small-label">Track & cross country</span>
-          <h2>Latest run</h2>
+          <h2>Running</h2>
         </div>
       </section>
 
