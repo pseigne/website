@@ -99,7 +99,6 @@ jobs:
           mkdir -p website/docs/running-utilities
           cp -R running-tools/dist/. website/docs/running-utilities/
           jq -n --arg commit "$RUNNING_SHA" '{commit: $commit}' > website/docs/running-utilities/version.json
-          cp -R tfrrs/data/. tfrrs/ncaa-qualification/public/data/
           npm run build --prefix tfrrs/ncaa-qualification -- --base=/ncaa-indoor-qualification/
           mkdir -p website/docs/ncaa-indoor-qualification website/docs/time-progress-visualizer
           cp -R tfrrs/ncaa-qualification/dist/. website/docs/ncaa-indoor-qualification/
