@@ -30,6 +30,12 @@ The qualifying line shows who should make the meet. It doesn't show who actually
 
 *Women's 100m at the 2026 nationals: 12 qualifiers came from each First Round, and 7 of the top 8 came from the East.*
 
+Jumps and throws are now drawn on their own venue. Each throw lands in its sector, with the qualifying line as an arc at the qualifying distance. High jumpers and vaulters sit at the height they cleared, against a bar set at the line. Long and triple jumps land in the sand past the board.
+
+![Women's indoor shot put for 2025–26: the top 50 throws landing in the throwing sector, the qualifying arc at 17.15 m, and the field line just inside it at 17th](/projects/tfrrs-shot-put.webp)
+
+*Women's shot put, indoors in 2025–26: the qualifying arc sits at 17.15 m, and the field reached one more thrower.*
+
 ---
 
 ## Tech Stack & Architecture
