@@ -289,7 +289,7 @@ export const projects: Project[] = [
     stack: ["Python", "Pandas", "JavaScript"],
     image: "/images/tfrrs.webp",
     imageAlt:
-      "NCAA TF Qualification Monitor showing the NCAA Division I men’s indoor qualifying marks, with the 16th-place bubble time for each event from the 60 meters to the distance medley relay.",
+      "NCAA TF Qualification Monitor showing the men’s indoor mile for 2025–26: the 3:53.90 qualifying mark held by 16th place, the field reaching 17th, and the top 50 drawn as one race.",
     markdown: "/projects/tfrrs-monitor.md",
     links: [
       {

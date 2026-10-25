@@ -10,6 +10,28 @@ This tracker scrapes the lists from TFRRS (the Track & Field Results Reporting S
 
 ---
 
+## October 2026 update
+
+The qualifying line shows who should make the meet. It doesn't show who actually got in: some athletes scratch or never declare, so the field fills from further down the list. Three additions:
+
+- **Field line.** Indoor event pages and the outdoor First Round pages now show a second, dashed line where the field reached, taken from the NCAA's accepted entry lists published on declaration day. It goes back to 2015, with older seasons in the past years view. The decathlon and heptathlon don't get one, since they're picked from the national list, and a few events have no line because an accepted athlete isn't on the TFRRS list.
+- **Deeper outdoor lists.** The East and West lists now go 100 deep in every event.
+- **Regionals to nationals.** A new page follows everyone who advanced from the East and West First Rounds in each event and shows how they finished at nationals, for 2018, 2019 and 2021 to 2026 (there was no 2020 meet).
+
+![Women's 200m indoor list for 2025–26: the qualifying line after 16th, 12th place tagged not in field, 17th and 18th tagged in, and a dashed field line after 18th, as accepted March 3](/projects/tfrrs-field-line.webp)
+
+*Women's 200m, indoors in 2025–26: the qualifying line is at 16th, but the field as accepted on March 3 reached 18th.*
+
+![Women's 100m East First Round list for 2026: the qualifying line after 48th, most athletes from 49th to 56th tagged in, and the field line after 56th, with the top 68 drawn as one race beside it](/projects/tfrrs-outdoor-100.webp)
+
+*Women's 100m, East First Round in 2026: the line is at 48th and the field reached 56th.*
+
+![Women's 100m at the 2026 NCAA Outdoor Championships: the qualifiers in finishing order, each with an East or West chip, their First Round place and mark, and their time and wind in the final](/projects/tfrrs-nationals.webp)
+
+*Women's 100m at the 2026 nationals: 12 qualifiers came from each First Round, and 7 of the top 8 came from the East.*
+
+---
+
 ## Tech Stack & Architecture
 
 **Frontend:** React, CSS
@@ -23,11 +45,11 @@ This tracker scrapes the lists from TFRRS (the Track & Field Results Reporting S
 ## Key Features
 
 ### Who's in and who's on the bubble
-Each event lists the current qualifiers and marks the athlete sitting on the cutoff (16th indoors, 48th outdoors) as the **Bubble Target**.
+Each event lists the current qualifiers and draws the **qualifying line** under the athlete sitting on the cutoff (16th indoors, 48th outdoors).
 
-![NCAA TF Qualification Monitor men's indoor mile table showing the top 16 qualifiers, altitude tags, and the 16th-place Bubble Target row](/projects/tfrrs-mile-table.webp)
+![NCAA TF Qualification Monitor men's indoor mile list for 2025–26: altitude-tagged marks, the qualifying line after 16th place at 3:53.90, the field line after 17th, and the top 50 drawn as one race beside the table](/projects/tfrrs-mile-table.webp)
 
-*Each event lists the current top 16, flags altitude-converted marks, and highlights the athlete sitting on the bubble.*
+*Each event lists the qualifiers, flags altitude-converted marks, and draws the qualifying line under the athlete on the bubble.*
 
 ### Altitude marks
 Marks converted for altitude (shown with `@` on TFRRS) are tagged, with a short explanation of the NCAA rule and a link to TFRRS's conversion calculator.
