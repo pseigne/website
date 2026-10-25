@@ -51,7 +51,7 @@ try {
   await frame.locator('#goal-mileage').waitFor();
   const input=frame.locator('#goal-mileage');
   await input.fill('77');
-  await page.getByRole('navigation',{name:'Browse projects'}).getByRole('link',{name:'TFRRS Monitor'}).click();
+  await page.getByRole('navigation',{name:'Browse projects'}).getByRole('link',{name:'NCAA TF Qualification Monitor'}).click();
   await page.getByRole('link',{name:'Try app',exact:true}).click();
   await page.getByRole('navigation',{name:'Browse projects'}).getByRole('link',{name:'Running Utilities'}).click();
   await page.getByRole('link',{name:'Try app',exact:true}).click();

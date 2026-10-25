@@ -15,7 +15,7 @@ export const directory: DirectoryEntry[] = [
   { slug: "coder-cards", label: "Coder Cards", group: "Web Apps", previews: [{ id: "app", label: "Try app", url: "https://codercards.ai/", type: "app" }] },
   { slug: "syllabus-analyzer", label: "Syllabus Analyzer", group: "Web Apps", previews: [{ id: "app", label: "Try app", url: "/syllabus-analyzer/", type: "app" }] },
   { slug: "running-utilities", label: "Running Utilities", group: "Web Apps", source: "https://github.com/pseigne/running-utilities", previews: [{ id: "app", label: "Try app", url: "/running-utilities/", type: "app" }] },
-  { slug: "tfrrs-monitor", label: "TFRRS Monitor", group: "Web Apps", source: "https://github.com/pseigne/ncaa-indoor-qualification", previews: [{ id: "app", label: "Try app", url: "/ncaa-indoor-qualification/", type: "app" }] },
+  { slug: "tfrrs-monitor", label: "NCAA TF Qualification Monitor", group: "Web Apps", source: "https://github.com/pseigne/ncaa-indoor-qualification", previews: [{ id: "app", label: "Try app", url: "/ncaa-indoor-qualification/", type: "app" }] },
   { slug: "time-progress", label: "Time Progress", group: "Web Apps", source: "https://github.com/pseigne/time-progress-visualizer", previews: [{ id: "app", label: "Try app", url: "/time-progress-visualizer/", type: "app" }] },
   { slug: "neon-ai", label: "Neon.ai", group: "Websites", previews: [{ id: "app", label: "Website", url: "https://www.neon.ai/", type: "app" }] },
   { slug: "portfolio-archive", label: "Portfolio Archive", group: "Websites", source: "https://github.com/pseigne/website", previews: [{ id: "app", label: "Website", url: "/", type: "app" }] },

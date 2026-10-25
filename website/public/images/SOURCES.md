@@ -11,7 +11,7 @@ Both photographs were resized to 960px wide and converted to WebP. These retaine
 
 Product screenshots and the personal photographs/video predate this artwork update. The route, envelope, browser frames, and track lines are original HTML/CSS/SVG artwork.
 
-`tfrrs.webp` (and `../projects/tfrrs-mile-table.webp`) are screenshots of the live TFRRS Monitor (`pierceseigne.com/ncaa-indoor-qualification/`), captured October 18, 2026 and converted to WebP.
+`tfrrs.webp` (and `../projects/tfrrs-mile-table.webp`) are screenshots of the live NCAA TF Qualification Monitor (`pierceseigne.com/ncaa-indoor-qualification/`), captured October 18, 2026 and converted to WebP.
 
 `syllabus.webp` (and `../projects/syllabus-calendar.webp`, `../projects/syllabus-grading.webp`) are screenshots of the live Syllabus Analyzer's built-in CS571 demo, captured October 7, 2026. `time.webp` is a screenshot of the live Time Progress Visualizer's Year view, captured the same day; it replaces an earlier generated mockup.
 

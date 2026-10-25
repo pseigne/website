@@ -279,7 +279,7 @@ export const projects: Project[] = [
   {
     slug: "tfrrs-monitor",
     languages: ["React", "JavaScript", "Python", "HTML", "CSS"],
-    name: "TFRRS Monitor",
+    name: "NCAA TF Qualification Monitor",
     year: "2026",
     category: "web",
     role: "Design & development",
@@ -289,7 +289,7 @@ export const projects: Project[] = [
     stack: ["Python", "Pandas", "JavaScript"],
     image: "/images/tfrrs.webp",
     imageAlt:
-      "TFRRS Monitor showing the NCAA Division I men’s indoor qualifying marks, with the 16th-place bubble time for each event from the 60 meters to the distance medley relay.",
+      "NCAA TF Qualification Monitor showing the NCAA Division I men’s indoor qualifying marks, with the 16th-place bubble time for each event from the 60 meters to the distance medley relay.",
     markdown: "/projects/tfrrs-monitor.md",
     links: [
       {

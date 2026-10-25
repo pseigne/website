@@ -68,7 +68,7 @@ The Links page groups projects in a sidebar. Routes such as /#/links/running-uti
 | Project | Live path | Source repository |
 | --- | --- | --- |
 | Running Utilities | /running-utilities/ | pseigne/running-utilities |
-| TFRRS Monitor | /ncaa-indoor-qualification/ | pseigne/ncaa-indoor-qualification |
+| NCAA TF Qualification Monitor | /ncaa-indoor-qualification/ | pseigne/ncaa-indoor-qualification |
 | Time Progress | /time-progress-visualizer/ | pseigne/time-progress-visualizer |
 | Syllabus Analyzer | /syllabus-analyzer/ | pseigne/tldr-syllabus (private; frontend/ and backend/) |
 
